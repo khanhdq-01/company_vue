@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NavbarStyleTwo />
+        <Navbar />
         <PageTitle 
             pageTitle="Frequently Asked Questions" 
             pageDesc="Get to know about Striki" 
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import NavbarStyleTwo from '../Layouts/NavbarStyleTwo';
+import Navbar from '../Layouts/Navbar';
 import PageTitle from '../Common/PageTitle';
 import Faq from '../Common/Faq'
 import BestSupport from '../Common/BestSupport'
@@ -22,7 +22,7 @@ import FooterStyleOne from '../Layouts/FooterStyleOne'
 
 export default {
     components: {
-        NavbarStyleTwo,
+        Navbar,
         PageTitle,
         Faq,
         BestSupport,

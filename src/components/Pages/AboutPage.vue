@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NavbarStyleTwo />
+        <Navbar />
         <PageTitle pageTitle="About" pageDesc="The Striki Story" />
         <TakeYourBusiness />
         <Partner />
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import NavbarStyleTwo from '../Layouts/NavbarStyleTwo';
+import Navbar from '../Layouts/Navbar';
 import PageTitle from '../Common/PageTitle';
 import TakeYourBusiness from '../About/TakeYourBusiness'
 import Partner from '../Common/Partner'
@@ -27,7 +27,7 @@ import FooterStyleOne from '../Layouts/FooterStyleOne'
 
 export default {
     components: {
-        NavbarStyleTwo,
+        Navbar,
         PageTitle,
         TakeYourBusiness,
         Partner,

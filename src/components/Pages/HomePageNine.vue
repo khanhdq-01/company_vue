@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NavbarStyleThree />
+        <Navbar />
         <div class="seo-marketing-home-with-full-background">
             <MainBanner />
             <Features />
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import NavbarStyleThree from '../Layouts/NavbarStyleThree';
+import Navbar from '../Layouts/Navbar';
 import MainBanner from '../HomeNine/MainBanner';
 import Features from '../HomeNine/Features';
 import About from '../HomeNine/About';
@@ -39,7 +39,7 @@ import FooterStyleTwo from '../Layouts/FooterStyleTwo'
 
 export default {
     components: {
-        NavbarStyleThree,
+        Navbar,
         MainBanner,
         Features,
         About,

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NavbarStyleTwo />
+        <Navbar />
         <PageTitle 
             pageTitle="Features" 
             pageDesc="The ability to elicit, assessing opportunities" 
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import NavbarStyleTwo from '../Layouts/NavbarStyleTwo';
+import Navbar from '../Layouts/Navbar';
 import PageTitle from '../Common/PageTitle';
 import Features from '../FeaturesOne/Features'
 import WhatsOurClients from '../Common/WhatsOurClients'
@@ -24,7 +24,7 @@ import FooterStyleOne from '../Layouts/FooterStyleOne'
 
 export default {
     components: {
-        NavbarStyleTwo,
+        Navbar,
         PageTitle,
         Features,
         WhatsOurClients,

@@ -2,164 +2,37 @@
     <div class="team-area pt-100 pb-70">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div
+                    class="col-lg-3 col-sm-6"
+                    v-for="(memberOther, index) in memberOtherData"
+                    :key="memberOther.id"
+                >
                     <div class="single-team-box">
-                        <div class="image">
-                            <img src="../../assets/img/team-image/1.jpg" alt="image">
-
-                            <ul class="social">
-                                <li><a href="https://www.facebook.com/" target="_blank"><i class="bx bxl-facebook"></i></a></li>
-                                <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
-                                <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
-                                <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>
-                            </ul>
+                        <div class="image position-relative text-center mb-3">
+                        <img
+                            v-if="memberOther.image_path"
+                            :src="url + memberOther.image_path"
+                            alt="image"
+                            class="img-fluid rounded object-fit-cover member-img"
+                        />
+                        <ul class="social list-inline mt-2">
+                            <li class="list-inline-item"><a href="https://www.facebook.com/" target="_blank"><i class="bx bxl-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>
+                        </ul>
                         </div>
-
-                        <div class="content">
-                            <h3>Alex Maxwel</h3>
-                            <span>CEO & Founder</span>
+                        <div class="content text-center">
+                            <h5 class="fw-bold text-dark mb-1">{{ memberOther.name }}</h5>
+                            <p class="text-muted mb-0">{{ memberOther.position }}</p>
+                            <!-- <p class="text-secondary small">{{ member.description }}</p> -->
                         </div>
                     </div>
                 </div>
-                
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="single-team-box">
-                        <div class="image">
-                            <img src="../../assets/img/team-image/2.jpg" alt="image">
-                            
-                            <ul class="social">
-                                <li><a href="https://www.facebook.com/" target="_blank"><i class="bx bxl-facebook"></i></a></li>
-                                <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
-                                <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
-                                <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>
-                            </ul>
-                        </div>
-
-                        <div class="content">
-                            <h3>Sarah Taylor</h3>
-                            <span>UX/UI Designer</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="single-team-box">
-                        <div class="image">
-                            <img src="../../assets/img/team-image/3.jpg" alt="image">
-                            
-                            <ul class="social">
-                                <li><a href="https://www.facebook.com/" target="_blank"><i class="bx bxl-facebook"></i></a></li>
-                                <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
-                                <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
-                                <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>
-                            </ul>
-                        </div>
-
-                        <div class="content">
-                            <h3>Lee Munroe</h3>
-                            <span>Web Developer</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="single-team-box">
-                        <div class="image">
-                            <img src="../../assets/img/team-image/4.jpg" alt="image">
-                            
-                            <ul class="social">
-                                <li><a href="https://www.facebook.com/" target="_blank"><i class="bx bxl-facebook"></i></a></li>
-                                <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
-                                <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
-                                <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>
-                            </ul>
-                        </div>
-
-                        <div class="content">
-                            <h3>Calvin Klein</h3>
-                            <span>Support</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="single-team-box">
-                        <div class="image">
-                            <img src="../../assets/img/team-image/5.jpg" alt="image">
-
-                            <ul class="social">
-                                <li><a href="https://www.facebook.com/" target="_blank"><i class="bx bxl-facebook"></i></a></li>
-                                <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
-                                <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
-                                <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>
-                            </ul>
-                        </div>
-
-                        <div class="content">
-                            <h3>Michel Lucy</h3>
-                            <span>UX/UI Designer</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="single-team-box">
-                        <div class="image">
-                            <img src="../../assets/img/team-image/6.jpg" alt="image">
-                            
-                            <ul class="social">
-                                <li><a href="https://www.facebook.com/" target="_blank"><i class="bx bxl-facebook"></i></a></li>
-                                <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
-                                <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
-                                <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>
-                            </ul>
-                        </div>
-
-                        <div class="content">
-                            <h3>Steven Smith</h3>
-                            <span>Web Developer</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="single-team-box">
-                        <div class="image">
-                            <img src="../../assets/img/team-image/7.jpg" alt="image">
-                            
-                            <ul class="social">
-                                <li><a href="https://www.facebook.com/" target="_blank"><i class="bx bxl-facebook"></i></a></li>
-                                <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
-                                <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
-                                <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>
-                            </ul>
-                        </div>
-
-                        <div class="content">
-                            <h3>Meg Lanning</h3>
-                            <span>Web Developer</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="single-team-box">
-                        <div class="image">
-                            <img src="../../assets/img/team-image/8.jpg" alt="image">
-                            
-                            <ul class="social">
-                                <li><a href="https://www.facebook.com/" target="_blank"><i class="bx bxl-facebook"></i></a></li>
-                                <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
-                                <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
-                                <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>
-                            </ul>
-                        </div>
-
-                        <div class="content">
-                            <h3>John Trent</h3>
-                            <span>Support</span>
-                        </div>
-                    </div>
+                <div class="col-12 mt-4 text-center" v-if="isLoggedIn && userRole === 1">
+                    <router-link to="/member-other-list" class="btn btn-primary">
+                        Manage Teams
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -167,7 +40,43 @@
 </template>
 
 <script>
-export default {
-    name: 'Team'
-}
+import axios from "axios";
+import { defineComponent } from "vue";
+import { Carousel, Slide } from "vue3-carousel";
+
+import "vue3-carousel/dist/carousel.css";
+
+export default defineComponent({
+  name: "Team",
+  components: {
+    Carousel,
+    Slide,
+  },
+  data() {
+    return {
+      memberOtherData: [],
+      url: 'http://localhost/company_2025/company_api/storage/app/public/member_others/',
+      isLoggedIn: !!localStorage.getItem("token"),
+      userRole: parseInt(localStorage.getItem("role_id")) || null,
+    };
+    },
+    mounted() {
+      this.fetchMemberData();
+    },
+    methods: {
+      async fetchMemberData() {
+        const token = localStorage.getItem("token");
+        try {
+          const response = await axios.get("http://127.0.0.1:8000/api/member_other", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          this.memberOtherData = response.data.data;
+        } catch (error) {
+          console.error("Error fetching member data:", error);
+        }
+      },
+  },
+});
 </script>
