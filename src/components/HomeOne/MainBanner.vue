@@ -62,7 +62,7 @@ export default {
   data() {
     return {
       slideData: [],
-      url: 'http://localhost/company_2025/company_api/storage/app/public/slides/',
+      url: 'http://127.0.0.1:8000/storage/slides/',
       isLoggedIn: !!localStorage.getItem("token"),
       userRole: parseInt(localStorage.getItem("role_id")) || null,
     };
