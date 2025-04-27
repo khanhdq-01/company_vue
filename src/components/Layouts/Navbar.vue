@@ -32,22 +32,22 @@
                                     </li>
                                     <li class="nav-item">
                                         <router-link to="/home-four" class="nav-link">
-                                            Features
+                                            home-four
                                         </router-link>
                                     </li>
                                     <li class="nav-item">
                                         <router-link to="/home-six" class="nav-link">
-                                            Evaluate
+                                            home-six
                                         </router-link>
                                     </li>
                                     <li class="nav-item">
                                         <router-link to="/home-eight" class="nav-link">
-                                            Introduce
+                                            home-eight
                                         </router-link>
                                     </li>
                                     <li class="nav-item">
                                         <router-link to="/home-nine" class="nav-link">
-                                           SEO Marketing
+                                            home-nine
                                         </router-link>
                                     </li>
                                 </ul>
@@ -84,10 +84,6 @@
                                     </li>
 
                                     <li class="nav-item">
-                                        <router-link to="/features-one" class="nav-link">Features</router-link>
-                                    </li>
-
-                                    <li class="nav-item">
                                         <router-link to="/team" class="nav-link">Team</router-link>
                                     </li>
 
@@ -111,11 +107,6 @@
                                     <li class="nav-item">
                                         <router-link to="/blog-one" class="nav-link">Blog Grid</router-link>
                                     </li>
-
-                                    <li class="nav-item">
-                                        <router-link to="/blog-two" class="nav-link">Blog Right Sidebar</router-link>
-                                    </li>
-
                                     <li class="nav-item">
                                         <router-link to="/single-blog" class="nav-link">Blog Details</router-link>
                                     </li>
@@ -144,6 +135,7 @@
 <script>
 import axios from 'axios'
 import router from '@/router'
+import { BASE_API_URL} from "@/main";
 
 export default {
     name: 'Navbar',
@@ -176,7 +168,7 @@ export default {
                 const token = localStorage.getItem('token');
 
                 if (token) {
-                    await axios.post("http://127.0.0.1:8000/api/auth/logout", {}, {
+                    await axios.post(`${BASE_API_URL}/auth/logout`, {}, {
                         headers: {
                             Authorization: `Bearer ${token}`
                         }

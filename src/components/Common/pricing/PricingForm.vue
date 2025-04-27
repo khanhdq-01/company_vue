@@ -145,6 +145,7 @@
 
 <script>
 import axios from "axios";
+import { BASE_API_URL } from "@/main";
 
 export default {
   name: "PricingForm",
@@ -176,7 +177,7 @@ export default {
       const token = localStorage.getItem("token");
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8000/api/pricing-plans/${this.pricingId}`,
+          `${BASE_API_URL}/pricing-plans/${this.pricingId}`,
           {
             headers: {
               Authorization: token ? `Bearer ${token}` : undefined,
@@ -208,7 +209,6 @@ export default {
               }))
             : [];
         } else {
-          console.error("Không có dữ liệu gói giá phù hợp:", data);
           alert("Không thể tải dữ liệu gói giá. Vui lòng thử lại.");
         }
       } catch (error) {
@@ -281,7 +281,7 @@ export default {
 
         if (this.isEdit) {
           await axios.put(
-            `http://127.0.0.1:8000/api/pricing-plans/${this.pricingId}`,
+            `${BASE_API_URL}/pricing-plans/${this.pricingId}`,
             this.formData,
             {
               headers: {
@@ -292,7 +292,7 @@ export default {
           );
         } else {
           await axios.post(
-            "http://127.0.0.1:8000/api/pricing-plans",
+            `${BASE_API_URL}/pricing-plans`,
             this.formData,
             {
               headers: {

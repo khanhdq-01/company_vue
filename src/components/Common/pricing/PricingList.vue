@@ -32,6 +32,7 @@
 
 <script>
 import axios from "axios";
+import { BASE_API_URL } from "@/main";
 
 export default {
   name: "PricingList",
@@ -47,7 +48,7 @@ export default {
     async fetchPricings() {
       const token = localStorage.getItem("token");
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/pricing-plans", {
+        const response = await axios.get(`${BASE_API_URL}/pricing-plans`, {
           headers: {
             Authorization: token ? `Bearer ${token}` : undefined,
           },
@@ -62,7 +63,6 @@ export default {
           // If response is a single object, wrap it in an array
           this.pricings = Array.isArray(data) ? data : [data];
         } else {
-          console.error("Không có dữ liệu gói giá:", data);
           this.pricings = [];
         }
 
@@ -80,7 +80,7 @@ export default {
       if (confirm("Bạn có chắc chắn muốn xóa gói giá này không?")) {
         const token = localStorage.getItem("token");
         try {
-          await axios.delete(`http://127.0.0.1:8000/api/pricing-plans/${id}`, {
+          await axios.delete(`${BASE_API_URL}/pricing-plans/${id}`, {
             headers: {
               Authorization: token ? `Bearer ${token}` : undefined,
             },

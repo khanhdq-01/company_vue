@@ -74,6 +74,7 @@
   <script>
   import axios from "axios";
   import router from "@/router";
+  import { BASE_API_URL} from "@/main";
   
   export default {
     data() {
@@ -85,13 +86,10 @@
     methods: {
       async login() {
         try {
-          const response = await axios.post("http://127.0.0.1:8000/api/auth/login", {
+          const response = await axios.post(`${BASE_API_URL}/auth/login`, {
             email: this.email,
             password: this.password,
           });
-  
-          // console.log("Đăng nhập thành công:", response.data);
-  
           const user = response.data.data;
           localStorage.setItem("email", user.email);
           localStorage.setItem("name", user.name);
@@ -106,12 +104,6 @@
         }
       },
     },
-    // mounted() {
-    //   const userName = localStorage.getItem("name");
-    //   if (userName && userName !== "null" && userName.trim() !== "") {
-    //     router.push({ path: '/' });
-    //   }
-    // },
   };
   </script>
   
