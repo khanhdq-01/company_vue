@@ -10,13 +10,11 @@ import AboutPage from "../components/Pages/AboutPage";
 import PricingPage from "../components/Pages/PricingPage";
 import ServicesPageThree from "../components/Pages/ServicesPageThree";
 import ServicesDetailsPage from "../components/Pages/ServicesDetailsPage";
-import FeaturesPageOne from "../components/Pages/FeaturesPageOne";
 import TeamPage from "../components/Pages/TeamPage";
 import LoginPage from "../components/Pages/LoginPage";
 import SignupPage from "../components/Pages/SignupPage";
 import FaqPage from "../components/Pages/FaqPage";
 import BlogPageOne from "../components/Pages/BlogPageOne";
-import BlogPageTwo from "../components/Pages/BlogPageTwo";
 import BlogDetailsPage from "../components/Pages/BlogDetailsPage";
 import ContactPage from "../components/Pages/ContactPage";
 import MemberList from '../components/Common/members/MemberList.vue'
@@ -42,13 +40,11 @@ const routes = [
   { path: "/pricing", component: PricingPage },
   { path: "/services-three", component: ServicesPageThree },
   { path: "/single-service", component: ServicesDetailsPage },
-  { path: "/features-one", component: FeaturesPageOne },
   { path: "/team", component: TeamPage },
   { path: "/log-in", component: LoginPage },
   { path: "/sign-up", component: SignupPage },
   { path: "/faq", component: FaqPage },
   { path: "/blog-one", component: BlogPageOne },
-  { path: "/blog-two", component: BlogPageTwo },
   { path: "/single-blog", component: BlogDetailsPage },
   { path: "/contact", component: ContactPage },
 
