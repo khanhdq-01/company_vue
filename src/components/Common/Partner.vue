@@ -19,13 +19,10 @@
               <slide  v-for="(memberOther, index) in memberOtherData "  :key="memberOther.id">
                 <div class="single-partner-item">
                   <a href="#"
-   class="text-decoration-none"
-   style="font-family: 'Great Vibes', cursive; font-size: 2rem; letter-spacing: 1px;">
-  {{ memberOther.name }}
-</a>
-
-
-
+                  class="text-decoration-none"
+                  style="font-family: 'Great Vibes', cursive; font-size: 2rem; letter-spacing: 1px;">
+                  {{ memberOther.name }}
+                  </a>
                 </div>
               </slide>
 
@@ -37,7 +34,7 @@
                     <router-link to="/member-other-list" class="btn btn-primary">
                         Manage name
                     </router-link>
-                </div>
+        </div>
       </div>
     </div>
   </div>
@@ -47,6 +44,7 @@
 import axios from "axios";
 import { defineComponent } from "vue";
 import { Carousel, Slide } from "vue3-carousel";
+import { BASE_API_URL} from "@/main";
 
 import "vue3-carousel/dist/carousel.css";
 
@@ -92,7 +90,7 @@ export default defineComponent({
       async fetchMemberData() {
         const token = localStorage.getItem("token");
         try {
-          const response = await axios.get("http://127.0.0.1:8000/api/member_other", {
+          const response = await axios.get(`${BASE_API_URL}/member_other`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },

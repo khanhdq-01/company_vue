@@ -10,13 +10,11 @@ import AboutPage from "../components/Pages/AboutPage";
 import PricingPage from "../components/Pages/PricingPage";
 import ServicesPageThree from "../components/Pages/ServicesPageThree";
 import ServicesDetailsPage from "../components/Pages/ServicesDetailsPage";
-import FeaturesPageOne from "../components/Pages/FeaturesPageOne";
 import TeamPage from "../components/Pages/TeamPage";
 import LoginPage from "../components/Pages/LoginPage";
 import SignupPage from "../components/Pages/SignupPage";
 import FaqPage from "../components/Pages/FaqPage";
 import BlogPageOne from "../components/Pages/BlogPageOne";
-import BlogPageTwo from "../components/Pages/BlogPageTwo";
 import BlogDetailsPage from "../components/Pages/BlogDetailsPage";
 import ContactPage from "../components/Pages/ContactPage";
 import MemberList from '../components/Common/members/MemberList.vue'
@@ -29,6 +27,8 @@ import AboutHeaderForm from '../components/About/header/AboutHeaderForm.vue'
 import AboutHeaderList from '../components/About/header/AboutHeaderList.vue'
 import PricingForm from '../components/Common/pricing/PricingForm.vue'
 import PricingList from '../components/Common/pricing/PricingList.vue'
+import VideoForm from '../components/Common/video/VideoForm.vue'
+import VideoList from '../components/Common/video/VideoList.vue'
 
 const routes = [
   { path: "/", component: HomePageOne },
@@ -39,14 +39,12 @@ const routes = [
   { path: "/about", component: AboutPage },
   { path: "/pricing", component: PricingPage },
   { path: "/services-three", component: ServicesPageThree },
-  { path: "/single-service", component: ServicesDetailsPage },
-  { path: "/features-one", component: FeaturesPageOne },
+  { path: "/single-service/:id", component: ServicesDetailsPage },
   { path: "/team", component: TeamPage },
   { path: "/log-in", component: LoginPage },
   { path: "/sign-up", component: SignupPage },
   { path: "/faq", component: FaqPage },
   { path: "/blog-one", component: BlogPageOne },
-  { path: "/blog-two", component: BlogPageTwo },
   { path: "/single-blog", component: BlogDetailsPage },
   { path: "/contact", component: ContactPage },
 
@@ -84,6 +82,24 @@ const routes = [
       name: 'edit-slide',
       component: SlideForm,
       props: route => ({ isEdit: true, slideId: route.params.id })
+    },
+
+     //video
+    {
+      path: '/video-list',
+      name: 'videoList',
+      component: VideoList,
+    },
+    {
+      path: '/video/add',
+      name: 'add-video',
+      component: VideoForm
+    },
+    {
+      path: '/video/edit/:id',
+      name: 'edit-video',
+      component: VideoForm,
+      props: route => ({ isEdit: true, videoId: route.params.id })
     },
 
     //memberOthers

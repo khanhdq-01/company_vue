@@ -29,6 +29,7 @@
   
   <script>
   import axios from "axios";
+  import { BASE_API_URL, BASE_IMAGE_URL } from "@/main";
   
   export default {
     name: "memberOtherForm",
@@ -49,7 +50,7 @@
           position: '',
           image_path: null
         },
-        url: 'http://localhost/web_company/web_gioi_thieu_cty_be/storage/app/public/member_others/'
+        url: BASE_IMAGE_URL + 'member_others/',
       };
     },
     mounted() {
@@ -61,7 +62,7 @@
       async fetchmemberOther() {
         const token = localStorage.getItem("token");
         try {
-          const response = await axios.get(`http://127.0.0.1:8000/api/member_other/${this.memberOtherId}`, {
+          const response = await axios.get(`${BASE_API_URL}/member_other/${this.memberOtherId}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -89,14 +90,14 @@
         try {
           if (this.isEdit) {
             formData.append('_method', 'PUT');
-            await axios.post(`http://127.0.0.1:8000/api/member_other/${this.memberOtherId}`, formData, {
+            await axios.post(`${BASE_API_URL}/member_other/${this.memberOtherId}`, formData, {
               headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "multipart/form-data",
               },
             });
           } else {
-            await axios.post("http://127.0.0.1:8000/api/member_other", formData, {
+            await axios.post(`${BASE_API_URL}/member_other`, formData, {
               headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "multipart/form-data",

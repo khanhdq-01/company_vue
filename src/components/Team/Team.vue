@@ -43,6 +43,7 @@
 import axios from "axios";
 import { defineComponent } from "vue";
 import { Carousel, Slide } from "vue3-carousel";
+import { BASE_API_URL, BASE_IMAGE_URL } from "@/main";
 
 import "vue3-carousel/dist/carousel.css";
 
@@ -55,7 +56,7 @@ export default defineComponent({
   data() {
     return {
       memberOtherData: [],
-      url: 'http://localhost/company_2025/company_api/storage/app/public/member_others/',
+      url: BASE_IMAGE_URL + 'member_others/',
       isLoggedIn: !!localStorage.getItem("token"),
       userRole: parseInt(localStorage.getItem("role_id")) || null,
     };
@@ -67,7 +68,7 @@ export default defineComponent({
       async fetchMemberData() {
         const token = localStorage.getItem("token");
         try {
-          const response = await axios.get("http://127.0.0.1:8000/api/member_other", {
+          const response = await axios.get(`${BASE_API_URL}/member_other`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },

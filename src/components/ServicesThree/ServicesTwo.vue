@@ -4,16 +4,14 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="single-services-box">
-                        <div class="row m-0">
+                        <div class="row m-0" v-for="service in serviceData" :key="service.id">
                             <div class="col-lg-6 col-md-12 p-0">
                                 <div class="content">
                                     <h3>
-                                        <router-link to="/single-service">
-                                            Social Media Marketing
-                                        </router-link>
+                                        {{ service.title }}
                                     </h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-                                    <router-link to="/single-service" class="read-more-btn">
+                                    <p>{{ service.long_description }}</p>
+                                    <router-link :to="`/service/${service.id}`" class="read-more-btn">
                                         Read More 
                                         <i class='bx bx-right-arrow-alt'></i>
                                     </router-link>
@@ -21,89 +19,13 @@
                             </div>
 
                             <div class="col-lg-6 col-md-12 p-0">
-                                <div class="image bg-1">
-                                    <img src="../../assets/img/marketing-agency/services-img1.jpg" alt="image">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6">
-                    <div class="single-services-box">
-                        <div class="row m-0">
-                            <div class="col-lg-6 col-md-12 p-0">
-                                <div class="content">
-                                    <h3>
-                                        <router-link to="/single-service">
-                                            SEO Optimization
-                                        </router-link>
-                                    </h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-                                    <router-link to="/single-service" class="read-more-btn">
-                                        Read More 
-                                        <i class='bx bx-right-arrow-alt'></i>
-                                    </router-link>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 col-md-12 p-0">
-                                <div class="image bg-2">
-                                    <img src="../../assets/img/marketing-agency/services-img2.jpg" alt="image">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6">
-                    <div class="single-services-box">
-                        <div class="row m-0">
-                            <div class="col-lg-6 col-md-12 p-0">
-                                <div class="content">
-                                    <h3>
-                                        <router-link to="/single-service">
-                                            Advanced Analytics
-                                        </router-link>
-                                    </h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-                                    <router-link to="/single-service" class="read-more-btn">
-                                        Read More 
-                                        <i class='bx bx-right-arrow-alt'></i>
-                                    </router-link>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 col-md-12 p-0">
-                                <div class="image bg-3">
-                                    <img src="../../assets/img/marketing-agency/services-img3.jpg" alt="image">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6">
-                    <div class="single-services-box">
-                        <div class="row m-0">
-                            <div class="col-lg-6 col-md-12 p-0">
-                                <div class="content">
-                                    <h3>
-                                        <router-link to="/single-service">
-                                            Email Marketing
-                                        </router-link>
-                                    </h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-                                    <router-link to="/single-service" class="read-more-btn">
-                                        Read More 
-                                        <i class='bx bx-right-arrow-alt'></i>
-                                    </router-link>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 col-md-12 p-0">
-                                <div class="image bg-4">
-                                    <img src="../../assets/img/marketing-agency/services-img4.jpg" alt="image">
+                                <div>
+                                    <img
+                                    v-if="service.image"
+                                    :src="url + service.image"
+                                    alt="image"
+                                    class="img-fluid rounded object-fit-cover member-img"
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -113,9 +35,38 @@
         </div>
     </div>
 </template>
-
 <script>
-export default {
-    name: 'ServicesTwo'
-}
+import axios from "axios";
+import { BASE_API_URL, BASE_IMAGE_URL } from "@/main";
+
+export default{
+  name: "ServicesTwo",
+  data() {
+    return {
+      serviceData: [],
+      url: BASE_IMAGE_URL + 'services/',
+      isLoggedIn: !!localStorage.getItem("token"),
+      userRole: parseInt(localStorage.getItem("role_id")) || null,
+    };
+    },
+    mounted() {
+        this.fetchServices();
+    },
+    methods: {
+        async fetchServices()  {
+        const token = localStorage.getItem("token");
+        try {
+          const response = await axios.get(`${BASE_API_URL}/service`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          this.serviceData = response.data;
+          console.log(this.serviceData);
+        } catch (error) {
+          console.error("Error fetching member data:", error);
+        }
+      },
+  },
+};
 </script>

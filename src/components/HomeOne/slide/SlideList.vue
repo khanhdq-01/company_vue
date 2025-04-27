@@ -34,13 +34,14 @@
   
   <script>
   import axios from "axios";
+  import { BASE_API_URL, BASE_IMAGE_URL } from "@/main";
   
   export default {
     name: "slideList",
     data() {
       return {
         slides: [],
-        url: 'http://localhost/company_2025/company_api/storage/app/public/slides/',
+        url: BASE_IMAGE_URL + 'slides/',
       };
     },
     mounted() {
@@ -50,7 +51,7 @@
       async fetchSlides() {
         const token = localStorage.getItem("token");
         try {
-          const response = await axios.get("http://127.0.0.1:8000/api/slide", {
+          const response = await axios.get(`${BASE_API_URL}/slide`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -64,7 +65,7 @@
         if (confirm("Are you sure you want to delete this slide?")) {
           const token = localStorage.getItem("token");
           try {
-            await axios.delete(`http://127.0.0.1:8000/api/slide/${id}`, {
+            await axios.delete(`${BASE_API_URL}/slide/${id}`, {
               headers: {
                 Authorization: `Bearer ${token}`,
               },
