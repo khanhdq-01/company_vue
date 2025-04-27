@@ -44,13 +44,14 @@
 
 <script>
 import axios from "axios"
+import { BASE_API_URL, BASE_IMAGE_URL } from "@/main";
 
 export default {
   name: "ReadyToHelpYou",
   data() {
     return {
       memberData: [],
-      url: 'http://localhost/company_2025/company_api/storage/app/public/members/',
+      url: BASE_IMAGE_URL + 'members/',
       isLoggedIn: !!localStorage.getItem("token"),
       userRole: parseInt(localStorage.getItem("role_id")) || null,
     };
@@ -62,7 +63,7 @@ export default {
     async fetchMemberData() {
       const token = localStorage.getItem("token");
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/member", {
+        const response = await axios.get(`${BASE_API_URL}/member`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

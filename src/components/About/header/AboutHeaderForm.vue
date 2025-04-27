@@ -37,6 +37,7 @@
   
   <script>
   import axios from "axios";
+  import { BASE_API_URL, BASE_IMAGE_URL } from "@/main";
   
   export default {
     name: "aboutForm",
@@ -59,7 +60,7 @@
           description:'',
           image_path: null
         },
-        url: 'http://localhost/company_2025/company_api/storage/app/public/abouts/',
+        url: BASE_IMAGE_URL + 'abouts/',
       };
     },
     mounted() {
@@ -71,7 +72,7 @@
       async fetchabout() {
         const token = localStorage.getItem("token");
         try {
-          const response = await axios.get(`http://127.0.0.1:8000/api/about/${this.aboutHeadId}`, {
+          const response = await axios.get(`${BASE_API_URL}/about/${this.aboutHeadId}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -101,14 +102,14 @@
         try {
           if (this.isEdit) {
             formData.append('_method', 'PUT');
-            await axios.post(`http://127.0.0.1:8000/api/about/${this.aboutHeadId}`, formData, {
+            await axios.post(`${BASE_API_URL}/about/${this.aboutHeadId}`, formData, {
               headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "multipart/form-data",
               },
             });
           } else {
-            await axios.post("http://127.0.0.1:8000/api/about", formData, {
+            await axios.post(`${BASE_API_URL}/about`, formData, {
               headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "multipart/form-data",
