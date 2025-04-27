@@ -144,6 +144,7 @@
 <script>
 import axios from 'axios'
 import router from '@/router'
+import { BASE_API_URL} from "@/main";
 
 export default {
     name: 'Navbar',
@@ -176,7 +177,7 @@ export default {
                 const token = localStorage.getItem('token');
 
                 if (token) {
-                    await axios.post("http://127.0.0.1:8000/api/auth/logout", {}, {
+                    await axios.post(`${BASE_API_URL}/auth/logout`, {}, {
                         headers: {
                             Authorization: `Bearer ${token}`
                         }

@@ -76,6 +76,7 @@
   
   <script>
   import axios from "axios";
+  import { BASE_API_URL} from "@/main";
   
   export default {
     name: "PricingPlan",
@@ -99,8 +100,7 @@
       async fetchPricingData() {
         const token = localStorage.getItem("token");
         try {
-          const response = await axios.get(
-            "http://127.0.0.1:8000/api/pricing-plans",
+          const response = await axios.get(`${BASE_API_URL}/pricing-plans`,
             {
               headers: {
                 Authorization: token ? `Bearer ${token}` : undefined,
@@ -123,8 +123,6 @@
           if (pricingData && pricingData.tabs?.length > 0) {
             this.pricingData = pricingData;
             this.activeTab = pricingData.tabs[0].id;
-          } else {
-            console.error("Không có dữ liệu định giá phù hợp. Data:", pricingData);
           }
         } catch (error) {
           console.error(

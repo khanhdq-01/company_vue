@@ -29,6 +29,8 @@ import AboutHeaderForm from '../components/About/header/AboutHeaderForm.vue'
 import AboutHeaderList from '../components/About/header/AboutHeaderList.vue'
 import PricingForm from '../components/Common/pricing/PricingForm.vue'
 import PricingList from '../components/Common/pricing/PricingList.vue'
+import VideoForm from '../components/Common/video/VideoForm.vue'
+import VideoList from '../components/Common/video/VideoList.vue'
 
 const routes = [
   { path: "/", component: HomePageOne },
@@ -84,6 +86,24 @@ const routes = [
       name: 'edit-slide',
       component: SlideForm,
       props: route => ({ isEdit: true, slideId: route.params.id })
+    },
+
+     //video
+    {
+      path: '/video-list',
+      name: 'videoList',
+      component: VideoList,
+    },
+    {
+      path: '/video/add',
+      name: 'add-video',
+      component: VideoForm
+    },
+    {
+      path: '/video/edit/:id',
+      name: 'edit-video',
+      component: VideoForm,
+      props: route => ({ isEdit: true, videoId: route.params.id })
     },
 
     //memberOthers

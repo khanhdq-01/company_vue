@@ -38,13 +38,14 @@
   
   <script>
   import axios from "axios";
+  import { BASE_API_URL, BASE_IMAGE_URL } from "@/main";
   
   export default {
     name: "aboutList",
     data() {
       return {
         abouts: [],
-        url: 'http://localhost/company_2025/company_api/storage/app/public/abouts/',
+        url: BASE_IMAGE_URL + 'abouts/',
       };
     },
     mounted() {
@@ -54,7 +55,7 @@
       async fetchabouts() {
         const token = localStorage.getItem("token");
         try {
-          const response = await axios.get("http://127.0.0.1:8000/api/about", {
+          const response = await axios.get(`${BASE_API_URL}/about`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -68,7 +69,7 @@
         if (confirm("Are you sure you want to delete this about?")) {
           const token = localStorage.getItem("token");
           try {
-            await axios.delete(`http://127.0.0.1:8000/api/about/${id}`, {
+            await axios.delete(`${BASE_API_URL}/about/${id}`, {
               headers: {
                 Authorization: `Bearer ${token}`,
               },

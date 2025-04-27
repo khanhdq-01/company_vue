@@ -33,6 +33,7 @@
 
 <script>
 import axios from "axios"
+import { BASE_API_URL, BASE_IMAGE_URL } from "@/main";
 
 export default {
     name: 'TakeYourBusiness',
@@ -40,7 +41,7 @@ export default {
   data() {
     return {
       aboutData: [],
-      url: 'http://localhost/company_2025/company_api/storage/app/public/abouts/',
+      url: BASE_IMAGE_URL + 'abouts/',
       isLoggedIn: !!localStorage.getItem("token"),
       userRole: parseInt(localStorage.getItem("role_id")) || null,
     };
@@ -52,7 +53,7 @@ export default {
     async fetchaboutData() {
       const token = localStorage.getItem("token");
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/about", {
+        const response = await axios.get(`${BASE_API_URL}/about`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
