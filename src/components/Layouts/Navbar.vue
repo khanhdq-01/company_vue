@@ -83,19 +83,19 @@
                 <ul class="dropdown-menu">
                   <li class="nav-item">
                     <a href="#" class="nav-link">
-                      Services
+                      Dịch vụ
                       <i class="bx bx-chevron-down"></i>
                     </a>
                     <ul class="dropdown-menu">
                       <li class="nav-item">
                         <router-link to="/services-three" class="nav-link"
-                          >Services</router-link
+                          >Dịch vụ</router-link
                         >
                       </li>
 
                       <li class="nav-item">
                         <router-link to="/single-service" class="nav-link"
-                          >Service Details</router-link
+                          >Chi tiết dịch vụ</router-link
                         >
                       </li>
                     </ul>
@@ -103,23 +103,23 @@
 
                   <li class="nav-item">
                     <router-link to="/features-one" class="nav-link"
-                      >Features</router-link
+                      >Tính năng</router-link
                     >
                   </li>
 
                   <li class="nav-item">
-                    <router-link to="/team" class="nav-link">Team</router-link>
+                    <router-link to="/team" class="nav-link">Đội ngũ</router-link>
                   </li>
 
                   <li class="nav-item">
                     <router-link to="/log-in" class="nav-link"
-                      >Log In</router-link
+                      >Đăng nhập</router-link
                     >
                   </li>
 
                   <li class="nav-item">
                     <router-link to="/sign-up" class="nav-link"
-                      >Sign Up</router-link
+                      >Đăng ký</router-link
                     >
                   </li>
 
@@ -136,19 +136,17 @@
                 <ul class="dropdown-menu">
                   <li class="nav-item">
                     <router-link to="/blog-one" class="nav-link"
-                      >Blog Grid</router-link
+                      >Blog</router-link
                     >
                   </li>
-
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <router-link to="/blog-two" class="nav-link"
                       >Blog Right Sidebar</router-link
                     >
-                  </li>
-
+                  </li> -->
                   <li class="nav-item">
                     <router-link to="/single-blog" class="nav-link"
-                      >Blog Details</router-link
+                      >Nội dung Blog</router-link
                     >
                   </li>
                 </ul>
@@ -156,16 +154,16 @@
 
               <li class="nav-item">
                 <router-link to="/contact" class="nav-link"
-                  >Contact</router-link
+                  >Liên hệ</router-link
                 >
               </li>
             </ul>
             <div class="others-options">
               <router-link v-if="!isLoggedIn" to="/log-in" class="optional-btn">
-                <i class="bx bx-log-in"></i>Log In<span></span>
+                <i class="bx bx-log-in"></i>Đăng nhập<span></span>
               </router-link>
               <button v-else class="optional-btn" @click="logout">
-                <i class="bx bx-log-out"></i>Log Out<span></span>
+                <i class="bx bx-log-out"></i>Đăng xuất<span></span>
               </button>
             </div>
           </div>
@@ -181,9 +179,9 @@ import { useAuthStore } from "../../stores/auth";
 export default {
   name: "Navbar",
   setup() {
-    const auth = useAuthStore();
+    const {logout} = useAuthStore();
     return {
-      auth,
+      logout,
     };
   },
   data() {
@@ -210,7 +208,7 @@ export default {
     },
 
    logout() {
-       this.auth.logout()
+       this.logout()
     },
   },
 };
