@@ -1,63 +1,85 @@
-import { defineStore } from "pinia";
-import { AuthService } from "../api/services";
+import { getInfo, login } from "../api/authServices";
 import { toast } from "vue3-toastify";
 import router from "../router";
+import { logout } from "../api/authServices";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/vue-query";
+import { handleApiError } from "../api/instanceApi";
 
-export const useAuthStore = defineStore("auth", {
-  state: () => ({
-    user: null,
-    isLoading: false,
-    error: null,
-  }),
-  actions: {
-    async login(credentials) {
-      this.isLoading = true;
-      this.error = null;
-      try {
-        return await toast.promise(AuthService.login(credentials), {
-          pending: "Đang đăng nhập",
-          success: {
-            render({ data }) {
-              // Lưu thông tin token vào localStorage nếu cần
-              if (data.data) {
-                sessionStorage.setItem(
-                  "token",
-                  JSON.stringify(data.data?.data?.token)
-                );
-                this.user = data.data?.data
-              }
-              router.push({ path: "/" });
-              return `Đăng nhập thành công`;
-            },
+export const useAuthStore = () => {
+  const queryClient = useQueryClient();
+  const {
+    data: user,
+    isError: isUserError,
+    isLoading: isUserLoading,
+  } = useQuery({
+    queryKey: ["user"],
+    queryFn: () => getInfo(),
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    staleTime: 6000,
+  });
+
+  const loginMutation = useMutation({
+    mutationFn: async (credentials) => {
+      return await toast.promise(login(credentials), {
+        pending: "Đang đăng nhập...",
+        success: {
+          render({ data }) {
+            return  `Đăng nhập thành công!`;
           },
-          error: {
-            render({ data }) {
-              return `${data.message || "Đăng nhập thất bại"}`;
-            },
+        },
+        error: {
+          render({ data }) {
+            return `Đăng nhập thất bại!`;
           },
-        });
-      } catch (error) {
-        this.error = error.response?.data?.message || "Đăng nhập thất bại";
-      } finally {
-        this.loading = false;
-      }
+        },
+      });
     },
-    async logout() {
-      this.isLoading = true;
-      this.error = null;
-      try {
-        return await toast.promise(AuthService.logout(), {
-          pending: "Đang đăng xuất",
-          success: {
-            render({ data }) {
-              router.push({ path: "/log-in" });
-              return `${data.message || "Đăng xuất thành công"}`;
-            },
-          },
-        });
-      } catch (error) {
-        console.error("Logout error:", error);
-      }
+    onSuccess: ({ data }) => {
+      const { token } = data;
+      const user = {
+        id: data?.id,
+        name: data?.name,
+        email: data?.email,
+        role_id: data?.role_id,
+      };
+      sessionStorage.setItem("token", token);
+      queryClient.setQueryData(["user"], user);
+      queryClient.invalidateQueries({ queryKey: ["user"] });
+      router.push({ path: "/" });
     },
-  },
-});
+    onError:(error) => handleApiError(error),
+  });
+
+  const logoutMutation = useMutation({
+    mutationFn: async () => {
+      return await toast.promise(logout(), {
+        pending: "Đang đăng xuất",
+        success: {
+          render({ data }) {
+            return  "Đăng xuất thành công!";
+          },
+        },
+        error: {
+          render({ data }) {
+            return "Đăng xuất thất bại!";
+          },
+        },
+      });
+    },
+    onSuccess: () => {
+      sessionStorage.removeItem("token");
+      queryClient.setQueryData(["user"], null);
+      router.push({ path: "/log-in" });
+    },
+    onError:(error) => handleApiError(error),
+  });
+  return {
+    user,
+    isUserError,
+    isUserLoading,
+    login: loginMutation.mutate,
+    logout: logoutMutation.mutate,
+    isAuthLoading: loginMutation.isPending || logoutMutation.isPending
+  }
+};

@@ -76,9 +76,11 @@ import { useAuthStore } from "../../stores/auth";
 
 export default {
   setup() {
-    const auth = useAuthStore();
+    const { user, isAuthLoading, login } = useAuthStore();
     return {
-      auth,
+      user,
+      isAuthLoading,
+      login,
     };
   },
   data() {
@@ -89,7 +91,7 @@ export default {
   },
   methods: {
     login() {
-      this.auth.login({ email: this.email, password: this.password });
+      this.login({ email: this.email, password: this.password });
     },
     // mounted() {
     //   const userName = localStorage.getItem("name");
