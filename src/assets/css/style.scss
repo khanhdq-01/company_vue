@@ -245,13 +245,13 @@ p {
     }
 }
 .optional-btn {
-    border: none;
+    border: 2px solid #080a3c;
     position: relative;
     display: inline-block;
     text-align: center;
     overflow: hidden;
     z-index: 1;
-    color: $black-color;
+    color: $black-color !important;
     background-color: transparent;
     transition: $transition;
     border-radius: 5px;
@@ -272,7 +272,7 @@ p {
         transform: translateY(-50%);
         font-size: 20px;
         transition: $transition;
-        color: $black-color;
+        color: $black-color !important;
     }
     &::before {
         content: '';
@@ -298,7 +298,7 @@ p {
         border-radius: 5px;
     }
     &:hover, &:focus {
-        color: $white-color;
+        color: $white-color !important;
 
         &::before {
             border-color: $optional-color;
@@ -306,6 +306,9 @@ p {
         span {
             width: 225%;
             height: 562.5px;
+        }
+        i {
+            color: $white-color !important;
         }
     }
 }
