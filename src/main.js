@@ -10,20 +10,21 @@ import "vue3-toastify/dist/index.css";
 
 import "./assets/custom.scss";
 import "./assets/css/style.scss";
-import { createPinia } from "pinia";
+import { VueQueryPlugin } from "@tanstack/vue-query";
+
 
 const app = createApp(App);
-const pinia = createPinia()
 
-app.use(pinia)
-app.use(BootstrapVue3)
-   .use(router)
-   .use(Vue3Toastify, {
-     autoClose: 3000,
-     position: toast.POSITION.TOP_RIGHT,
-     theme: "light",
-     hideProgressBar: false,
-     closeOnClick: true,
-     pauseOnHover: true,
-   })
-   .mount("#app");
+app.use(VueQueryPlugin);
+app
+  .use(BootstrapVue3)
+  .use(router)
+  .use(Vue3Toastify, {
+    autoClose: 3000,
+    position: toast.POSITION.TOP_RIGHT,
+    theme: "light",
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+  })
+  .mount("#app");
