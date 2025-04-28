@@ -167,6 +167,11 @@ const routes = [
       pricingId: route.params.id,
     }),
   },
+  {
+    path: '/single-blog/:id',
+    name: 'BlogDetails',
+    component: () => import('@/components/SingleBlog/BlogDetails.vue')
+  }
 ];
 
 const router = createRouter({
