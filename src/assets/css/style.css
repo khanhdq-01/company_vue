@@ -4389,7 +4389,6 @@ Blog Area CSS
 }
 
 .single-blog-post .post-image .date {
-  position: absolute;
   left: 0;
   bottom: 0;
   background-color: #ffffff;
