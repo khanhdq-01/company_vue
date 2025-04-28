@@ -1,5 +1,6 @@
 <template>
   <div>
+    <VueQueryDevtools />
     <Preloader v-if="isLoading" />
     <router-view v-slot="{ Component }">
       <transition
@@ -19,12 +20,14 @@
 <script>
 import Preloader from "./components/Layouts/Preloader";
 import GoTop from "./components/Layouts/GoTop";
+import { VueQueryDevtools } from "@tanstack/vue-query-devtools";
 
 export default {
   name: "App",
   components: {
     Preloader,
     GoTop,
+    VueQueryDevtools,
   },
   data() {
     return {
