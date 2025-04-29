@@ -171,7 +171,12 @@ const routes = [
     path: '/single-blog/:id',
     name: 'BlogDetails',
     component: () => import('@/components/SingleBlog/BlogDetails.vue')
-  }
+  },
+  {
+    path: '/add-blog',
+    name: 'AddBlog',
+    component: () => import('@/components/BlogOne/BlogForm.vue')
+  },
 ];
 
 const router = createRouter({
