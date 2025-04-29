@@ -40,7 +40,7 @@ import { BASE_API_URL, BASE_IMAGE_URL } from "@/main";
 export default {
   name: "ServiceDetail",
   components: {
-    ckeditor: CKEditor.component,
+    ckeditor: CKEditor,
   },
   data() {
     return {
