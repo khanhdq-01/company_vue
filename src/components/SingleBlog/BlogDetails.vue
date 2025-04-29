@@ -23,8 +23,9 @@
       </div>
 
       <div class="blog-actions" v-if="isAdmin">
-        <button class="save-button" @click="saveBlog">Lưu bài viết</button>
-        <router-link to="/blog-one"></router-link>
+        <button class="btn btn-primary" @click="saveBlog">Lưu bài viết</button>
+        <router-link to="/blog-one" class="btn btn-secondary ms-2">Cancel</router-link>
+        <button class="btn btn-danger ms-2" @click="deleteBlog">Xóa bài viết</button>
       </div>
     </div>
   
@@ -137,6 +138,32 @@ const saveBlog = async () => {
   }
 };
 
+const deleteBlog = async () => {
+  if (!blog.value) return;
+
+  const confirmDelete = confirm(`Bạn có chắc chắn muốn xóa bài viết "${blog.value.title}"?`);
+  if (!confirmDelete) return;
+
+  const token = localStorage.getItem("token");
+  if (!token) {
+    alert("Bạn cần phải đăng nhập để thực hiện thao tác này.");
+    return;
+  }
+
+  try {
+    await axios.delete(`${BASE_API_URL}/blog/${blog.value.id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    alert('Đã xóa bài viết thành công!');
+    router.push('/blog-one');
+  } catch (err) {
+    console.error('Lỗi khi xóa bài viết:', err.response?.data || err.message);
+    alert('Xóa thất bại!');
+  }
+};
+
 // Định dạng ngày
 const formatDate = (dateStr) => {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -230,4 +257,19 @@ onMounted(() => {
   border-color: #0f62fe;
 }
 
+.delete-button {
+  background: #d32f2f;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.delete-button:hover {
+  background: #b71c1c;
+}
 </style>

@@ -2,6 +2,11 @@
     <div class="blog-area ptb-100">
       <div class="container">
         <div class="row">
+          <div class="text-end mb-4" v-if="isAdmin">
+            <router-link to="/add-blog" class="btn btn-primary" >
+              Add New Blog
+            </router-link>
+          </div>
           <div
             class="col-lg-4 col-md-6"
             v-for="blog in blogs"
@@ -79,9 +84,12 @@
       return {
         blogs: [],
         pagination: {},
+        isAdmin: false,
       }
     },
     created() {
+      const role = localStorage.getItem('role_id')
+      this.isAdmin = role === '1'
       this.fetchBlogs(1)
     },
     methods: {
