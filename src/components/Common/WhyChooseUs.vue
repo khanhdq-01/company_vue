@@ -3,7 +3,7 @@
       <div class="video-presentation-area ptb-100">
         <div class="container">
           <div class="section-title">
-            <h2>Why choose us to watch this video know more</h2>
+            <h2>Vì sao nên chọn chúng tôi? Hãy xem video để hiểu rõ hơn!</h2>
           </div>
   
           <div class="video-box">
@@ -40,14 +40,14 @@
           <Funfacts />
   
           <div class="contact-cta-box mwidth-1000">
-            <h3>Have any question about us?</h3>
-            <p>Don't hesitate to contact us.</p>
+            <h3>Có câu hỏi nào về chúng tôi không?</h3>
+            <p>Đừng ngần ngại liên hệ với chúng tôi.</p>
             <router-link to="/contact" class="default-btn">
-              <i class="bx bxs-edit-alt"></i>
-              Contact Us
-              <span></span>
+                <i class="bx bxs-edit-alt"></i>
+                Liên hệ với chúng tôi
+                <span></span>
             </router-link>
-          </div>
+        </div>
         </div>
   
         <!-- Other shapes -->

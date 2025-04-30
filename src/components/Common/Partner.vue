@@ -4,7 +4,7 @@
       <div class="row align-items-center">
         <div class="col-lg-3 col-md-12">
           <div class="partner-title">
-            <h3>Featured by:</h3>
+            <h3>Được giới thiệu bởi:</h3>
           </div>
         </div>
 

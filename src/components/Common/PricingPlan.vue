@@ -2,7 +2,7 @@
     <div class="pricing-area pt-100 pb-70 bg-f4f5fe">
       <div class="container">
         <div class="section-title">
-          <h2>Pricing Plan</h2>
+          <h2>Bảng giá</h2>
         </div>
   
         <div class="pricing-list-tab">

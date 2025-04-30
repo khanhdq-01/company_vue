@@ -1,9 +1,9 @@
 <template>
     <div>
         <Navbar />
-        <PageTitle pageTitle="Services Style" pageDesc="Our Services" />
+        <PageTitle pageTitle="Dịch vụ của chúng tôi" pageDesc="Khám phá các dịch vụ nổi bật" />
         <ServicesTwo />
-        <WhatsOurClients />
+        <PricingPlan />
         <FooterStyleOne />
     </div>
 </template>
@@ -12,7 +12,7 @@
 import Navbar from '../Layouts/Navbar';
 import PageTitle from '../Common/PageTitle';
 import ServicesTwo from '../ServicesThree/ServicesTwo'
-import WhatsOurClients from '../ServicesTwo/WhatsOurClients'
+import PricingPlan from '../Common/PricingPlan';
 import FooterStyleOne from '../Layouts/FooterStyleOne'
 
 export default {
@@ -20,7 +20,7 @@ export default {
         Navbar,
         PageTitle,
         ServicesTwo,
-        WhatsOurClients,
+        PricingPlan,
         FooterStyleOne,
     }
 };

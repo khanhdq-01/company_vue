@@ -2,8 +2,8 @@
     <div>
         <Navbar />
         <PageTitle 
-            pageTitle="Contact Us" 
-            pageDesc="Drop us Message for any Query" 
+            pageTitle="Liên Hệ Với Chúng Tôi" 
+            pageDesc="Gửi tin nhắn cho chúng tôi nếu bạn có bất kỳ câu hỏi nào" 
         />
         <Contact />
         <OurLovingClients />

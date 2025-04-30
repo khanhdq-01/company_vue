@@ -1,9 +1,9 @@
 <template>
     <div class="team-area pt-100 pb-70">
         <div class="container">
-            <div class="section-title">
-                <h2>Meet Our experts always ready to help you</h2>
-            </div>
+            <!-- <div class="section-title">
+                <h2>Gặp gỡ các chuyên gia của chúng tôi, luôn sẵn sàng giúp đỡ bạn.</h2>
+            </div> -->
             <div class="row">
                 <div
                     class="col-lg-3 col-sm-6"

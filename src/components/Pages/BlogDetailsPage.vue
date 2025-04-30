@@ -1,10 +1,8 @@
 <template>
     <div>
         <Navbar />
-        <PageTitle 
-            pageTitle="Blog Details" 
-            pageDesc="News and Insights" 
-        />
+        <PageTitle pageTitle="Bài viết" pageDesc="Tin tức và Góc nhìn" />
+
         <BlogDetails />
         <FreeTrial />
         <FooterStyleOne />

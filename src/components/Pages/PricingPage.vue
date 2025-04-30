@@ -2,8 +2,10 @@
     <div>
         <Navbar />
         <PageTitle 
-            pageTitle="Transparent Pricing" 
-            pageDesc="Border-less account pricing" 
+        pageTitle="Dịch vụ phù hợp"
+        pageDesc="Giải pháp giá cả rõ ràng, không rào cản"
+
+
         />
         <PricingPlan />
         <Faq />
