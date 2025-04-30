@@ -40,6 +40,11 @@ const routes = [
   { path: "/pricing", component: PricingPage },
   { path: "/services-three", component: ServicesPageThree },
   { path: "/single-service/:id", component: ServicesDetailsPage},
+  {
+    path: '/add-service',
+    name: 'AddService',
+    component: () => import('@/components/ServicesThree/ServicesForm.vue')
+  },
   { path: "/team", component: TeamPage },
   { path: "/log-in", component: LoginPage },
   { path: "/sign-up", component: SignupPage },
