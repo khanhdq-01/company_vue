@@ -609,9 +609,9 @@ Navbar Area CSS
 }
 
 .striki-nav .navbar .navbar-nav .nav-item a {
-  font-size: 15px;
+  font-size: 1.3rem;
   font-weight: 500;
-  color: #4a6f8a;
+  color: #000000;
   padding-left: 0;
   padding-right: 0;
   padding-top: 30px;

@@ -4,7 +4,7 @@
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <router-link class="navbar-brand" to="/">
-                        <img src="../../assets/img/logo_company.png" alt="logo" style="height: 30px; width: auto;" >
+                        <img src="../../assets/img/logo_company.png" alt="logo" style="height: 45px; width: auto;" >
                     </router-link>
 
                     <div 
@@ -67,20 +67,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            Services
-                                            <i class='bx bx-chevron-down'></i>
-                                        </a>
-                                        <ul class="dropdown-menu">
-
-                                            <li class="nav-item">
-                                                <router-link to="/services-three" class="nav-link">Services</router-link>
-                                            </li>
-
-                                            <li class="nav-item">
-                                                <router-link to="/single-service" class="nav-link">Service Details</router-link>
-                                            </li>
-                                        </ul>
+                                        <router-link to="/services-three" class="nav-link">Services</router-link>
                                     </li>
 
                                     <li class="nav-item">
@@ -91,9 +78,9 @@
                                         <router-link to="/log-in" class="nav-link">Log In</router-link>
                                     </li>
 
-                                    <li class="nav-item">
+                                    <!-- <li class="nav-item">
                                         <router-link to="/sign-up" class="nav-link">Sign Up</router-link>
-                                    </li>
+                                    </li> -->
 
                                     <li class="nav-item">
                                         <router-link to="/faq" class="nav-link">FAQ</router-link>
@@ -102,15 +89,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Blog <i class='bx bx-chevron-down'></i></a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <router-link to="/blog-one" class="nav-link">Blog Grid</router-link>
-                                    </li>
-                                    <li class="nav-item">
-                                        <router-link to="/single-blog" class="nav-link">Blog Details</router-link>
-                                    </li>
-                                </ul>
+                                <router-link to="/blog-one" class="nav-link">Blog</router-link>
                             </li>
 
                             <li class="nav-item">
