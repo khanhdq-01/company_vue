@@ -15,12 +15,7 @@
 
       <div class="form-group mb-3">
         <label>Description</label>
-        <div v-if="isAdmin">
-          <ckeditor :editor="editor" v-model="editorData" :config="editorConfig" />
-        </div>
-        <div v-else>
-          <textarea v-model="editorData" class="form-control" rows="5" required></textarea>
-        </div>
+        <textarea v-model="description" class="form-control" rows="5" required></textarea>
       </div>
 
       <div class="form-group mb-3">
@@ -44,34 +39,15 @@
 import axios from 'axios'
 import { BASE_API_URL } from '@/main'
 
-import CKEditor from '@ckeditor/ckeditor5-vue'
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
-
 export default {
   name: 'BlogForm',
-  components: {
-    Ckeditor: CKEditor
-  },
   data() {
     return {
       title: '',
       name: '',
       description: '',
-      editorData: '',
       image: null,
       user_id: '',
-      editor: ClassicEditor,
-      editorConfig: {
-        toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', '|', 'undo', 'redo'],
-        heading: {
-          options: [
-            { model: 'paragraph', title: 'Đoạn văn', class: 'ck-heading_paragraph' },
-            { model: 'heading1', view: 'h1', title: 'Tiêu đề 1', class: 'ck-heading_heading1' },
-            { model: 'heading2', view: 'h2', title: 'Tiêu đề 2', class: 'ck-heading_heading2' },
-            { model: 'heading3', view: 'h3', title: 'Tiêu đề 3', class: 'ck-heading_heading3' },
-          ]
-        },
-      },
     }
   },
   created() {
@@ -87,7 +63,7 @@ export default {
         const formData = new FormData()
         formData.append('title', this.title)
         formData.append('name', this.name)
-        formData.append('description', this.editorData)
+        formData.append('description', this.description)
         formData.append('user_id', this.user_id)
         if (this.image) formData.append('image', this.image)
 
@@ -112,8 +88,5 @@ export default {
 .container {
   max-width: 700px;
   margin: auto;
-}
-.ck-editor__editable {
-  min-height: 200px;
 }
 </style>

@@ -16,12 +16,7 @@
       <div class="blog-image" v-if="blog.image">
         <img :src="getImageUrl(blog.image)" alt="Blog image" />
       </div>
-
-      <div class="blog-description">
-        <Ckeditor v-if="isAdmin" :editor="editor" v-model="editorData" :config="editorConfig" />
-        <div v-else v-html="editorData || ''"></div>
-      </div>
-
+      <div class="blog-description" v-if="!isAdmin" v-html="blog.description"></div>
       <div class="blog-actions" v-if="isAdmin">
         <button class="btn btn-primary" @click="saveBlog">Lưu bài viết</button>
         <router-link to="/blog-one" class="btn btn-secondary ms-2">Cancel</router-link>
@@ -43,10 +38,7 @@
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import axios from 'axios';
-import { Ckeditor } from '@ckeditor/ckeditor5-vue';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { BASE_API_URL, BASE_IMAGE_URL } from '@/main';
-
 
 // Khai báo các biến reactive
 const route = useRoute();
@@ -54,23 +46,8 @@ const router = useRouter();
 const blog = ref(null);
 const loading = ref(true);
 const error = ref(null);
-const editorData = ref('');
 const editorDataTitle = ref('');
 const isAdmin = ref(false);
-const editor = ClassicEditor;
-
-// Cấu hình CKEditor
-const editorConfig = {
-  toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', '|', 'undo', 'redo'],
-  heading: {
-    options: [
-      { model: 'paragraph', title: 'Đoạn văn', class: 'ck-heading_paragraph' },
-      { model: 'heading1', view: 'h1', title: 'Tiêu đề 1', class: 'ck-heading_heading1' },
-      { model: 'heading2', view: 'h2', title: 'Tiêu đề 2', class: 'ck-heading_heading2' },
-      { model: 'heading3', view: 'h3', title: 'Tiêu đề 3', class: 'ck-heading_heading3' },
-    ]
-  },
-};
 
 // Lấy URL ảnh
 const getImageUrl = (image) => {
@@ -99,7 +76,6 @@ const fetchBlogDetail = async () => {
 
     if (blog.value) {
       editorDataTitle.value = blog.value.title;
-      editorData.value = blog.value.description;
     } else {
       error.value = "Không tìm thấy bài viết.";
     }
@@ -124,11 +100,11 @@ const saveBlog = async () => {
     await axios.put(`${BASE_API_URL}/blog/${blog.value.id}`, {
       name: blog.value.name,
       title: editorDataTitle.value,
-      description: editorData.value,
+      description: blog.value.description, // Keep description intact or editable here
     }, {
-        headers: {
-           Authorization: `Bearer ${token}`,
-        }
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
     });
     alert('Đã lưu bài viết thành công!');
     router.push('/blog-one');

@@ -21,23 +21,21 @@
 
       <!-- LONG DESCRIPTION -->
       <div class="service-description" style="margin-top: 30px;">
-      <h2>Mô tả chính</h2>
-      <div v-if="isAdmin">
-        <Ckeditor :editor="editor" v-model="editorDataLong" :config="editorConfig" />
+        <h2>Mô tả chính</h2>
+        <div v-if="isAdmin">
+          <textarea v-model="editorDataLong" class="description-input" placeholder="Nhập mô tả chính"></textarea>
+        </div>
+        <div v-else v-html="cleanHtml(editorDataLong)" />
       </div>
-      <div v-else v-html="cleanHtml(editorDataLong)" />
-    </div>
-
 
       <!-- FULL DESCRIPTION -->
       <div class="service-description">
         <h2>Mô tả chi tiết</h2>
         <div v-if="isAdmin">
-          <Ckeditor :editor="editor" v-model="editorDataFull" :config="editorConfig" />
+          <textarea v-model="editorDataFull" class="description-input" placeholder="Nhập mô tả chi tiết"></textarea>
         </div>
         <div v-else v-html="cleanHtml(editorDataFull)" />
       </div>
-
 
       <!-- ACTION BUTTONS -->
       <div class="service-actions" v-if="isAdmin">
@@ -45,7 +43,6 @@
         <button class="delete-button" @click="deleteService">Xóa bài viết</button>
         <router-link to="/services-three" class="cancel-button">Hủy</router-link>
       </div>
-
     </div>
 
     <div v-else class="error-message">
@@ -62,8 +59,6 @@
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import axios from 'axios';
-import { Ckeditor } from '@ckeditor/ckeditor5-vue';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { BASE_API_URL, BASE_IMAGE_URL } from '@/main';
 
 const route = useRoute();
@@ -78,24 +73,6 @@ const editorDataFull = ref('');
 const editorDataLong = ref('');
 
 const isAdmin = ref(false);
-const editor = ClassicEditor;
-
-const editorConfig = {
-  toolbar: [
-    'heading', '|',
-    'bold', 'italic', 'link', 
-    'bulletedList', 'numberedList', 'blockQuote', '|', 
-    'undo', 'redo'
-  ],
-  heading: {
-    options: [
-      { model: 'paragraph', title: 'Đoạn văn', class: 'ck-heading_paragraph' },
-      { model: 'heading1', view: 'h1', title: 'Tiêu đề 1', class: 'ck-heading_heading1' },
-      { model: 'heading2', view: 'h2', title: 'Tiêu đề 2', class: 'ck-heading_heading2' },
-      { model: 'heading3', view: 'h3', title: 'Tiêu đề 3', class: 'ck-heading_heading3' },
-    ]
-  }
-};
 
 const cleanHtml = (html) => {
   return html ? html.replace(/<p[^>]*>/g, '').replace(/<\/p>/g, '') : '';
