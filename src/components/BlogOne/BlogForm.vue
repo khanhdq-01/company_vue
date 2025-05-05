@@ -23,11 +23,6 @@
         </div>
       </div>
 
-      <div class="form-group mb-3">
-        <label>Image</label>
-        <input type="file" @change="handleFileChange" class="form-control" accept="image/*" />
-      </div>
-
       <input type="hidden" v-model="user_id" />
 
       <div class="d-flex gap-2">
@@ -52,7 +47,6 @@ export default {
       name: '',
       description: '',
       editorData: '',
-      image: null,
       user_id: '',
       isAdmin: true,
       editorInstance: null,
@@ -121,7 +115,6 @@ export default {
         formData.append('name', this.name)
         formData.append('description', this.editorData)
         formData.append('user_id', this.user_id)
-        if (this.image) formData.append('image', this.image)
 
         await axios.post(`${BASE_API_URL}/blog`, formData, {
           headers: {
