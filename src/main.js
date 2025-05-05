@@ -9,8 +9,8 @@ import "bootstrap-vue-3/dist/bootstrap-vue-3.css";
 
 import "./assets/custom.scss";
 
-const BASE_API_URL = "http://127.0.0.1:8000/api";
-const BASE_IMAGE_URL = "http://127.0.0.1:8000/storage/";
+const BASE_API_URL = "http://localhost:8000/api";
+const BASE_IMAGE_URL = "http://localhost:8000/storage/";
 
 export { BASE_API_URL, BASE_IMAGE_URL };
 

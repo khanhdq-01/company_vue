@@ -16,7 +16,7 @@
       <div class="form-group mb-3">
         <label>Description</label>
         <div v-if="isAdmin">
-          <ckeditor :editor="editor" v-model="editorData" :config="editorConfig" />
+          <textarea ref="editor" class="form-control" rows="10"></textarea>
         </div>
         <div v-else>
           <textarea v-model="editorData" class="form-control" rows="5" required></textarea>
@@ -44,14 +44,8 @@
 import axios from 'axios'
 import { BASE_API_URL } from '@/main'
 
-import CKEditor from '@ckeditor/ckeditor5-vue'
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
-
 export default {
   name: 'BlogForm',
-  components: {
-    Ckeditor: CKEditor
-  },
   data() {
     return {
       title: '',
@@ -60,22 +54,60 @@ export default {
       editorData: '',
       image: null,
       user_id: '',
-      editor: ClassicEditor,
-      editorConfig: {
-        toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', '|', 'undo', 'redo'],
-        heading: {
-          options: [
-            { model: 'paragraph', title: 'Đoạn văn', class: 'ck-heading_paragraph' },
-            { model: 'heading1', view: 'h1', title: 'Tiêu đề 1', class: 'ck-heading_heading1' },
-            { model: 'heading2', view: 'h2', title: 'Tiêu đề 2', class: 'ck-heading_heading2' },
-            { model: 'heading3', view: 'h3', title: 'Tiêu đề 3', class: 'ck-heading_heading3' },
-          ]
-        },
-      },
+      isAdmin: true,
+      editorInstance: null,
     }
   },
-  created() {
+  mounted() {
+    console.log('[mounted] CKEditor mounted');
     this.user_id = localStorage.getItem('id')
+
+    if (this.isAdmin && window.CKEDITOR) {
+      this.editorInstance = CKEDITOR.replace(this.$refs.editor, {
+        filebrowserUploadUrl:`${BASE_API_URL}/ckeditor/upload`,
+        filebrowserImageUploadUrl: `${BASE_API_URL}/ckeditor/upload`,
+        filebrowserWindowWidth: '1000',
+        filebrowserWindowHeight: '700'
+      });
+
+      // Lắng nghe sự kiện upload file
+      this.editorInstance.on('fileUploadResponse', function(evt) {
+        const data = evt.data;
+        const xhr = data.fileLoader.xhr;
+
+        try {
+          const response = JSON.parse(xhr.responseText);
+          console.log('[CKEditor] fileUploadResponse:', response);
+
+          if (response.uploaded === 1) {
+            data.url = response.url;
+            
+            // Cập nhật nội dung editor với ảnh mới
+            this.editorInstance.insertHtml(`<img src="${response.url}" alt="${response.fileName}">`);
+          } else {
+            evt.cancel();
+            alert(response.error?.message || 'Upload failed');
+          }
+        } catch (error) {
+          console.error('Error parsing response:', error);
+        }
+      });
+
+      this.editorInstance.on('change', () => {
+        this.editorData = this.editorInstance.getData();
+        console.log('[CKEditor Change] editorData:', this.editorData);
+      });
+
+      this.editorInstance.on('instanceReady', () => {
+        this.editorData = this.editorInstance.getData();
+        console.log('[CKEditor Ready] editorData:', this.editorData);
+      });
+    }
+  },
+  unmounted() {
+    if (this.editorInstance) {
+      this.editorInstance.destroy()
+    }
   },
   methods: {
     handleFileChange(event) {
@@ -117,3 +149,4 @@ export default {
   min-height: 200px;
 }
 </style>
+
