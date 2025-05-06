@@ -74,7 +74,7 @@
                         <h2>
                             <a href="tel:+0881306298615">+84 333036 046</a>
                             <span>HOẶC</span>
-                            <a href="mailto:quockhanh@gmail.com">quockhanh@gmail.com</a>
+                            <a href="mailto:quockhanh080301@gmail.com">quockhanh080301@gmail.com</a>
                         </h2>
 
                         <ul class="social">

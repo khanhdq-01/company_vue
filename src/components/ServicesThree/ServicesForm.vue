@@ -10,13 +10,13 @@
   
         <div class="form-group mb-3">
           <label>Long_description</label>
-          <input v-model="long_description" type="text" class="form-control" maxlength="100" required />
+          <input v-model="long_description" type="text" class="form-control" maxlength="150" required />
         </div>
   
         <div class="form-group mb-3">
           <label>Full_description</label>
           <div v-if="isAdmin">
-            <Ckeditor :editor="editor" v-model="editorData" :config="editorConfig" />
+            <textarea ref="editor" class="form-control" rows="10"></textarea>
           </div>
           <div v-else>
             <textarea v-model="editorData" class="form-control" rows="5" required></textarea>
@@ -43,13 +43,8 @@
   <script>
   import axios from 'axios'
   import { BASE_API_URL } from '@/main'
-  import CKEditor from '@ckeditor/ckeditor5-vue'
-  import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
   export default {
     name: 'ServiceForm',
-    components: {
-      ckeditor: CKEditor,
-    },
     data() {
       return {
         title: '',
@@ -58,14 +53,55 @@
         editorData: '',
         image: null,
         user_id: '',
-        editor: ClassicEditor,
-        editorConfig: {
-          toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'],
-        },
+        isAdmin: true,
+        editorInstance: null,
       }
     },
-    created() {
+    mounted() {
       this.user_id = localStorage.getItem('id')
+
+      if (this.isAdmin && window.CKEDITOR) {
+        this.editorInstance = CKEDITOR.replace(this.$refs.editor, {
+          filebrowserUploadUrl:`${BASE_API_URL}/upload-image`,
+          filebrowserImageUploadUrl: `${BASE_API_URL}/upload-image`,
+          filebrowserWindowWidth: '1000',
+          filebrowserWindowHeight: '700'
+        });
+
+        // Lắng nghe sự kiện upload file
+        this.editorInstance.on('fileUploadResponse', function(evt) {
+          const data = evt.data;
+          const xhr = data.fileLoader.xhr;
+
+          try {
+            const response = JSON.parse(xhr.responseText);
+            if (response.uploaded === 1) {
+              data.url = response.url;
+              
+              // Cập nhật nội dung editor với ảnh mới
+              this.editorInstance.insertHtml(`<img src="${response.url}" alt="${response.fileName}">`);
+            } else {
+              evt.cancel();
+              alert(response.error?.message || 'Upload failed');
+            }
+          } catch (error) {
+            console.error('Error parsing response:', error);
+          }
+        });
+
+        this.editorInstance.on('change', () => {
+          this.editorData = this.editorInstance.getData();
+        });
+
+        this.editorInstance.on('instanceReady', () => {
+          this.editorData = this.editorInstance.getData();
+        });
+      }
+    },
+    unmounted() {
+      if (this.editorInstance) {
+        this.editorInstance.destroy()
+      }
     },
     methods: {
       handleFileChange(event) {
@@ -78,16 +114,16 @@
           formData.append('title', this.title)
           formData.append('long_description', this.long_description)
           formData.append('full_description', this.editorData)
-          console.log('user_id:', this.user_id);
-
           formData.append('role_id', this.user_id)
           if (this.image) formData.append('image', this.image)
+
           await axios.post(`${BASE_API_URL}/service`, formData, {
             headers: {
               Authorization: `Bearer ${token}`,
               'Content-Type': 'multipart/form-data',
             },
           })
+          alert('Đã tạo service thành công!');
           this.$router.push('/services-three')
         } catch (error) {
           console.error('Submit failed:', error)

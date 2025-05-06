@@ -2,12 +2,12 @@
   <div class="service-detail-container" v-if="!loading">
     <div v-if="service" class="service-detail">
       <h1 class="service-title">
-        <template v-if="isAdmin">
-          <input v-model="editorDataTitle" class="title-input" placeholder="Nhập tiêu đề dịch vụ" />
-        </template>
-        <template v-else>
+        <div v-if="isAdmin">
+          <input v-model="editorDataTitle" class="title-input" placeholder="Nhập tiêu đề service" />
+        </div>
+        <div v-else>
           {{ service.title }}
-        </template>
+        </div>
       </h1>
 
       <div class="service-meta">
@@ -19,30 +19,25 @@
         <img :src="getImageUrl(service.image)" alt="Service image" />
       </div>
 
-      <!-- LONG DESCRIPTION -->
       <div class="service-description" style="margin-top: 30px;">
-      <h2>Mô tả chính</h2>
-      <div v-if="isAdmin">
-        <Ckeditor :editor="editor" v-model="editorDataLong" :config="editorConfig" />
+        <h2>Mô tả chính</h2>
+        <div v-if="isAdmin">
+          <input v-model="editorDataLong" class="form-control" placeholder="Nhập mô tả chính" />
+        </div>
+        <div v-else v-html="editorDataLong || ''"></div>
       </div>
-      <div v-else v-html="cleanHtml(editorDataLong)" />
-    </div>
 
-
-      <!-- FULL DESCRIPTION -->
       <div class="service-description">
         <h2>Mô tả chi tiết</h2>
         <div v-if="isAdmin">
-          <Ckeditor :editor="editor" v-model="editorDataFull" :config="editorConfig" />
+          <textarea ref="editor" class="form-control" rows="10"></textarea>
         </div>
-        <div v-else v-html="cleanHtml(editorDataFull)" />
+        <div v-else v-html="editorData || ''"></div>
       </div>
 
-
-      <!-- ACTION BUTTONS -->
       <div class="service-actions" v-if="isAdmin">
         <button class="save-button" @click="saveService">Lưu dịch vụ</button>
-        <button class="delete-button" @click="deleteService">Xóa bài viết</button>
+        <button class="delete-button" @click="deleteService">Xóa service</button>
         <router-link to="/services-three" class="cancel-button">Hủy</router-link>
       </div>
 
@@ -58,137 +53,172 @@
   </div>
 </template>
 
-<script setup>
-import { ref, onMounted } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+<script>
 import axios from 'axios';
-import { Ckeditor } from '@ckeditor/ckeditor5-vue';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { onMounted, ref, onBeforeUnmount } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import { BASE_API_URL, BASE_IMAGE_URL } from '@/main';
 
-const route = useRoute();
-const router = useRouter();
+export default {
+  name: 'BlogDetail',
+  setup() {
+    const route = useRoute();
+    const router = useRouter();
 
-const service = ref(null);
-const loading = ref(true);
-const error = ref(null);
+    const service = ref(null);
+    const loading = ref(true);
+    const error = ref(null);
+    const editorDataTitle = ref('');
+    const editorDataLong = ref('');
+    const editorData = ref('');
+    const isAdmin = ref(false);
+    const editorInstance = ref(null);
 
-const editorDataTitle = ref('');
-const editorDataFull = ref('');
-const editorDataLong = ref('');
-
-const isAdmin = ref(false);
-const editor = ClassicEditor;
-
-const editorConfig = {
-  toolbar: [
-    'heading', '|',
-    'bold', 'italic', 'link', 
-    'bulletedList', 'numberedList', 'blockQuote', '|', 
-    'undo', 'redo'
-  ],
-  heading: {
-    options: [
-      { model: 'paragraph', title: 'Đoạn văn', class: 'ck-heading_paragraph' },
-      { model: 'heading1', view: 'h1', title: 'Tiêu đề 1', class: 'ck-heading_heading1' },
-      { model: 'heading2', view: 'h2', title: 'Tiêu đề 2', class: 'ck-heading_heading2' },
-      { model: 'heading3', view: 'h3', title: 'Tiêu đề 3', class: 'ck-heading_heading3' },
-    ]
-  }
-};
-
-const cleanHtml = (html) => {
-  return html ? html.replace(/<p[^>]*>/g, '').replace(/<\/p>/g, '') : '';
-};
-
-const getImageUrl = (image) => {
-  return image ? `${BASE_IMAGE_URL}/services/${image}` : '';
-};
-
-const fetchServiceDetail = async () => {
-  try {
-    const targetId = route.params.id;
-    const res = await axios.get(`${BASE_API_URL}/service/${targetId}`);
-    service.value = res.data.data;
-
-    if (service.value) {
-      editorDataTitle.value = service.value.title || '';
-      editorDataFull.value = service.value.full_description || '';
-      editorDataLong.value = service.value.long_description || '';
-    } else {
-      error.value = "Không tìm thấy dịch vụ.";
-    }
-  } catch (err) {
-    console.error(err);
-    error.value = "Lỗi khi tải dữ liệu.";
-  } finally {
-    loading.value = false;
-  }
-};
-
-const saveService = async () => {
-  if (!service.value) return;
-  const token = localStorage.getItem("token");
-  if (!token) {
-    alert("Bạn cần phải đăng nhập để thực hiện thao tác này.");
-    return;
-  }
-
-  try {
-    const payload = {
-      _method: 'PUT',
-      title: editorDataTitle.value,
-      full_description: editorDataFull.value,
-      long_description: editorDataLong.value
+    const getImageUrl = (image) => {
+      return image ? `${BASE_IMAGE_URL}/services/${image}` : '';
     };
 
-    await axios.post(`${BASE_API_URL}/service/${service.value.id}`, payload, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
+    const formatDate = (dateStr) => {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Date(dateStr).toLocaleDateString('vi-VN', options);
+    };
+
+    const fetchServiceDetail = async () => {
+      try {
+        const targetId = parseInt(route.params.id);
+        const firstRes = await axios.get(`${BASE_API_URL}/service`);
+        const lastPage = firstRes.data.last_page || 1;
+        let allServices = firstRes.data.data || [];
+
+        const requests = [];
+        for (let page = 2; page <= lastPage; page++) {
+          requests.push(axios.get(`${BASE_API_URL}/service?page=${page}`));
+        }
+
+        const responses = await Promise.all(requests);
+        responses.forEach(res => {
+          const pageData = res.data.data || [];
+          allServices = allServices.concat(pageData);
+        });
+
+        service.value = allServices.find(b => b.id === targetId);
+
+        if (service.value) {
+          editorDataTitle.value = service.value.title;
+          editorDataLong.value = service.value.long_description;
+          editorData.value = service.value.full_description;
+        } else {
+          error.value = "Không tìm thấy service.";
+        }
+      } catch (err) {
+        console.error('Lỗi khi fetch service detail:', err);
+        error.value = "Lỗi khi tải dữ liệu.";
+      } finally {
+        loading.value = false;
+      }
+    };
+    const saveService = async () => {
+      if (!service.value) return;
+
+      const token = localStorage.getItem("token");
+      if (!token) {
+        alert("Bạn cần phải đăng nhập để thực hiện thao tác này.");
+        return;
+      }
+
+      try {
+        await axios.put(`${BASE_API_URL}/service/${service.value.id}`, {
+          name: service.value.name,
+          title: editorDataTitle.value,
+          long_description: editorDataLong.value,
+          full_description: editorData.value,
+        }, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        alert('Đã lưu service thành công!');
+        router.push('/services-three');
+      } catch (err) {
+        console.error('Lỗi khi lưu service:', err.response?.data || err.message);
+        alert('Lưu thất bại!');
+      }
+    };
+
+    const deleteService = async () => {
+      if (!service.value) return;
+
+      const confirmDelete = confirm(`Bạn có chắc chắn muốn xóa service "${service.value.title}"?`);
+      if (!confirmDelete) return;
+
+      const token = localStorage.getItem("token");
+      if (!token) {
+        alert("Bạn cần phải đăng nhập để thực hiện thao tác này.");
+        return;
+      }
+
+      try {
+        await axios.delete(`${BASE_API_URL}/service/${service.value.id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        alert('Đã xóa service thành công!');
+        router.push('/services-three');
+      } catch (err) {
+        console.error('Lỗi khi xóa service:', err.response?.data || err.message);
+        alert('Xóa thất bại!');
+      }
+    };
+
+    onMounted(async () => {
+      const role = localStorage.getItem('role_id');
+      if (role === '1') isAdmin.value = true;
+
+      await fetchServiceDetail();
+
+      if (isAdmin.value && window.CKEDITOR && service.value) {
+        editorInstance.value = CKEDITOR.replace(document.querySelector('textarea'), {
+          filebrowserUploadUrl: `${BASE_API_URL}/upload-image`,
+          filebrowserImageUploadUrl: `${BASE_API_URL}/upload-image`,
+          filebrowserWindowWidth: '1000',
+          filebrowserWindowHeight: '700'
+        });
+
+        editorInstance.value.setData(service.value.full_description || '');
+
+        editorInstance.value.on('change', () => {
+          editorData.value = editorInstance.value.getData();
+        });
+
+        editorInstance.value.on('instanceReady', () => {
+          editorData.value = editorInstance.value.getData();
+        });
       }
     });
 
-    router.push('/services-three');
-  } catch (err) {
-    console.error('Lỗi khi lưu dịch vụ:', err.response?.data || err.message);
-    alert('Lưu thất bại!');
-  }
-};
-
-const deleteService = async () => {
-  if (!service.value) return;
-  const confirmDelete = confirm(`Bạn có chắc chắn muốn xóa bài viết "${service.value.title}"?`);
-  if (!confirmDelete) return;
-  const token = localStorage.getItem("token");
-  if (!token) {
-    alert("Bạn cần phải đăng nhập để thực hiện thao tác này.");
-    return;
-  }
-  try {
-    await axios.delete(`${BASE_API_URL}/service/${service.value.id}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+    onBeforeUnmount(() => {
+      if (editorInstance.value) {
+        editorInstance.value.destroy();
+      }
     });
-    alert('Đã xóa bài viết thành công!');
-    router.push('/services-three');
-  } catch (err) {
-    console.error('Lỗi khi xóa bài viết:', err.response?.data || err.message);
-    alert('Xóa thất bại!');
-  }
-};
 
-const formatDate = (dateStr) => {
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return new Date(dateStr).toLocaleDateString('vi-VN', options);
+    return {
+      service,
+      loading,
+      error,
+      editorDataTitle,
+      editorDataLong,
+      editorData,
+      isAdmin,
+      getImageUrl,
+      saveService,
+      deleteService,
+      formatDate,
+    };
+  },
 };
-
-onMounted(() => {
-  const userRole = localStorage.getItem('role_id');
-  isAdmin.value = userRole === '1';
-  fetchServiceDetail();
-});
 </script>
 
 <style scoped>

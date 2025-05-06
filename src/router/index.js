@@ -50,7 +50,7 @@ const routes = [
   { path: "/sign-up", component: SignupPage },
   { path: "/faq", component: FaqPage },
   { path: "/blog-one", component: BlogPageOne },
-  { path: "/single-blog", component: BlogDetailsPage },
+  { path: "/single-blog/:id", component: BlogDetailsPage },
   { path: "/contact", component: ContactPage },
 
   //members
@@ -171,11 +171,6 @@ const routes = [
       isEdit: true,
       pricingId: route.params.id,
     }),
-  },
-  {
-    path: '/single-blog/:id',
-    name: 'BlogDetails',
-    component: () => import('@/components/SingleBlog/BlogDetails.vue')
   },
   {
     path: '/add-blog',

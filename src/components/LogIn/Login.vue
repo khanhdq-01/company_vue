@@ -14,13 +14,13 @@
                 <div class="login-form">
                   <div class="logo">
                     <router-link to="/">
-                      <img src="../../assets/img/logo.png" alt="image" />
+                      <img src="../../assets/img/logo_kingsoft_login.png" alt="image" />
                     </router-link>
                   </div>
   
                   <h3>Welcome back</h3>
                   <p>
-                    New to Striki?
+                    New to Kingsoft?
                     <router-link to="/sign-up">Sign up</router-link>
                   </p>
   
