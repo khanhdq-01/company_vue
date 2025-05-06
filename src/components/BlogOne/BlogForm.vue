@@ -53,7 +53,6 @@ export default {
     }
   },
   mounted() {
-    console.log('[mounted] CKEditor mounted');
     this.user_id = localStorage.getItem('id')
 
     if (this.isAdmin && window.CKEDITOR) {
