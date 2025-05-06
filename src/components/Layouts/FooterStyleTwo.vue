@@ -5,7 +5,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="single-footer-widget">
                         <div class="logo">
-                            <router-link to="/"><img src="../../assets/img/logo_company.png" alt="image"></router-link>
+                            <router-link to="/"><img src="../../assets/img/logo_kingsoft_footer.png" alt="image"></router-link>
                         </div>
                         <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.</p>
                         <ul class="social">

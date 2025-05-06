@@ -4,7 +4,7 @@
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <router-link class="navbar-brand custom-logo" to="/">
-                        <img src="../../assets/img/logo_company.png" alt="logo" />
+                        <img src="../../assets/img/logo_kingsoft_header.png" alt="logo" />
                     </router-link>
                     <div 
                         class="navbar-toggler"

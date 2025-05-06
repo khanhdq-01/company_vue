@@ -5,7 +5,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-footer-widget">
                         <div class="logo">
-                            <router-link to="/"><img src="../../assets/img/logo_company.png" alt="image"></router-link>
+                            <router-link to="/"><img src="../../assets/img/logo_kingsoft_footer.png" alt="image"></router-link>
                         </div>
                         <p>KodingSoft là công ty chuyên cung cấp các giải pháp công nghệ tiên tiến, từ phát triển phần mềm đến các dịch vụ hỗ trợ kỹ thuật, nhằm giúp doanh nghiệp tối ưu hóa quy trình và nâng cao hiệu quả công việc.</p>
                     </div>
