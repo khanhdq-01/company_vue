@@ -2,24 +2,15 @@ import { createWebHistory, createRouter } from "vue-router";
 
 // All Pages
 import HomePageOne from "../components/Pages/HomePageOne";
-import HomePageTwo from "../components/Pages/HomePageTwo";
-import HomePageThree from "../components/Pages/HomePageThree";
 import HomePageFour from "../components/Pages/HomePageFour";
-import HomePageFive from "../components/Pages/HomePageFive";
 import HomePageSix from "../components/Pages/HomePageSix";
-import HomePageSeven from "../components/Pages/HomePageSeven";
 import HomePageEight from "../components/Pages/HomePageEight";
 import HomePageNine from "../components/Pages/HomePageNine";
-import HomePageTen from "../components/Pages/HomePageTen";
-import HomePageEleven from "../components/Pages/HomePageEleven";
 import AboutPage from "../components/Pages/AboutPage";
 import PricingPage from "../components/Pages/PricingPage";
-import ServicesPageOne from "../components/Pages/ServicesPageOne";
-import ServicesPageTwo from "../components/Pages/ServicesPageTwo";
 import ServicesPageThree from "../components/Pages/ServicesPageThree";
 import ServicesDetailsPage from "../components/Pages/ServicesDetailsPage";
 import FeaturesPageOne from "../components/Pages/FeaturesPageOne";
-import FeaturesPageTwo from "../components/Pages/FeaturesPageTwo";
 import TeamPage from "../components/Pages/TeamPage";
 import LoginPage from "../components/Pages/LoginPage";
 import SignupPage from "../components/Pages/SignupPage";
@@ -28,27 +19,28 @@ import BlogPageOne from "../components/Pages/BlogPageOne";
 import BlogPageTwo from "../components/Pages/BlogPageTwo";
 import BlogDetailsPage from "../components/Pages/BlogDetailsPage";
 import ContactPage from "../components/Pages/ContactPage";
+import MemberList from '../components/Common/members/MemberList.vue'
+import MemberForm from '../components/Common/members/MemberForm.vue'
+import SlideList from '../components/HomeOne/slide/SlideList.vue'
+import SlideForm from '../components/HomeOne/slide/SlideForm.vue'
+import MemberOtherList from '../components/Common/memberOthers/MemberOtherList.vue'
+import MemberOtherForm from '../components/Common/memberOthers/MemberOtherForm.vue'
+import AboutHeaderForm from '../components/About/header/AboutHeaderForm.vue'
+import AboutHeaderList from '../components/About/header/AboutHeaderList.vue'
+import PricingForm from '../components/Common/pricing/PricingForm.vue'
+import PricingList from '../components/Common/pricing/PricingList.vue'
 
 const routes = [
   { path: "/", component: HomePageOne },
-  { path: "/home-two", component: HomePageTwo },
-  { path: "/home-three", component: HomePageThree },
   { path: "/home-four", component: HomePageFour },
-  { path: "/home-five", component: HomePageFive },
   { path: "/home-six", component: HomePageSix },
-  { path: "/home-seven", component: HomePageSeven },
   { path: "/home-eight", component: HomePageEight },
   { path: "/home-nine", component: HomePageNine },
-  { path: "/home-ten", component: HomePageTen },
-  { path: "/home-eleven", component: HomePageEleven },
   { path: "/about", component: AboutPage },
   { path: "/pricing", component: PricingPage },
-  { path: "/services-one", component: ServicesPageOne },
-  { path: "/services-two", component: ServicesPageTwo },
   { path: "/services-three", component: ServicesPageThree },
   { path: "/single-service", component: ServicesDetailsPage },
   { path: "/features-one", component: FeaturesPageOne },
-  { path: "/features-two", component: FeaturesPageTwo },
   { path: "/team", component: TeamPage },
   { path: "/log-in", component: LoginPage },
   { path: "/sign-up", component: SignupPage },
@@ -57,6 +49,108 @@ const routes = [
   { path: "/blog-two", component: BlogPageTwo },
   { path: "/single-blog", component: BlogDetailsPage },
   { path: "/contact", component: ContactPage },
+
+  //members
+  {
+    path: '/member-list',
+    name: 'memberList',
+    component: MemberList,
+  },
+  {
+    path: '/members/add',
+    name: 'add-member',
+    component: MemberForm
+  },
+  {
+    path: '/members/edit/:id',
+    name: 'edit-member',
+    component: MemberForm,
+    props: route => ({ isEdit: true, memberId: route.params.id })
+  },
+
+    //slides
+    {
+      path: '/slide-list',
+      name: 'slideList',
+      component: SlideList,
+    },
+    {
+      path: '/slide/add',
+      name: 'add-slide',
+      component: SlideForm
+    },
+    {
+      path: '/slide/edit/:id',
+      name: 'edit-slide',
+      component: SlideForm,
+      props: route => ({ isEdit: true, slideId: route.params.id })
+    },
+
+    //memberOthers
+    {
+      path: '/member-other-list',
+      name: 'memberListOther',
+      component: MemberOtherList,
+    },
+    {
+      path: '/member-other/add',
+      name: 'addMemberOther',
+      component: MemberOtherForm
+    },
+    {
+      path: '/member-other/edit/:id',
+      name: 'editMemberOther',
+      component: MemberOtherForm,
+      props: route => ({ isEdit: true, memberOtherId: route.params.id })
+    },
+  //about header
+  {
+    path: '/about-header-list',
+    name: 'aboutList',
+    component: AboutHeaderList,
+  },
+  {
+    path: '/about-header/add',
+    name: 'add-about-header',
+    component: AboutHeaderForm
+  },
+  {
+    path: '/about-header/edit/:id',
+    name: 'edit-about-header',
+    component: AboutHeaderForm,
+    props: route => ({ isEdit: true, aboutHeadId: route.params.id })
+  },
+
+  //pricing
+  {
+    path: '/pricing-list',
+    name: 'pricingList',
+    component: PricingList,
+  },
+  {
+    path: "/pricings/add",
+    name: "PricingAdd",
+    component: PricingForm,
+    props: { isEdit: false },
+  },
+  {
+    path: "/pricings/edit/:id",
+    name: "PricingEdit",
+    component: PricingForm,
+    props: (route) => ({
+      isEdit: true,
+      pricingId: route.params.id,
+    }),
+  },
+  {
+    path: "/pricings/edit/:id",
+    name: "PricingEdit",
+    component: PricingForm,
+    props: (route) => ({
+      isEdit: true,
+      pricingId: route.params.id,
+    }),
+  },
 ];
 
 const router = createRouter({

@@ -1,29 +1,67 @@
 <template>
     <div class="about-area ptb-100">
         <div class="container">
-            <div class="row align-items-center">
+            <div v-for="(about, index) in aboutData" :key="about.id" class="row align-items-center">
                 <div class="col-lg-6 col-md-12">
                     <div class="about-content">
-                        <span class="sub-title">How we are Founded</span>
-                        <h2>Take your business to the next level</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                        <p>Every month they moved their money the old way – which wasted their time and money. So they invented a beautifully simple workaround that became a billion-dollar business.</p>
+                        <span class="sub-title">{{ about.subtitle }}</span>
+                        <h2>{{ about.title }}</h2>
+                        <p>{{ about.content }}</p>
+                        <p>{{ about.description }}</p>
                     </div>
                 </div>
 
                 <div class="col-lg-6 col-md-12">
-                    <div class="about-image">
-                        <img src="../../assets/img/about-img.jpg" alt="image">
-                    </div>
+                  <div class="about-image">
+                    <img
+                        v-if="about.image_path"
+                        :src="url + about.image_path"
+                        alt="image"
+                        class="img-fluid rounded-4 shadow-lg border border-light"
+                      />
+                  </div>
                 </div>
+            </div>
+            <div class="col-12 mt-4 text-center" v-if="isLoggedIn && userRole === 1">
+                    <router-link to="/about-header-list" class="btn btn-primary">
+                        Manage About
+                    </router-link>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import axios from "axios"
+
 export default {
-    name: 'TakeYourBusiness'
-}
+    name: 'TakeYourBusiness',
+
+  data() {
+    return {
+      aboutData: [],
+      url: 'http://localhost/company_2025/company_api/storage/app/public/abouts/',
+      isLoggedIn: !!localStorage.getItem("token"),
+      userRole: parseInt(localStorage.getItem("role_id")) || null,
+    };
+  },
+  mounted() {
+    this.fetchaboutData();
+  },
+  methods: {
+    async fetchaboutData() {
+      const token = localStorage.getItem("token");
+      try {
+        const response = await axios.get("http://127.0.0.1:8000/api/about", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        this.aboutData = response.data.data;
+      } catch (error) {
+        console.error("Error fetching about data:", error);
+      }
+    },
+  },
+};
 </script>

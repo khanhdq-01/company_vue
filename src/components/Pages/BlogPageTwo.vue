@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NavbarStyleTwo />
+        <Navbar />
         <PageTitle 
             pageTitle="Blog Right Sidebar" 
             pageDesc="News and Insights" 
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import NavbarStyleTwo from '../Layouts/NavbarStyleTwo';
+import Navbar from '../Layouts/Navbar';
 import PageTitle from '../Common/PageTitle';
 import BlogOne from '../BlogTwo/BlogOne'
 import FreeTrial from '../Common/FreeTrial'
@@ -20,7 +20,7 @@ import FooterStyleOne from '../Layouts/FooterStyleOne'
 
 export default {
     components: {
-        NavbarStyleTwo,
+        Navbar,
         PageTitle,
         BlogOne,
         FreeTrial,

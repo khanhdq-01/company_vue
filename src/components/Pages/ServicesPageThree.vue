@@ -1,7 +1,7 @@
 <template>
     <div>
-        <NavbarStyleTwo />
-        <PageTitle pageTitle="Services Style Three" pageDesc="Our Services" />
+        <Navbar />
+        <PageTitle pageTitle="Services Style" pageDesc="Our Services" />
         <ServicesTwo />
         <WhatsOurClients />
         <FooterStyleOne />
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import NavbarStyleTwo from '../Layouts/NavbarStyleTwo';
+import Navbar from '../Layouts/Navbar';
 import PageTitle from '../Common/PageTitle';
 import ServicesTwo from '../ServicesThree/ServicesTwo'
 import WhatsOurClients from '../ServicesTwo/WhatsOurClients'
@@ -17,7 +17,7 @@ import FooterStyleOne from '../Layouts/FooterStyleOne'
 
 export default {
     components: {
-        NavbarStyleTwo,
+        Navbar,
         PageTitle,
         ServicesTwo,
         WhatsOurClients,

@@ -7,7 +7,7 @@
                         <div class="contact-features-list">
                             <h3>Some other great reasons to choose us</h3>
                             <p>Take the first steps towards increased productivity and reduced stress with Striki.</p>
-                            <p>We are a highly trained, dedicated team, helping entrepreneurs, professionals, and small teams streamline success - not just in work, but in life too. We help spare your time to focus on the bigger picture by taking care of the little details.</p>
+                            <p>We are a highly trained, dedicated team, helping entrepreneurs, professionals, and small Meet Our experts always ready to help yous streamline success - not just in work, but in life too. We help spare your time to focus on the bigger picture by taking care of the little details.</p>
 
                             <ul>
                                 <li><i class='bx bx-badge-check'></i> Staff works from our offices in USA</li>

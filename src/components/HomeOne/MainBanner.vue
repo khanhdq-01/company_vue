@@ -1,15 +1,16 @@
 <template>
     <div class="main-banner main-banner-one">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row"
+                    v-for="(slide, index) in slideData"
+                    :key="slide.id">
                 <div class="col-lg-7 col-md-12">
                     <div class="main-banner-content">
                         <div class="d-table">
                             <div class="d-table-cell">
                                 <div class="content">
-                                    <h1>Secure IT Solutions for a more secure environment</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
-
+                                    <h1>{{ slide.title }}</h1>
+                                    <p>{{ slide.description }}</p>
                                     <router-link to="/contact" class="default-btn">
                                         <i class="bx bxs-hot"></i>Get Started<span></span>
                                     </router-link>
@@ -24,15 +25,23 @@
                         <div class="d-table">
                             <div class="d-table-cell">
                                 <div class="animate-banner-image">
-                                    <img src="../../assets/img/animate-banner-img1.jpg" alt="image">
+                                    <img  v-if="slide.image_path"
+                                    :src="url + slide.image_path"
+                                    alt="image">
                                 </div>
                             </div>
                         </div>
-                        
-                        <img src="../../assets/img/banner-slider/banner-img1.jpg" class="mbanner-img" alt="image">
                     </div>
                 </div>
             </div>
+            <p class="text-center text-muted mt-5" v-if="slideData.length === 0">
+              No items to display
+            </p>
+            <div class="col-12 mt-4 text-center" v-if="isLoggedIn && userRole === 1">
+                    <router-link to="/slide-list" class="btn btn-primary">
+                      Manager Slide
+                    </router-link>
+                </div>
         </div>
     
         <div class="shape20"><img src="../../assets/img/shape/19.png" alt="image"></div>
@@ -46,7 +55,36 @@
 </template>
 
 <script>
+import axios from "axios"
+
 export default {
-    name: 'MainBanner'
-}
+  name: "MainBanner",
+  data() {
+    return {
+      slideData: [],
+      url: 'http://localhost/company_2025/company_api/storage/app/public/slides/',
+      isLoggedIn: !!localStorage.getItem("token"),
+      userRole: parseInt(localStorage.getItem("role_id")) || null,
+    };
+  },
+  mounted() {
+    this.fetchSlideData();
+  },
+  methods: {
+    async fetchSlideData() {
+      const token = localStorage.getItem("token");
+      try {
+        const response = await axios.get("http://127.0.0.1:8000/api/slide", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        this.slideData = response.data.data;
+      } catch (error) {
+        console.error("Error fetching slide data:", error);
+      }
+    },
+  },
+};
+
 </script>

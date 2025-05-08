@@ -7,7 +7,7 @@
                     <div class="single-footer-widget">
                         <div class="logo">
                             <router-link to="/">
-                                <img src="../../assets/img/white-logo.png" alt="image">
+                                <img src="../../assets/img/logo_company.png" alt="image">
                             </router-link>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
