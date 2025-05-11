@@ -27,20 +27,16 @@
                                 <router-link to="/about" class="nav-link">Giới thiệu</router-link>
                             </li>
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link">
-                                    Dịch vụ <i class='bx bx-chevron-down'></i>
+                                <a href="#" class="nav-link" @click.prevent="toggleDropdown">
+                                    Dịch vụ <i :class="['bx', isDropdownOpen ? 'bx-chevron-up' : 'bx-chevron-down']"></i>
                                 </a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" :class="{ 'show': isDropdownOpen }">
                                     <li class="nav-item">
                                         <router-link to="/services-three" class="nav-link">Dịch vụ</router-link>
                                     </li>
 
                                     <li class="nav-item">
                                         <router-link to="/team" class="nav-link">Đội ngũ</router-link>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <router-link to="/log-in" class="nav-link">Đăng nhập</router-link>
                                     </li>
 
                                     <li class="nav-item">
@@ -86,6 +82,7 @@ export default {
             active: false,
             button_active_state: false,
             isLoggedIn: false,
+            isDropdownOpen: false,
         }
     },
 
@@ -98,6 +95,10 @@ export default {
     },
 
     methods: {
+        toggleDropdown() {
+            this.isDropdownOpen = !this.isDropdownOpen;
+        },
+
         checkAuthStatus() {
             const token = localStorage.getItem('token');
             this.isLoggedIn = !!token;

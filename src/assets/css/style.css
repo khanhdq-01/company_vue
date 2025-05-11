@@ -255,13 +255,13 @@ p:last-child {
 }
 
 .optional-btn {
-  border: none;
+  border: 1px solid #080a3c;
   position: relative;
   display: inline-block;
   text-align: center;
   overflow: hidden;
   z-index: 1;
-  color: #080a3c;
+  color: #080a3c !important;
   background-color: transparent;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -283,7 +283,7 @@ p:last-child {
   font-size: 20px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  color: #080a3c;
+  color: #080a3c !important;
 }
 
 .optional-btn::before {
@@ -315,7 +315,11 @@ p:last-child {
 }
 
 .optional-btn:hover, .optional-btn:focus {
-  color: #ffffff;
+  color: #ffffff !important;
+}
+
+.optional-btn:hover i {
+  color: #ffffff !important;
 }
 
 .optional-btn:hover::before, .optional-btn:focus::before {
@@ -501,6 +505,7 @@ Navbar Area CSS
   background-color: transparent;
   height: auto;
   z-index: 1040;
+  box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
 }
 .navbar-area.is-sticky {
   position: fixed;
@@ -1029,6 +1034,7 @@ Main Banner Area CSS
 .main-banner {
   position: relative;
   z-index: 1;
+  margin-top:86px;
 }
 
 .main-banner .container-fluid {
@@ -1138,7 +1144,7 @@ Main Banner Area CSS
 }
 
 .banner-image {
-  height: 100vh;
+  height: calc(100vh - 86px) !important;
   width: 100%;
   border-radius: 0 0 0 80px;
   position: relative;
@@ -5350,6 +5356,7 @@ Page Title Area CSS
   z-index: 1;
   padding-top: 130px;
   padding-bottom: 120px;
+  margin-top: 86px;
 }
 
 .page-title-area::before {
