@@ -185,9 +185,6 @@ export default {
           }
         );
 
-        console.log("Raw API Response:", response);
-        console.log("Dữ liệu gói giá:", response.data);
-
         // Handle both direct and nested responses
         const data = response.data.data || response.data;
         if (data && data.name) {
@@ -208,8 +205,6 @@ export default {
                 })),
               }))
             : [];
-        } else {
-          alert("Không thể tải dữ liệu gói giá. Vui lòng thử lại.");
         }
       } catch (error) {
         console.error(
@@ -218,7 +213,6 @@ export default {
           error.response?.status,
           error.message
         );
-        alert("Lỗi khi tải dữ liệu gói giá. Vui lòng kiểm tra console để biết chi tiết.");
       }
     },
     addTab() {
@@ -252,8 +246,6 @@ export default {
     async submitForm() {
       const token = localStorage.getItem("token");
       try {
-        // Log payload for debugging
-        console.log("Submitting payload:", JSON.stringify(this.formData, null, 2));
 
         // Basic frontend validation
         if (!this.formData.name) {

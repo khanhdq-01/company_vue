@@ -7,7 +7,7 @@
                         <span class="sub-title">{{ about.subtitle }}</span>
                         <h2>{{ about.title }}</h2>
                         <p>{{ about.content }}</p>
-                        <p>{{ about.description }}</p>
+                        <p style="  text-align: justify;">{{ about.description }}</p>
                     </div>
                 </div>
 

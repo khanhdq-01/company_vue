@@ -5,7 +5,7 @@
                 <div class="services-content it-service-content">
                     <div class="content left-content">
                         <div class="icon">
-                            <img src="../../assets/img/icon1.png" alt="image">
+                            <img src="../../assets/img/logo_company.png" alt="image" style="width: 34px; height: auto;">
                         </div>
                         <h2>Phát triển Web & Ứng dụng Di động</h2>
                         <p>Chúng tôi chuyên thiết kế và xây dựng các giải pháp web và mobile hiện đại, tối ưu trải nghiệm người dùng và hiệu suất vận hành. Mỗi sản phẩm được phát triển với công nghệ tiên tiến, phù hợp với nhu cầu cụ thể của từng doanh nghiệp.</p>

@@ -44,12 +44,12 @@
                         <h3>Thông tin liên hệ</h3>
 
                         <ul class="footer-contact-info">
-                            <li>Địa chỉ: <a href="https://goo.gl/maps" target="_blank">Hà Nội</a></li>
-                            <li>Email: <a href="mailto:quockhanh080301@gmail.com">quockhanh080301@gmail.com</a></li>
+                            <li>Địa chỉ: <a href="https://goo.gl/maps" target="_blank">Hà Nội, Việt Nam</a></li>
+                            <li>Email: <a href="mailto:kodingsoftvn@gmail.com">kodingsoftvn@gmail.com</a></li>
                             <li>Điện thoại: <a href="tel:+84333036046">+84 333 036 046</a></li>
                         </ul>
                         <ul class="social">
-                                <li><a href="https://www.facebook.com/quockhanh080301" target="_blank"><i class="bx bxl-facebook"></i></a></li>
+                                <li><a href="https://www.facebook.com/profile.php?id=61576332803590" target="_blank"><i class="bx bxl-facebook"></i></a></li>
                                 <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
                                 <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
                                 <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>

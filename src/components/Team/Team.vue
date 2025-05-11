@@ -8,7 +8,7 @@
                     :key="memberOther.id"
                 >
                     <div class="single-team-box">
-                        <div class="image position-relative text-center mb-3">
+                        <div class="image position-relative text-center mb-3" style="margin: auto; display: block;">
                         <img
                             v-if="memberOther.image_path"
                             :src="url + memberOther.image_path"
@@ -16,7 +16,7 @@
                             class="img-fluid rounded object-fit-cover member-img"
                         />
                         <ul class="social list-inline mt-2">
-                            <li class="list-inline-item"><a href="https://www.facebook.com/" target="_blank"><i class="bx bxl-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.facebook.com/profile.php?id=61576332803590" target="_blank"><i class="bx bxl-facebook"></i></a></li>
                             <li class="list-inline-item"><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
                             <li class="list-inline-item"><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
                             <li class="list-inline-item"><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>

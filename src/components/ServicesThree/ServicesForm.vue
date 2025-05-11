@@ -10,7 +10,7 @@
   
         <div class="form-group mb-3">
           <label>Long_description</label>
-          <input v-model="long_description" type="text" class="form-control" maxlength="150" required />
+          <input v-model="long_description" type="text" class="form-control" maxlength="300" required />
         </div>
   
         <div class="form-group mb-3">
@@ -82,7 +82,6 @@
               this.editorInstance.insertHtml(`<img src="${response.url}" alt="${response.fileName}">`);
             } else {
               evt.cancel();
-              alert(response.error?.message || 'Upload failed');
             }
           } catch (error) {
             console.error('Error parsing response:', error);
@@ -123,7 +122,6 @@
               'Content-Type': 'multipart/form-data',
             },
           })
-          alert('Đã tạo service thành công!');
           this.$router.push('/services-three')
         } catch (error) {
           console.error('Submit failed:', error)

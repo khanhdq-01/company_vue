@@ -74,11 +74,11 @@
                         <h2>
                             <a href="tel:+0881306298615">+84 333036 046</a>
                             <span>HOẶC</span>
-                            <a href="mailto:quockhanh080301@gmail.com">quockhanh080301@gmail.com</a>
+                            <a href="mailto:kodingsoftvn@gmail.com">kodingsoftvn@gmail.com</a>
                         </h2>
 
                         <ul class="social">
-                                <li><a href="https://www.facebook.com/quockhanh080301" target="_blank"><i class="bx bxl-facebook"></i></a></li>
+                                <li><a href="https://www.facebook.com/profile.php?id=61576332803590" target="_blank"><i class="bx bxl-facebook"></i></a></li>
                                 <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
                                 <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
                                 <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>

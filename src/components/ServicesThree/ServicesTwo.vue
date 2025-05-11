@@ -30,8 +30,8 @@
                   v-if="service.image"
                   :src="url + service.image"
                   alt="image"
-                  class="img-fluid rounded object-fit-cover w-100 h-100"
-                  style="object-fit: cover;"
+                  class="service-img"
+                  style="object-fit: fill;"
                 />
               </div>
             </div>
@@ -109,6 +109,28 @@ export default{
           console.error("Error fetching member data:", error);
         }
       },
+      async onImageChange(event, serviceId) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const formData = new FormData();
+        formData.append("image", file);
+
+        const token = localStorage.getItem("token");
+
+        try {
+          await axios.post(`${BASE_API_URL}/service/${serviceId}`, formData, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "multipart/form-data",
+            },
+          });
+
+          this.fetchServices(this.pagination.current_page);
+        } catch (err) {
+          console.error("Image update failed:", err);
+        }
+      },
       formatDate(dateStr) {
         if (!dateStr) return ''
             const options = { year: 'numeric', month: 'short', day: 'numeric' }
@@ -120,6 +142,7 @@ export default{
 
 <style scoped>
 .single-services-box {
+  height: 90%;
   border: 1px solid #eaeaea;
   border-radius: 10px;
   overflow: hidden;

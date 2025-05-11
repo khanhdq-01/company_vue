@@ -112,12 +112,10 @@
   
           if (response.data && response.data.length > 0) {
             const videoData = response.data[0];
-            console.log('Video API response:', videoData);
   
             if (videoData && videoData.video_url) {
               this.videoUrl = videoData.video_url;
               const videoId = this.extractVideoId(this.videoUrl);
-              console.log('Extracted Video ID:', videoId);
   
               if (videoId) {
                 // Use privacy-enhanced YouTube embed URL

@@ -47,7 +47,7 @@ Default CSS
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
 
 $font-family: 'Poppins', sans-serif;
-$main-color: #13c4a1;
+$main-color: #ff612f;
 $optional-color: #ff612f;
 $black-color: #080a3c;
 $white-color: #ffffff;
@@ -1261,7 +1261,7 @@ Main Banner Area CSS
             width: 5px;
         }
         &::-webkit-scrollbar-thumb {
-            background: #13c4a1;
+            background: #ff612f;
             border-radius: 30px;
         }
         &::-webkit-scrollbar-track {
@@ -8284,7 +8284,7 @@ SM Work Area CSS
             left: 0;
 
             span {
-                background: linear-gradient(90deg, #13C4A1 10.98%, #824CF3 87.38%);
+                background: linear-gradient(90deg, #ff612f 10.98%, #824CF3 87.38%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
@@ -9019,7 +9019,7 @@ IS Features Area CSS
 
     .number {
         span {
-            background: linear-gradient(90deg, #13C4A1 10.98%, #824CF3 87.38%);
+            background: linear-gradient(90deg, #ff612f 10.98%, #824CF3 87.38%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;

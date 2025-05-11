@@ -15,9 +15,13 @@
         <span class="service-date">{{ formatDate(service.created_at) }}</span>
       </div>
 
+      <div class="service-image" v-if="isAdmin">
+        <img :src="imagePreview || getImageUrl(service.image)" alt="Service image" />
+        <input class="form-control" type="file" @change="onImageSelected" accept="image/*" />
+      </div>
 
       <div class="service-description" style="margin-top: 30px;">
-        <h2>Mô tả chính</h2>
+        <h2 v-if="isAdmin">Mô tả chính</h2>
         <div v-if="isAdmin">
           <input v-model="editorDataLong" class="form-control" placeholder="Nhập mô tả chính" />
         </div>
@@ -25,7 +29,7 @@
       </div>
 
       <div class="service-description">
-        <h2>Mô tả chi tiết</h2>
+        <h2 v-if="isAdmin">Mô tả chi tiết</h2>
         <div v-if="isAdmin">
           <textarea ref="editor" class="form-control" rows="10"></textarea>
         </div>
@@ -61,7 +65,6 @@ export default {
   setup() {
     const route = useRoute();
     const router = useRouter();
-
     const service = ref(null);
     const loading = ref(true);
     const error = ref(null);
@@ -70,6 +73,20 @@ export default {
     const editorData = ref('');
     const isAdmin = ref(false);
     const editorInstance = ref(null);
+    const selectedImage = ref(null);
+    const imagePreview = ref(null);
+
+    const onImageSelected = (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        selectedImage.value = file;
+        imagePreview.value = URL.createObjectURL(file);
+      }
+    };
+
+    const getImageUrl = (image) => {
+      return image ? `${BASE_IMAGE_URL}/services/${image}` : '';
+    };
 
     const formatDate = (dateStr) => {
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -115,27 +132,29 @@ export default {
 
       const token = localStorage.getItem("token");
       if (!token) {
-        alert("Bạn cần phải đăng nhập để thực hiện thao tác này.");
         return;
       }
 
       try {
-        await axios.put(`${BASE_API_URL}/service/${service.value.id}`, {
-          name: service.value.name,
-          title: editorDataTitle.value,
-          long_description: editorDataLong.value,
-          full_description: editorData.value,
-        }, {
+        const formData = new FormData();
+        formData.append('_method', 'PUT');
+        formData.append("name", service.value.name);
+        formData.append("title", editorDataTitle.value);
+        formData.append("long_description", editorDataLong.value);
+        formData.append("full_description", editorData.value);
+
+        if (selectedImage.value) {
+          formData.append("image", selectedImage.value);
+        }
+        await axios.post(`${BASE_API_URL}/service/${service.value.id}`, formData, {
           headers: {
             Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data"
           },
         });
-
-        alert('Đã lưu service thành công!');
         router.push('/services-three');
       } catch (err) {
         console.error('Lỗi khi lưu service:', err.response?.data || err.message);
-        alert('Lưu thất bại!');
       }
     };
 
@@ -157,11 +176,9 @@ export default {
             Authorization: `Bearer ${token}`,
           },
         });
-        alert('Đã xóa service thành công!');
         router.push('/services-three');
       } catch (err) {
         console.error('Lỗi khi xóa service:', err.response?.data || err.message);
-        alert('Xóa thất bại!');
       }
     };
 
@@ -204,10 +221,13 @@ export default {
       editorDataTitle,
       editorDataLong,
       editorData,
+      getImageUrl,
       isAdmin,
       saveService,
       deleteService,
       formatDate,
+      onImageSelected,
+      imagePreview,
     };
   },
 };

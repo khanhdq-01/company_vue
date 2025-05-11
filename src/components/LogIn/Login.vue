@@ -18,11 +18,11 @@
                     </router-link>
                   </div>
   
-                  <h3>Welcome back</h3>
+                  <!-- <h3>Welcome back</h3>
                   <p>
                     New to Kingsoft?
                     <router-link to="/sign-up">Sign up</router-link>
-                  </p>
+                  </p> -->
   
                   <form @submit.prevent="login">
                     <div class="form-group">
@@ -49,16 +49,13 @@
                       <i class="bx bxs-hot"></i>Login<span></span>
                     </button>
   
-                    <div class="forgot-password">
+                    <!-- <div class="forgot-password">
                       <a href="#">Forgot Password?</a>
-                    </div>
-  
+                    </div> -->
+                      
                     <div class="connect-with-social">
-                      <button type="button" class="facebook">
-                        <i class="bx bxl-facebook"></i> Connect with Facebook
-                      </button>
-                      <button type="button" class="google">
-                        <i class="bx bxl-google"></i> Connect with Google
+                      <button type="button">
+                        <router-link to="/">Quay Lại Trang Chủ</router-link>
                       </button>
                     </div>
                   </form>

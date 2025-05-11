@@ -54,9 +54,6 @@ export default {
           },
         });
 
-        // Log raw response for debugging
-        console.log("Raw API Response:", response);
-
         // Handle single object or array response
         const data = response.data;
         if (data) {
@@ -65,8 +62,6 @@ export default {
         } else {
           this.pricings = [];
         }
-
-        console.log("Pricings:", this.pricings);
       } catch (error) {
         console.error(
           "Lỗi khi lấy dữ liệu gói giá:",
