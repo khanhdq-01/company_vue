@@ -15,9 +15,6 @@
         <span class="service-date">{{ formatDate(service.created_at) }}</span>
       </div>
 
-      <div class="service-image" v-if="service.image">
-        <img :src="getImageUrl(service.image)" alt="Service image" />
-      </div>
 
       <div class="service-description" style="margin-top: 30px;">
         <h2>Mô tả chính</h2>
@@ -73,10 +70,6 @@ export default {
     const editorData = ref('');
     const isAdmin = ref(false);
     const editorInstance = ref(null);
-
-    const getImageUrl = (image) => {
-      return image ? `${BASE_IMAGE_URL}/services/${image}` : '';
-    };
 
     const formatDate = (dateStr) => {
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -212,7 +205,6 @@ export default {
       editorDataLong,
       editorData,
       isAdmin,
-      getImageUrl,
       saveService,
       deleteService,
       formatDate,

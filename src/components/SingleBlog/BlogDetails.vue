@@ -15,10 +15,6 @@
         <span class="blog-date">{{ formatDate(blog.created_at) }}</span>
       </div>
 
-      <div class="blog-image" v-if="blog.image">
-        <img :src="getImageUrl(blog.image)" alt="Blog image" />
-      </div>
-
       <div class="blog-description">
         <div v-if="isAdmin">
           <textarea ref="editor" class="form-control" rows="10"></textarea>
@@ -62,10 +58,6 @@ export default {
     const editorDataTitle = ref('');
     const isAdmin = ref(false);
     const editorInstance = ref(null);
-
-    const getImageUrl = (image) => {
-      return image ? `${BASE_IMAGE_URL}/blogs/${image}` : '';
-    };
 
     const formatDate = (dateStr) => {
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -198,7 +190,6 @@ export default {
       editorData,
       editorDataTitle,
       isAdmin,
-      getImageUrl,
       saveBlog,
       deleteBlog,
       formatDate,
