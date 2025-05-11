@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     async fetchPricings() {
-      const token = localStorage.getItem("token");
+      const token = sessionStorage.getItem("token");
       try {
         const response = await axios.get("http://127.0.0.1:8000/api/pricing-plans", {
           headers: {
@@ -78,7 +78,7 @@ export default {
     },
     async deletePricing(id) {
       if (confirm("Bạn có chắc chắn muốn xóa gói giá này không?")) {
-        const token = localStorage.getItem("token");
+        const token = sessionStorage.getItem("token");
         try {
           await axios.delete(`http://127.0.0.1:8000/api/pricing-plans/${id}`, {
             headers: {

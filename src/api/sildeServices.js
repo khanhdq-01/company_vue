@@ -9,17 +9,25 @@ export const getSlideData = async () => {
   }
 };
 
+export const createSlide = async (data) => {
+  try {
+    const response = await instanceApi.post(`/slide`, data, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    return response?.data;
+  } catch (error) {
+    return handleApiError(error);
+  }
+};
 export const updateSlide = async (id, data) => {
   try {
-    const response = await instanceApi.post(
-      `/slide/${id}`,
-      data,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      }
-    );
+    const response = await instanceApi.post(`/slide/${id}`, data, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
     return response?.data;
   } catch (error) {
     return handleApiError(error);

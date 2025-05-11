@@ -166,7 +166,6 @@ export default {
   },
   methods: {
     startEditing(slide) {
-    
       this.formData = {
         id: slide.id,
         title: slide.title,

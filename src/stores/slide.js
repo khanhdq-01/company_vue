@@ -1,5 +1,10 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/vue-query";
-import { deleteSlide, getSlideData, updateSlide } from "../api/sildeServices";
+import {
+  createSlide,
+  deleteSlide,
+  getSlideData,
+  updateSlide,
+} from "../api/sildeServices";
 import { handleApiError } from "../api/instanceApi";
 import { toast } from "vue3-toastify";
 
@@ -35,6 +40,28 @@ export const useSlideStore = () => {
     onError: (error) => handleApiError(error),
   });
 
+  const createMutation = useMutation({
+    mutationFn: async (data) => {
+      return await toast.promise(createSlide(data), {
+        pending: "Đang tạo slide",
+        success: {
+          render() {
+            return `Tạo slide thành công!`;
+          },
+        },
+        error: {
+          render() {
+            return `Tạo slide thất bại!`;
+          },
+        },
+      });
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["slide-data"] });
+    },
+    onError: (error) => handleApiError(error),
+  });
+
   const deleteMutation = useMutation({
     mutationFn: async (id) => {
       return await toast.promise(deleteSlide(id), {
@@ -58,6 +85,7 @@ export const useSlideStore = () => {
   });
   return {
     slideData,
+    createSlide: createMutation.mutate,
     deleteSlide: deleteMutation.mutate,
     updateSlide: updateMutation.mutate,
   };

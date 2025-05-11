@@ -54,6 +54,7 @@ $white-color: #ffffff;
 $paragraph-color: #4a6f8a;
 $font-size: 15px;
 $transition: .5s;
+$shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 
 body {
     color: $black-color;
@@ -420,6 +421,7 @@ Navbar Area CSS
     background-color: transparent;
     height: auto;
     z-index: 1040;
+    box-shadow: $shadow;
     &.is-sticky {
         position: fixed;
         top: 0;
@@ -526,7 +528,7 @@ Navbar Area CSS
 
                 a {
                     font: {
-                        size: $font-size;
+                        size: 22px;
                         weight: 500;
                     };
                     color: #4a6f8a;
@@ -901,7 +903,8 @@ Main Banner Area CSS
 .main-banner {
     position: relative;
     z-index: 1;
-    margin-top: 85px;
+    margin-top: 94px;
+    max-height: calc(100vh - 94px);
 
     .container-fluid {
         padding: {
@@ -1016,7 +1019,7 @@ Main Banner Area CSS
     }
 }
 .banner-image {
-    height: 100vh;
+    height: calc(100vh - 94px);
     width: 100%;
     border-radius: 0 0 0 80px;
     position: relative;
@@ -10434,5 +10437,16 @@ Footer Area CSS
         animation-timing-function: linear;
     }
 }
+
+.image-preview-container {
+    max-width: 300px;
+    margin-top: 10px;
+  }
+  
+  .img-thumbnail {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
 
 /* End "SEO Marketing Demo" "IT Solution Demo" "Marketing Experts Demo" "CSS" */

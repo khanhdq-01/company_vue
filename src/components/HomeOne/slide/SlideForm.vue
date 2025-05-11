@@ -1,7 +1,6 @@
 <template>
   <div class="container mt-5">
-    <h2 v-if="isEdit">Edit Slide</h2>
-    <h2 v-else>Add New slide</h2>
+    <h2>Add New slide</h2>
 
     <form @submit.prevent="submitForm">
       <div class="mb-3">
@@ -32,106 +31,69 @@
           class="form-control"
           @change="handleImageChange"
           id="image"
-          :required="!isEdit"
+          accept="image/*"
+          required
         />
-        <small v-if="isEdit" class="text-muted"
-          >Leave empty to keep current image</small
-        >
+      </div>
+
+      <div class="mb-3" v-if="imagePreview">
+        <label class="form-label">Image Preview</label>
+        <div class="image-preview-container">
+          <img :src="imagePreview" alt="Preview" class="img-thumbnail" />
+        </div>
       </div>
 
       <div class="mb-3">
-        <button type="submit" class="btn btn-primary">
-          {{ isEdit ? "Update" : "Save" }}
-        </button>
-        <router-link to="/slide-list" class="btn btn-secondary ms-2"
-          >Cancel</router-link
-        >
+        <button type="submit" class="btn btn-primary">Save</button>
+        <router-link to="/slide-list" class="btn btn-secondary ms-2">Cancel</router-link>
       </div>
     </form>
   </div>
 </template>
 
 <script>
-import axios from "axios";
+import { useSlideStore } from "../../../stores/slide";
+import { computed } from "vue";
 
 export default {
   name: "slideForm",
-  props: {
-    isEdit: {
-      type: Boolean,
-      default: false,
-    },
-    slideId: {
-      type: [String, Number],
-      default: null,
-    },
-  },
   data() {
-    return{
+    return {
       formData: {
-        title: "",
-        description: "",
-        image_path: null,
+        title: '',
+        description: '',
+        image_path: null
       },
+      imagePreview: null,
       url: `${process.env.VUE_APP_FILE_URL}/slides/`,
     };
   },
-  mounted() {
-    if (this.isEdit) {
-      this.fetchslide();
-    }
+  setup() {
+    const { slideData, createSlide } = useSlideStore();
+    const slides = computed(() => slideData.value?.data || []);
+
+    return {
+      slides,
+      createSlide,
+    };
   },
   methods: {
-    async fetchslide() {
-      const token = sessionStorage.getItem("token");
-      try {
-        const response = await axios.get(
-          `http://127.0.0.1:8000/api/slide/${this.slideId}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        this.formData.title = response.data.title;
-        this.formData.description = response.data.description;
-      } catch (error) {
-        console.error("Error fetching slide:", error);
+    handleImageChange(event) {
+      const file = event.target.files[0];
+      if (file) {
+        this.formData.image_path = file;
+        // Tạo URL để preview ảnh
+        this.imagePreview = URL.createObjectURL(file);
       }
     },
-    handleImageChange(event) {
-      this.formData.image_path = event.target.files[0];
-    },
     async submitForm() {
-      const token = sessionStorage.getItem("token");
       let payload = new FormData();
       payload.append("title", this.formData.title);
       payload.append("description", this.formData.description);
-      if (this.formData.image_path instanceof File) {
-        payload.append("image_path", this.formData.image_path);
-      }
+      payload.append("image_path", this.formData.image_path);
 
       try {
-        if (this.isEdit) {
-          payload.append("_method", "PUT");
-          await axios.post(
-            `http://127.0.0.1:8000/api/slide/${this.slideId}`,
-            payload,
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "multipart/form-data",
-              },
-            }
-          );
-        } else {
-          await axios.post("http://127.0.0.1:8000/api/slide", payload, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "multipart/form-data",
-            },
-          });
-        }
+        this.createSlide(payload);
         this.$router.push("/slide-list");
       } catch (error) {
         console.error("Error saving slide:", error);

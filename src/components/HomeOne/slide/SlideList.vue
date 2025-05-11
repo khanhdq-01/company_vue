@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-5">
     <h2>Management Slides</h2>
-    <router-link to="/slide/add" class="btn btn-primary mb-3"
+    <router-link v-if="slides.length === 0" to="/slide/add" class="btn btn-primary mb-3"
       >Add New Slide</router-link
     >
     <table class="table table-striped">
@@ -27,14 +27,6 @@
             />
           </td>
           <td>
-            <router-link
-              :to="{ 
-                path: '/slide/edit/' + slide.id,
-                state: { slide: slide }
-              }"
-              class="btn btn-sm btn-warning me-2"
-              >Edit</router-link
-            >
             <button
               @click="deleteSlides(slide.id)"
               class="btn btn-sm btn-danger"

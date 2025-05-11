@@ -24,12 +24,12 @@ export const useAuthStore = () => {
       return await toast.promise(login(credentials), {
         pending: "Đang đăng nhập...",
         success: {
-          render({ data }) {
+          render() {
             return  `Đăng nhập thành công!`;
           },
         },
         error: {
-          render({ data }) {
+          render() {
             return `Đăng nhập thất bại!`;
           },
         },
@@ -56,12 +56,12 @@ export const useAuthStore = () => {
       return await toast.promise(logout(), {
         pending: "Đang đăng xuất",
         success: {
-          render({ data }) {
+          render() {
             return  "Đăng xuất thành công!";
           },
         },
         error: {
-          render({ data }) {
+          render() {
             return "Đăng xuất thất bại!";
           },
         },
