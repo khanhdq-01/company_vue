@@ -7,7 +7,6 @@
               Add New Service
             </router-link>
           </div>
-        
         <div
           class="col-lg-4 col-md-6"
           v-for="service in serviceData"
@@ -98,6 +97,7 @@ export default{
               Authorization: `Bearer ${token}`,
             },
           });
+
           this.serviceData = response.data.data;
           this.pagination = {
             current_page: response.data.current_page,
