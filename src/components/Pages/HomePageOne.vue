@@ -4,7 +4,7 @@
         <MainBanner />
         <Features />
         <MobileDevelopment />
-        <HostingServices />
+        <!-- <HostingServices /> -->
         <WhyChooseUs />
         <AmazingFeatures />
         <PricingPlan />
@@ -22,7 +22,7 @@ import Navbar from '../Layouts/Navbar';
 import MainBanner from '../HomeOne/MainBanner';
 import Features from '../Common/Features';
 import MobileDevelopment from '../HomeOne/MobileDevelopment';
-import HostingServices from '../HomeOne/HostingServices';
+// import HostingServices from '../HomeOne/HostingServices';
 import WhyChooseUs from '../Common/WhyChooseUs';
 import AmazingFeatures from '../HomeOne/AmazingFeatures';
 import PricingPlan from '../Common/PricingPlan';
@@ -40,7 +40,7 @@ export default {
         MainBanner,
         Features,
         MobileDevelopment,
-        HostingServices,
+        // HostingServices,
         WhyChooseUs,
         AmazingFeatures,
         PricingPlan,

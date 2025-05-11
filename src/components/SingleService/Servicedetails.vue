@@ -17,7 +17,7 @@
 
 
       <div class="service-description" style="margin-top: 30px;">
-        <h2>Mô tả chính</h2>
+        <h2 v-if="isAdmin">Mô tả chính</h2>
         <div v-if="isAdmin">
           <input v-model="editorDataLong" class="form-control" placeholder="Nhập mô tả chính" />
         </div>
@@ -25,7 +25,7 @@
       </div>
 
       <div class="service-description">
-        <h2>Mô tả chi tiết</h2>
+        <h2 v-if="isAdmin">Mô tả chi tiết</h2>
         <div v-if="isAdmin">
           <textarea ref="editor" class="form-control" rows="10"></textarea>
         </div>
@@ -115,7 +115,6 @@ export default {
 
       const token = localStorage.getItem("token");
       if (!token) {
-        alert("Bạn cần phải đăng nhập để thực hiện thao tác này.");
         return;
       }
 
@@ -130,12 +129,9 @@ export default {
             Authorization: `Bearer ${token}`,
           },
         });
-
-        alert('Đã lưu service thành công!');
         router.push('/services-three');
       } catch (err) {
         console.error('Lỗi khi lưu service:', err.response?.data || err.message);
-        alert('Lưu thất bại!');
       }
     };
 
@@ -157,11 +153,9 @@ export default {
             Authorization: `Bearer ${token}`,
           },
         });
-        alert('Đã xóa service thành công!');
         router.push('/services-three');
       } catch (err) {
         console.error('Lỗi khi xóa service:', err.response?.data || err.message);
-        alert('Xóa thất bại!');
       }
     };
 

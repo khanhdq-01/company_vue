@@ -54,6 +54,7 @@ $white-color: #ffffff;
 $paragraph-color: #4a6f8a;
 $font-size: 15px;
 $transition: .5s;
+$shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 
 body {
     color: $black-color;
@@ -245,13 +246,13 @@ p {
     }
 }
 .optional-btn {
-    border: none;
+    border: 2px solid #080a3c;
     position: relative;
     display: inline-block;
     text-align: center;
     overflow: hidden;
     z-index: 1;
-    color: $black-color;
+    color: $black-color !important;
     background-color: transparent;
     transition: $transition;
     border-radius: 5px;
@@ -272,7 +273,7 @@ p {
         transform: translateY(-50%);
         font-size: 20px;
         transition: $transition;
-        color: $black-color;
+        color: $black-color !important;
     }
     &::before {
         content: '';
@@ -298,7 +299,7 @@ p {
         border-radius: 5px;
     }
     &:hover, &:focus {
-        color: $white-color;
+        color: $white-color !important;
 
         &::before {
             border-color: $optional-color;
@@ -306,6 +307,9 @@ p {
         span {
             width: 225%;
             height: 562.5px;
+        }
+        i {
+            color: $white-color !important;
         }
     }
 }
@@ -417,6 +421,7 @@ Navbar Area CSS
     background-color: transparent;
     height: auto;
     z-index: 1040;
+    box-shadow: $shadow;
     &.is-sticky {
         position: fixed;
         top: 0;
@@ -523,7 +528,7 @@ Navbar Area CSS
 
                 a {
                     font: {
-                        size: $font-size;
+                        size: 22px;
                         weight: 500;
                     };
                     color: #4a6f8a;
@@ -898,6 +903,8 @@ Main Banner Area CSS
 .main-banner {
     position: relative;
     z-index: 1;
+    margin-top: 94px;
+    max-height: calc(100vh - 94px);
 
     .container-fluid {
         padding: {
@@ -1012,7 +1019,7 @@ Main Banner Area CSS
     }
 }
 .banner-image {
-    height: 100vh;
+    height: calc(100vh - 94px);
     width: 100%;
     border-radius: 0 0 0 80px;
     position: relative;
@@ -10430,5 +10437,16 @@ Footer Area CSS
         animation-timing-function: linear;
     }
 }
+
+.image-preview-container {
+    max-width: 300px;
+    margin-top: 10px;
+  }
+  
+  .img-thumbnail {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
 
 /* End "SEO Marketing Demo" "IT Solution Demo" "Marketing Experts Demo" "CSS" */

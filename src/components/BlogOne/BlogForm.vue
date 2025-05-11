@@ -70,7 +70,6 @@ export default {
 
         try {
           const response = JSON.parse(xhr.responseText);
-          console.log('[CKEditor] fileUploadResponse:', response);
 
           if (response.uploaded === 1) {
             data.url = response.url;
@@ -79,7 +78,6 @@ export default {
             this.editorInstance.insertHtml(`<img src="${response.url}" alt="${response.fileName}">`);
           } else {
             evt.cancel();
-            alert(response.error?.message || 'Upload failed');
           }
         } catch (error) {
           console.error('Error parsing response:', error);
@@ -88,12 +86,10 @@ export default {
 
       this.editorInstance.on('change', () => {
         this.editorData = this.editorInstance.getData();
-        console.log('[CKEditor Change] editorData:', this.editorData);
       });
 
       this.editorInstance.on('instanceReady', () => {
         this.editorData = this.editorInstance.getData();
-        console.log('[CKEditor Ready] editorData:', this.editorData);
       });
     }
   },
@@ -121,8 +117,6 @@ export default {
             'Content-Type': 'multipart/form-data',
           },
         })
-
-        alert('Blog created successfully')
         this.$router.push('/blog-one')
       } catch (error) {
         console.error('Submit failed:', error)

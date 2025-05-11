@@ -102,7 +102,6 @@ export default {
 
       const token = localStorage.getItem("token");
       if (!token) {
-        alert("Bạn cần phải đăng nhập để thực hiện thao tác này.");
         return;
       }
 
@@ -116,12 +115,9 @@ export default {
             Authorization: `Bearer ${token}`,
           },
         });
-
-        alert('Đã lưu bài viết thành công!');
         router.push('/blog-one');
       } catch (err) {
         console.error('Lỗi khi lưu bài viết:', err.response?.data || err.message);
-        alert('Lưu thất bại!');
       }
     };
 
@@ -143,11 +139,9 @@ export default {
             Authorization: `Bearer ${token}`,
           },
         });
-        alert('Đã xóa bài viết thành công!');
         router.push('/blog-one');
       } catch (err) {
         console.error('Lỗi khi xóa bài viết:', err.response?.data || err.message);
-        alert('Xóa thất bại!');
       }
     };
 
