@@ -7,62 +7,62 @@
                     <div class="single-footer-widget">
                         <div class="logo">
                             <router-link to="/">
-                                <img src="../../assets/img/white-logo.png" alt="image">
+                                <img src="../../assets/img/logo_kingsoft_footer.png" alt="image">
                             </router-link>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>KodingSoft là công ty chuyên cung cấp các giải pháp công nghệ tiên tiến, từ phát triển phần mềm đến các dịch vụ hỗ trợ kỹ thuật, nhằm giúp doanh nghiệp tối ưu hóa quy trình và nâng cao hiệu quả công việc.</p>
                     </div>
                 </div>
 
                 <div class="col-lg-2 col-md-6 col-sm-6">
                     <div class="single-footer-widget">
-                        <h3>Company</h3>
+                        <h3>Công Ty</h3>
 
                         <ul class="services-list">
-                            <li><router-link to="/about">About Us</router-link></li>
-                            <li><router-link to="/services-one">Services</router-link></li>
-                            <li><router-link to="/features-one">Features</router-link></li>
-                            <li><router-link to="/pricing">Our Pricing</router-link></li>
-                            <li><router-link to="/blog-one">Latest News</router-link></li>
+                            <li><router-link to="/about">Giới thiệu</router-link></li>
+                            <li><router-link to="/services-one">Dịch vụ</router-link></li>
+                            <li><router-link to="/features-one">Tính năng</router-link></li>
+                            <li><router-link to="/pricing">Giá cả</router-link></li>
+                            <li><router-link to="/blog-one">Tin tức mới nhất</router-link></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-lg-2 col-md-6 col-sm-6">
                     <div class="single-footer-widget">
-                        <h3>Support</h3>
+                        <h3>Hỗ Trợ</h3>
 
                         <ul class="support-list">
-                            <li><router-link to="/faq">FAQ's</router-link></li>
+                            <li><router-link to="/faq">Câu hỏi thường gặp</router-link></li>
                             <li><router-link to="/blog-one">Blog</router-link></li>
-                            <li><router-link to="/single-blog">Blog Details</router-link></li>
-                            <li><router-link to="/about">Community</router-link></li>
-                            <li><router-link to="/contact">Contact Us</router-link></li>
+                            <li><router-link to="/single-blog">Chi tiết Blog</router-link></li>
+                            <li><router-link to="/about">Cộng đồng</router-link></li>
+                            <li><router-link to="/contact">Liên hệ</router-link></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-footer-widget">
-                        <h3>Contact Info</h3>
+                        <h3>Thông tin liên hệ</h3>
 
                         <ul class="footer-contact-info">
-                            <li>Location: <a href="https://goo.gl/maps/MQ78iGP5g9VgZcJ38" target="_blank">6th Floor, Elegant Tower, York, USA</a></li>
-                            <li>Email: <a href="mailto:hello@striki.com">hello@striki.com</a></li>
-                            <li>Phone: <a href="tel:+321754754">+0 (321) 984 754</a></li>
+                            <li>Địa chỉ: <a href="https://goo.gl/maps" target="_blank">Hà Nội, Việt Nam</a></li>
+                            <li>Email: <a href="mailto:kodingsoftvn@gmail.com">kodingsoftvn@gmail.com</a></li>
+                            <li>Điện thoại: <a href="tel:+84333036046">+84 333 036 046</a></li>
                         </ul>
                         <ul class="social">
-                            <li><a href="https://www.facebook.com/" target="_blank"><i class="bx bxl-facebook"></i></a></li>
-                            <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
-                            <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
-                            <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>
+                                <li><a href="https://www.facebook.com/profile.php?id=61576332803590" target="_blank"><i class="bx bxl-facebook"></i></a></li>
+                                <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
+                                <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
+                                <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <div class="copyright-area">
-                <p>&copy; <a href="http://hibotheme.com/" target="_blank">HiboTheme.com</a> All rights reserved by Striki</p>
+                <p>© Bảo lưu tất cả quyền lợi bởi KodingSoft</p>
             </div>
         </div>
     </footer>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NavbarStyleTwo />
+        <Navbar />
         <PageTitle 
             pageTitle="Team" 
             pageDesc="Meet Our experts always ready to help you" 
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import NavbarStyleTwo from '../Layouts/NavbarStyleTwo';
+import Navbar from '../Layouts/Navbar';
 import PageTitle from '../Common/PageTitle';
 import Team from '../Team/Team'
 import OurLovingClients from '../Common/OurLovingClients'
@@ -22,7 +22,7 @@ import FooterStyleOne from '../Layouts/FooterStyleOne'
 
 export default {
     components: {
-        NavbarStyleTwo,
+        Navbar,
         PageTitle,
         Team,
         OurLovingClients,

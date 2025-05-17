@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NavbarStyleTwo />
+        <Navbar />
         <MainBanner />
         <Featured />
         <AboutUs />
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import NavbarStyleTwo from '../Layouts/NavbarStyleTwo';
+import Navbar from '../Layouts/Navbar';
 import MainBanner from '../HomeEight/MainBanner';
 import Featured from '../HomeEight/Featured';
 import AboutUs from '../HomeEight/AboutUs';
@@ -33,7 +33,7 @@ import Footer from '../Layouts/Footer'
 
 export default {
     components: {
-        NavbarStyleTwo,
+        Navbar,
         MainBanner,
         Featured,
         AboutUs,

@@ -3,7 +3,7 @@
         <div class="row m-0">
             <div class="col-lg-6 col-md-12 p-0">
                 <div class="signup-image">
-                    <img src="../../assets/img/signup-bg.jpg" alt="image">
+                    <img src="../../assets/img/logo_kingsoft_header.png" alt="image">
                 </div>
             </div>
 
@@ -14,7 +14,7 @@
                             <div class="signup-form">
                                 <div class="logo">
                                     <router-link to="/">
-                                        <img src="../../assets/img/logo.png" alt="image">
+                                        <img src="../../assets/img/logo_kingsoft_header.png" alt="image">
                                     </router-link>
                                 </div>
 

@@ -2,12 +2,12 @@
     <div class="free-trial-area ptb-100 bg-f4f5fe">
         <div class="container">
             <div class="free-trial-content">
-                <h2>We always try to be the best support to you as possible</h2>
-                <p>Qualify your leads & recognize the value of word your customer will love you</p>
+                <h2>Chúng tôi luôn cố gắng cung cấp hỗ trợ tốt nhất có thể cho bạn</h2>
+                <p>Đảm bảo chất lượng khách hàng tiềm năng và nhận diện giá trị mà khách hàng sẽ yêu thích</p>
 
                 <router-link to="/contact" class="default-btn">
                     <i class="bx bxs-hot"></i> 
-                    Contact Us
+                    Liên hệ với chúng tôi
                     <span></span>
                 </router-link>
             </div>

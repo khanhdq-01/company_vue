@@ -4,24 +4,24 @@
             <div class="col-lg-3 col-6 col-sm-6">
                 <div class="single-funfacts funfact-style-two">
                     <i class='bx bx-list-check'></i>
-                    <h3>850+</h3>
-                    <p>Completed Projects</p>
+                    <h3>100+</h3>
+                    <p>Dự án hoàn thành</p>
                 </div>
             </div>
 
             <div class="col-lg-3 col-6 col-sm-6">
                 <div class="single-funfacts funfact-style-two">
                     <i class='bx bx-smile'></i>
-                    <h3>850+</h3>
-                    <p>Happy Clients</p>
+                    <h3>100+</h3>
+                    <p>Khách hàng hài lòng</p>
                 </div>
             </div>
 
             <div class="col-lg-3 col-6 col-sm-6">
                 <div class="single-funfacts funfact-style-two">
                     <i class='bx bx-grid-small'></i>
-                    <h3>120+</h3>
-                    <p>Ongoing Projects</p>
+                    <h3>20+</h3>
+                    <p>Dự án đang thực hiện</p>
                 </div>
             </div>
 
@@ -29,7 +29,7 @@
                 <div class="single-funfacts funfact-style-two">
                     <i class='bx bxs-award'></i>
                     <h3>50+</h3>
-                    <p>Winning Awards</p>
+                    <p>Giải thưởng đã đạt được</p>
                 </div>
             </div>
         </div>

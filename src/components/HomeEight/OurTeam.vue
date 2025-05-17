@@ -13,7 +13,7 @@
                             <img src="../../assets/img/team-image/9.jpg" alt="team-image">
 
                             <ul class="social-link">
-                                <li><a href="https://www.facebook.com/" target="_blank"><i class="bx bxl-facebook"></i></a></li>
+                                <li><a href="https://www.facebook.com/profile.php?id=61576332803590" target="_blank"><i class="bx bxl-facebook"></i></a></li>
                                 <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
                                 <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
                                 <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>
@@ -34,7 +34,7 @@
                             <img src="../../assets/img/team-image/10.jpg" alt="team-image">
 
                             <ul class="social-link">
-                                <li><a href="https://www.facebook.com/" target="_blank"><i class="bx bxl-facebook"></i></a></li>
+                                <li><a href="https://www.facebook.com/profile.php?id=61576332803590" target="_blank"><i class="bx bxl-facebook"></i></a></li>
                                 <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
                                 <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
                                 <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>
@@ -55,7 +55,7 @@
                             <img src="../../assets/img/team-image/11.jpg" alt="team-image">
 
                             <ul class="social-link">
-                                <li><a href="https://www.facebook.com/" target="_blank"><i class="bx bxl-facebook"></i></a></li>
+                                <li><a href="https://www.facebook.com/profile.php?id=61576332803590" target="_blank"><i class="bx bxl-facebook"></i></a></li>
                                 <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
                                 <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
                                 <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>
@@ -76,7 +76,7 @@
                             <img src="../../assets/img/team-image/12.jpg" alt="team-image">
 
                             <ul class="social-link">
-                                <li><a href="https://www.facebook.com/" target="_blank"><i class="bx bxl-facebook"></i></a></li>
+                                <li><a href="https://www.facebook.com/profile.php?id=61576332803590" target="_blank"><i class="bx bxl-facebook"></i></a></li>
                                 <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
                                 <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
                                 <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>

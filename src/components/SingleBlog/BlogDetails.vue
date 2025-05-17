@@ -1,313 +1,247 @@
 <template>
-    <div class="blog-details-area ptb-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-12">
-                    <div class="blog-details-desc">
-                        <div class="article-image">
-                            <img src="../../assets/img/blog-image/1.jpg" alt="image">
-                        </div>
-
-                        <div class="article-content">
-                            <div class="entry-meta">
-                                <ul>
-                                    <li><i class='bx bx-time'></i> <a href="#">September 31, 2022</a></li>
-                                    <li><i class='bx bx-user'></i> <a href="#">Steven Smith</a></li>
-                                </ul>
-                            </div>
-
-                            <h3>50 world-changing people -- We lost in the 2010s</h3>
-
-                            <p>Quuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quia non numquam eius modi tempora incidunt ut labore et dolore magnam dolor sit amet, consectetur adipisicing.</p>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in  sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-
-                            <blockquote class="wp-block-quote">
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-
-                                <cite>Tom Cruise</cite>
-                            </blockquote>
-
-                            <p>Quuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quia non numquam eius modi tempora incidunt ut labore et dolore magnam dolor sit amet, consectetur adipisicing.</p>
-
-                            <ul class="wp-block-gallery columns-3">
-                                <li class="blocks-gallery-item">
-                                    <figure>
-                                        <img src="../../assets/img/blog-image/8.jpg" alt="image">
-                                    </figure>
-                                </li>
-
-                                <li class="blocks-gallery-item">
-                                    <figure>
-                                        <img src="../../assets/img/blog-image/7.jpg" alt="image">
-                                    </figure>
-                                </li>
-
-                                <li class="blocks-gallery-item">
-                                    <figure>
-                                        <img src="../../assets/img/blog-image/9.jpg" alt="image">
-                                    </figure>
-                                </li>
-                            </ul>
-
-                            <h3>Four major elements that we offer:</h3>
-
-                            <ul class="features-list">
-                                <li><i class='bx bx-check-double'></i> Scientific Skills For getting a better result</li>
-                                <li><i class='bx bx-check-double'></i> Communication Skills to getting in touch</li>
-                                <li><i class='bx bx-check-double'></i> A Career Overview opportunity Available</li>
-                                <li><i class='bx bx-check-double'></i> A good Work Environment For work</li>
-                            </ul>
-
-                            <h3>Setting the mood with incense</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in  sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-
-                            <h3>The Rise Of Smarketing And Why You Need It</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-                        </div>
-
-                        <div class="article-footer">
-                            <div class="article-tags">
-                                <a href="#">Fashion</a>
-                                <a href="#">Smart</a>
-                                <a href="#">Marketing</a>
-                                <a href="#">Games</a>
-                                <a href="#">Travel</a>
-                            </div>
-                        </div>
-
-                        <div class="striki-post-navigation">
-                            <div class="prev-link-wrapper">
-                                <div class="info-prev-link-wrapper">
-                                    <a href="#">
-                                        <span class="image-prev">
-                                            <img src="../../assets/img/blog-image/2.jpg" alt="image">
-                                            <span class="post-nav-title">Prev</span>
-                                        </span>
-    
-                                        <span class="prev-link-info-wrapper">
-                                            <span class="prev-title">Don't buy a tech gift until you read these rules</span>
-                                            <span class="meta-wrapper">
-                                                <span class="date-post">January 21, 2022</span>
-                                            </span>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-    
-                            <div class="next-link-wrapper">
-                                <div class="info-next-link-wrapper">
-                                    <a href="#">
-                                        <span class="next-link-info-wrapper">
-                                            <span class="next-title">The golden rule of buying a phone as a gift</span>
-                                            <span class="meta-wrapper">
-                                                <span class="date-post">January 21, 2022</span>
-                                            </span>
-                                        </span>
-    
-                                        <span class="image-next">
-                                            <img src="../../assets/img/blog-image/3.jpg" alt="image">
-                                            <span class="post-nav-title">Next</span>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="comments-area">
-                            <h3 class="comments-title">2 Comments:</h3>
-
-                            <ol class="comment-list">
-                                <li class="comment">
-                                    <div class="comment-body">
-                                        <footer class="comment-meta">
-                                            <div class="comment-author vcard">
-                                                <img src="../../assets/img/author-image//1.jpg" class="avatar" alt="image">
-                                                <b class="fn">John Jones</b>
-                                                <span class="says">says:</span>
-                                            </div>
-
-                                            <div class="comment-metadata">
-                                                <a href="#">
-                                                    April 24, 2022 at 10:59 am
-                                                </a>
-                                            </div>
-                                        </footer>
-
-                                        <div class="comment-content">
-                                            <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</p>
-                                        </div>
-
-                                        <div class="reply">
-                                            <a href="#" class="comment-reply-link">Reply</a>
-                                        </div>
-                                    </div>
-
-                                    <ol class="children">
-                                        <li class="comment">
-                                            <div class="comment-body">
-                                                <footer class="comment-meta">
-                                                    <div class="comment-author vcard">
-                                                        <img src="../../assets/img/author-image//2.jpg" class="avatar" alt="image">
-                                                        <b class="fn">Steven Smith</b>
-                                                        <span class="says">says:</span>
-                                                    </div>
-        
-                                                    <div class="comment-metadata">
-                                                        <a href="#">
-                                                            April 24, 2022 at 10:59 am
-                                                        </a>
-                                                    </div>
-                                                </footer>
-        
-                                                <div class="comment-content">
-                                                    <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</p>
-                                                </div>
-        
-                                                <div class="reply">
-                                                    <a href="#" class="comment-reply-link">Reply</a>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <ol class="children">
-                                            <li class="comment">
-                                                <div class="comment-body">
-                                                    <footer class="comment-meta">
-                                                        <div class="comment-author vcard">
-                                                            <img src="../../assets/img/author-image//3.jpg" class="avatar" alt="image">
-                                                            <b class="fn">Sarah Taylor</b>
-                                                            <span class="says">says:</span>
-                                                        </div>
-            
-                                                        <div class="comment-metadata">
-                                                            <a href="#">
-                                                                April 24, 2022 at 10:59 am
-                                                            </a>
-                                                        </div>
-                                                    </footer>
-            
-                                                    <div class="comment-content">
-                                                        <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</p>
-                                                    </div>
-            
-                                                    <div class="reply">
-                                                        <a href="#" class="comment-reply-link">Reply</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ol>
-                                    </ol>
-                                </li>
-
-                                <li class="comment">
-                                    <div class="comment-body">
-                                        <footer class="comment-meta">
-                                            <div class="comment-author vcard">
-                                                <img src="../../assets/img/author-image//4.jpg" class="avatar" alt="image">
-                                                <b class="fn">John Doe</b>
-                                                <span class="says">says:</span>
-                                            </div>
-
-                                            <div class="comment-metadata">
-                                                <a href="#">
-                                                    April 24, 2022 at 10:59 am
-                                                </a>
-                                            </div>
-                                        </footer>
-
-                                        <div class="comment-content">
-                                            <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</p>
-                                        </div>
-
-                                        <div class="reply">
-                                            <a href="#" class="comment-reply-link">Reply</a>
-                                        </div>
-                                    </div>
-
-                                    <ol class="children">
-                                        <li class="comment">
-                                            <div class="comment-body">
-                                                <footer class="comment-meta">
-                                                    <div class="comment-author vcard">
-                                                        <img src="../../assets/img/author-image//1.jpg" class="avatar" alt="image">
-                                                        <b class="fn">James Anderson</b>
-                                                        <span class="says">says:</span>
-                                                    </div>
-        
-                                                    <div class="comment-metadata">
-                                                        <a href="#">
-                                                            April 24, 2022 at 10:59 am
-                                                        </a>
-                                                    </div>
-                                                </footer>
-        
-                                                <div class="comment-content">
-                                                    <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</p>
-                                                </div>
-        
-                                                <div class="reply">
-                                                    <a href="#" class="comment-reply-link">Reply</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </li>
-                            </ol>
-
-                            <div class="comment-respond">
-                                <h3 class="comment-reply-title">Leave a Reply</h3>
-
-                                <form @submit.prevent class="comment-form">
-                                    <p class="comment-notes">
-                                        <span id="email-notes">Your email address will not be published.</span>
-                                        Required fields are marked 
-                                        <span class="required">*</span>
-                                    </p>
-                                    <p class="comment-form-comment">
-                                        <label>Comment</label>
-                                        <textarea name="comment" id="comment" cols="45" rows="5" maxlength="65525" required="required"></textarea>
-                                    </p>
-                                    <p class="comment-form-author">
-                                        <label>Name <span class="required">*</span></label>
-                                        <input type="text" id="author" name="author" required="required">
-                                    </p>
-                                    <p class="comment-form-email">
-                                        <label>Email <span class="required">*</span></label>
-                                        <input type="email" id="email" name="email" required="required">
-                                    </p>
-                                    <p class="comment-form-url">
-                                        <label>Website</label>
-                                        <input type="url" id="url" name="url">
-                                    </p>
-                                    <p class="comment-form-cookies-consent">
-                                        <input type="checkbox" value="yes" name="wp-comment-cookies-consent" id="wp-comment-cookies-consent">
-                                        <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label>
-                                    </p>
-                                    <p class="form-submit">
-                                        <input type="submit" name="submit" id="submit" class="submit" value="Post Comment">
-                                    </p>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-12">
-                    <BlogSidebar />
-                </div>
-            </div>
+  <div class="blog-detail-container" v-if="!loading">
+    <div v-if="blog" class="blog-detail">
+      <h1 class="blog-title">
+        <div v-if="isAdmin">
+          <input v-model="editorDataTitle" class="title-input" placeholder="Nhập tiêu đề bài viết" />
         </div>
+        <div v-else>
+          {{ blog.title }}
+        </div>
+      </h1>
+
+      <div class="blog-meta">
+        <span class="blog-author">Tác giả: {{ blog.name }}</span> •
+        <span class="blog-date">{{ formatDate(blog.created_at) }}</span>
+      </div>
+
+      <div class="blog-description">
+        <div v-if="isAdmin">
+          <textarea ref="editor" class="form-control" rows="10"></textarea>
+        </div>
+        <div v-else v-html="editorData || ''"></div>
+      </div>
+
+      <div class="blog-actions" v-if="isAdmin">
+        <button class="btn btn-primary" @click="saveBlog">Lưu bài viết</button>
+        <router-link to="/blog-one" class="btn btn-secondary ms-2">Cancel</router-link>
+        <button class="btn btn-danger ms-2" @click="deleteBlog">Xóa bài viết</button>
+      </div>
     </div>
+
+    <div v-else class="error-message">
+      {{ error }}
+    </div>
+  </div>
+
+  <div v-else class="loading-state">
+    Loading bài viết...
+  </div>
 </template>
 
 <script>
-import BlogSidebar from '../Common/BlogSidebar'
+import axios from 'axios';
+import { onMounted, ref, onBeforeUnmount } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { BASE_API_URL, BASE_IMAGE_URL } from '@/main';
 
 export default {
-    name: 'BlogDetails',
-    components: {
-        BlogSidebar
-    }
-}
+  name: 'BlogDetail',
+  setup() {
+    const route = useRoute();
+    const router = useRouter();
+
+    const blog = ref(null);
+    const loading = ref(true);
+    const error = ref(null);
+    const editorData = ref('');
+    const editorDataTitle = ref('');
+    const isAdmin = ref(false);
+    const editorInstance = ref(null);
+
+    const formatDate = (dateStr) => {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Date(dateStr).toLocaleDateString('vi-VN', options);
+    };
+
+    const fetchBlogDetail = async () => {
+      try {
+        const targetId = parseInt(route.params.id);
+        const firstRes = await axios.get(`${BASE_API_URL}/blogs`);
+        const lastPage = firstRes.data.data.last_page;
+        let allBlogs = firstRes.data.data.data;
+
+        const requests = [];
+        for (let page = 2; page <= lastPage; page++) {
+          requests.push(axios.get(`${BASE_API_URL}/blogs?page=${page}`));
+        }
+
+        const responses = await Promise.all(requests);
+        responses.forEach(res => {
+          allBlogs = allBlogs.concat(res.data.data.data);
+        });
+
+        blog.value = allBlogs.find(b => b.id === targetId);
+
+        if (blog.value) {
+          editorDataTitle.value = blog.value.title;
+          editorData.value = blog.value.description;
+        } else {
+          error.value = "Không tìm thấy bài viết.";
+        }
+      } catch (err) {
+        console.error(err);
+        error.value = "Lỗi khi tải dữ liệu.";
+      } finally {
+        loading.value = false;
+      }
+    };
+
+    const saveBlog = async () => {
+      if (!blog.value) return;
+
+      const token = localStorage.getItem("token");
+      if (!token) {
+        return;
+      }
+
+      try {
+        await axios.put(`${BASE_API_URL}/blog/${blog.value.id}`, {
+          name: blog.value.name,
+          title: editorDataTitle.value,
+          description: editorData.value,
+        }, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        router.push('/blog-one');
+      } catch (err) {
+        console.error('Lỗi khi lưu bài viết:', err.response?.data || err.message);
+      }
+    };
+
+    const deleteBlog = async () => {
+      if (!blog.value) return;
+
+      const confirmDelete = confirm(`Bạn có chắc chắn muốn xóa bài viết "${blog.value.title}"?`);
+      if (!confirmDelete) return;
+
+      const token = localStorage.getItem("token");
+      if (!token) {
+        alert("Bạn cần phải đăng nhập để thực hiện thao tác này.");
+        return;
+      }
+
+      try {
+        await axios.delete(`${BASE_API_URL}/blog/${blog.value.id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        router.push('/blog-one');
+      } catch (err) {
+        console.error('Lỗi khi xóa bài viết:', err.response?.data || err.message);
+      }
+    };
+
+    onMounted(async () => {
+      const role = localStorage.getItem('role_id');
+      if (role === '1') isAdmin.value = true;
+
+      await fetchBlogDetail();
+
+      if (isAdmin.value && window.CKEDITOR && blog.value) {
+        editorInstance.value = CKEDITOR.replace(document.querySelector('textarea'), {
+          filebrowserUploadUrl: `${BASE_API_URL}/ckeditor/upload`,
+          filebrowserImageUploadUrl: `${BASE_API_URL}/ckeditor/upload`,
+          filebrowserWindowWidth: '1000',
+          filebrowserWindowHeight: '700'
+        });
+
+        editorInstance.value.setData(blog.value.description || '');
+
+        editorInstance.value.on('change', () => {
+          editorData.value = editorInstance.value.getData();
+        });
+
+        editorInstance.value.on('instanceReady', () => {
+          editorData.value = editorInstance.value.getData();
+        });
+      }
+    });
+
+    onBeforeUnmount(() => {
+      if (editorInstance.value) {
+        editorInstance.value.destroy();
+      }
+    });
+
+    return {
+      blog,
+      loading,
+      error,
+      editorData,
+      editorDataTitle,
+      isAdmin,
+      saveBlog,
+      deleteBlog,
+      formatDate,
+    };
+  },
+};
 </script>
+
+<style scoped>
+.blog-detail-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+.blog-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.blog-meta {
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+}
+.blog-image img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+.blog-description {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #333;
+}
+.blog-actions {
+  margin-top: 30px;
+}
+.title-input {
+  width: 100%;
+  font-size: 2.5rem;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+  padding: 5px;
+  background: #f9f9f9;
+  border-bottom: 2px solid #ccc;
+}
+.title-input:focus {
+  border-color: #0f62fe;
+}
+.loading-state,
+.error-message {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.2rem;
+  color: #555;
+}
+</style>

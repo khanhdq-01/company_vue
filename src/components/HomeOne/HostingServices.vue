@@ -13,51 +13,51 @@
                         <div class="icon">
                             <img src="../../assets/img/icon1.png" alt="image">
                         </div>
-                        <h2>Cloud Hosting Services</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                        <h2>Dịch vụ Lưu trữ Đám mây (Cloud Hosting)</h2>
+                        <p>Giải pháp lưu trữ hiện đại, an toàn và linh hoạt cho doanh nghiệp. Chúng tôi cung cấp nền tảng hạ tầng mạnh mẽ, giúp tối ưu hóa hiệu suất hoạt động, bảo mật dữ liệu và dễ dàng mở rộng khi cần thiết.</p>
 
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="feature-box">
                                     <i class='bx bxs-badge-check'></i>  
-                                    Cloud Databases
+                                    Cơ sở dữ liệu đám mây
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="feature-box">
                                     <i class='bx bxs-badge-check'></i> 
-                                    Hybrid Cloud
+                                    Cloud lai (Hybrid Cloud)
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="feature-box">
                                     <i class='bx bxs-badge-check'></i> 
-                                    Email Servers
+                                    Máy chủ Email
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="feature-box">
                                     <i class='bx bxs-badge-check'></i> 
-                                    Website Hosting
+                                    Hosting Website
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="feature-box">
                                     <i class='bx bxs-badge-check'></i> 
-                                    File Storage
+                                    Lưu trữ tệp tin
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="feature-box">
                                     <i class='bx bxs-badge-check'></i> 
-                                    Backup Systems
+                                    Hệ thống sao lưu
                                 </div>
                             </div>
                         </div>
 
-                        <router-link to="/single-service" class="default-btn">
+                        <router-link to="/services-three" class="default-btn">
                             <i class="bx bxs-spreadsheet"></i> 
-                            Learn More 
+                            Xem chi tiết 
                             <span></span>
                         </router-link>
                     </div>
