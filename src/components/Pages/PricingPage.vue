@@ -1,9 +1,11 @@
 <template>
     <div>
-        <NavbarStyleTwo />
+        <Navbar />
         <PageTitle 
-            pageTitle="Transparent Pricing" 
-            pageDesc="Border-less account pricing" 
+        pageTitle="Dịch vụ phù hợp"
+        pageDesc="Giải pháp giá cả rõ ràng, không rào cản"
+
+
         />
         <PricingPlan />
         <Faq />
@@ -14,7 +16,7 @@
 </template>
 
 <script>
-import NavbarStyleTwo from '../Layouts/NavbarStyleTwo';
+import Navbar from '../Layouts/Navbar';
 import PageTitle from '../Common/PageTitle';
 import PricingPlan from '../Common/PricingPlan'
 import Faq from '../Common/Faq'
@@ -24,7 +26,7 @@ import FooterStyleOne from '../Layouts/FooterStyleOne'
 
 export default {
     components: {
-        NavbarStyleTwo,
+        Navbar,
         PageTitle,
         PricingPlan,
         Faq,

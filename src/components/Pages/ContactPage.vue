@@ -1,9 +1,9 @@
 <template>
     <div>
-        <NavbarStyleTwo />
+        <Navbar />
         <PageTitle 
-            pageTitle="Contact Us" 
-            pageDesc="Drop us Message for any Query" 
+            pageTitle="Liên Hệ Với Chúng Tôi" 
+            pageDesc="Gửi tin nhắn cho chúng tôi nếu bạn có bất kỳ câu hỏi nào" 
         />
         <Contact />
         <OurLovingClients />
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import NavbarStyleTwo from '../Layouts/NavbarStyleTwo';
+import Navbar from '../Layouts/Navbar';
 import PageTitle from '../Common/PageTitle';
 import Contact from '../Contact/Contact'
 import OurLovingClients from '../Common/OurLovingClients'
@@ -20,7 +20,7 @@ import FooterStyleOne from '../Layouts/FooterStyleOne'
 
 export default {
     components: {
-        NavbarStyleTwo,
+        Navbar,
         PageTitle,
         Contact,
         OurLovingClients,

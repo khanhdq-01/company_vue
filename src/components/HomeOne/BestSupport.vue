@@ -1,15 +1,16 @@
 <template>
     <div class="subscribe-content border-radius-0">
-        <h2>We always try to be the best support to you as possible</h2>
+        <h2>Chúng tôi luôn cố gắng trở thành sự hỗ trợ tốt nhất có thể dành cho bạn</h2>
 
         <form @submit.prevent class="newsletter-form">
             <div class="row align-items-center">
                 <div class="col-lg-8 col-md-8">
-                    <input type="email" class="input-newsletter" placeholder="hello@striki.com">
+                    <input type="email" class="input-newsletter" placeholder="hello@kodingsoft.com">
                 </div>
 
                 <div class="col-lg-4 col-md-4">
-                    <button type="submit" class="disabled" style="pointer-events: all; cursor: pointer;"><i class="bx bxs-hot"></i> Subscribe Now</button>
+                    <button type="submit" class="disabled" style="pointer-events: all; cursor: pointer;"><i class="bx bxs-hot"></i> 
+                        Đăng ký ngay</button>
                 </div>
             </div>
         </form>

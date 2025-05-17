@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NavbarStyleOne />
+        <Navbar />
         <MainBanner />
         <AmazingFeatures />
         <Services />
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import NavbarStyleOne from '../Layouts/NavbarStyleOne'
+import Navbar from '../Layouts/Navbar'
 import MainBanner from '../HomeFour/MainBanner';
 import AmazingFeatures from '../HomeFour/AmazingFeatures';
 import Services from '../HomeFour/Services';
@@ -33,7 +33,7 @@ import FooterStyleOne from '../Layouts/FooterStyleOne'
 
 export default {
     components: {
-        NavbarStyleOne,
+        Navbar,
         MainBanner,
         AmazingFeatures,
         Services,

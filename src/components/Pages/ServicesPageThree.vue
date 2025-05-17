@@ -1,26 +1,26 @@
 <template>
     <div>
-        <NavbarStyleTwo />
-        <PageTitle pageTitle="Services Style Three" pageDesc="Our Services" />
+        <Navbar />
+        <PageTitle pageTitle="Dịch vụ của chúng tôi" pageDesc="Khám phá các dịch vụ nổi bật" />
         <ServicesTwo />
-        <WhatsOurClients />
+        <PricingPlan />
         <FooterStyleOne />
     </div>
 </template>
 
 <script>
-import NavbarStyleTwo from '../Layouts/NavbarStyleTwo';
+import Navbar from '../Layouts/Navbar';
 import PageTitle from '../Common/PageTitle';
 import ServicesTwo from '../ServicesThree/ServicesTwo'
-import WhatsOurClients from '../ServicesTwo/WhatsOurClients'
+import PricingPlan from '../Common/PricingPlan';
 import FooterStyleOne from '../Layouts/FooterStyleOne'
 
 export default {
     components: {
-        NavbarStyleTwo,
+        Navbar,
         PageTitle,
         ServicesTwo,
-        WhatsOurClients,
+        PricingPlan,
         FooterStyleOne,
     }
 };

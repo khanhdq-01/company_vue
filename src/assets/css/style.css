@@ -50,7 +50,7 @@ body {
   padding: 0;
   margin: 0;
   font-size: 15px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 a {
@@ -63,7 +63,7 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: #13c4a1;
+  color: #ff612f;
 }
 
 button, input {
@@ -149,7 +149,7 @@ p {
   color: #4a6f8a;
   margin-bottom: 12px;
   line-height: 1.8;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 p:last-child {
@@ -234,7 +234,7 @@ p:last-child {
   width: 0;
   height: 0;
   border-radius: 50%;
-  background-color: #13c4a1;
+  background-color: #ff612f;
   -webkit-transition: width 0.6s ease-in-out, height 0.5s ease-in-out;
   transition: width 0.6s ease-in-out, height 0.5s ease-in-out;
   -webkit-transform: translate(-50%, -50%);
@@ -255,13 +255,13 @@ p:last-child {
 }
 
 .optional-btn {
-  border: none;
+  border: 1px solid #080a3c;
   position: relative;
   display: inline-block;
   text-align: center;
   overflow: hidden;
   z-index: 1;
-  color: #080a3c;
+  color: #080a3c !important;
   background-color: transparent;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -283,7 +283,7 @@ p:last-child {
   font-size: 20px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  color: #080a3c;
+  color: #080a3c !important;
 }
 
 .optional-btn::before {
@@ -315,7 +315,11 @@ p:last-child {
 }
 
 .optional-btn:hover, .optional-btn:focus {
-  color: #ffffff;
+  color: #ffffff !important;
+}
+
+.optional-btn:hover i {
+  color: #ffffff !important;
 }
 
 .optional-btn:hover::before, .optional-btn:focus::before {
@@ -501,8 +505,8 @@ Navbar Area CSS
   background-color: transparent;
   height: auto;
   z-index: 1040;
+  box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
 }
-
 .navbar-area.is-sticky {
   position: fixed;
   top: 0;
@@ -592,6 +596,18 @@ Navbar Area CSS
   font-weight: bold;
   font-size: 27px;
 }
+.custom-logo img {
+  height: 45px;
+  width: auto;
+  margin-top: -10px;
+  transition: all 0.3s ease;
+  filter: brightness(0.92) saturate(1.1);
+}
+
+.custom-logo img:hover {
+  filter: brightness(1) saturate(1.3) drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+  transform: scale(1.1);
+}
 
 .striki-nav .navbar ul {
   padding-left: 0;
@@ -608,20 +624,69 @@ Navbar Area CSS
   padding: 0;
 }
 
-.striki-nav .navbar .navbar-nav .nav-item a {
-  font-size: 15px;
+/* Áp dụng cho nav-link cấp 1 */
+.striki-nav .navbar .navbar-nav > .nav-item > a.nav-link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #4b5563;
+  padding: 30px 13px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Gạch underline chỉ cho nav-link cấp 1 */
+.striki-nav .navbar .navbar-nav > .nav-item > a.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 10px; /* Điều chỉnh lại cho cân */
+  width: 0;
+  height: 2px;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
+
+.striki-nav .navbar .navbar-nav > .nav-item > a.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Dropdown menu */
+.navbar-nav .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  z-index: 1000;
+  min-width: 180px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Hiển thị dropdown khi hover */
+.navbar-nav .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Style cho link trong dropdown */
+.navbar-nav .dropdown-menu .nav-link {
+  font-size: 1rem;
+  padding: 10px 20px;
+  color: #4b5563;
   font-weight: 500;
-  color: #4a6f8a;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  margin-left: 13px;
-  margin-right: 13px;
+  position: relative;
+  text-transform: none;
+}
+
+.navbar-nav .dropdown-menu .nav-link:hover {
+  background-color: #f5f5f5;
+  color: #007bff;
 }
 
 .striki-nav .navbar .navbar-nav .nav-item a:hover, .striki-nav .navbar .navbar-nav .nav-item a:focus, .striki-nav .navbar .navbar-nav .nav-item a.active {
-  color: #13c4a1;
+  color: #ff612f;
 }
 
 .striki-nav .navbar .navbar-nav .nav-item a i {
@@ -642,7 +707,7 @@ Navbar Area CSS
 }
 
 .striki-nav .navbar .navbar-nav .nav-item:hover a, .striki-nav .navbar .navbar-nav .nav-item.active a {
-  color: #13c4a1;
+  color: #ff612f;
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu {
@@ -662,7 +727,7 @@ Navbar Area CSS
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   margin-top: 20px;
-  border-top: 2px solid #13c4a1;
+  border-top: 2px solid #ff612f;
   padding: 0;
   border-radius: 5px;
 }
@@ -682,7 +747,7 @@ Navbar Area CSS
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li a:hover, .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li a:focus, .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li a.active {
-  color: #13c4a1;
+  color: #ff612f;
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li:last-child a {
@@ -701,7 +766,7 @@ Navbar Area CSS
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a:hover, .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a:focus, .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a.active {
-  color: #13c4a1;
+  color: #ff612f;
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu {
@@ -716,7 +781,7 @@ Navbar Area CSS
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover, .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus, .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
-  color: #13c4a1;
+  color: #ff612f;
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
@@ -731,7 +796,7 @@ Navbar Area CSS
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover, .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus, .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
-  color: #13c4a1;
+  color: #ff612f;
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
@@ -746,7 +811,7 @@ Navbar Area CSS
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover, .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus, .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
-  color: #13c4a1;
+  color: #ff612f;
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
@@ -762,7 +827,7 @@ Navbar Area CSS
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover, .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus, .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
   color: #ffffff;
-  background-color: #13c4a1;
+  background-color: #ff612f;
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
@@ -778,12 +843,12 @@ Navbar Area CSS
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover, .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus, .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
   color: #ffffff;
-  background-color: #13c4a1;
+  background-color: #ff612f;
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.active a {
   color: #ffffff;
-  background-color: #13c4a1;
+  background-color: #ff612f;
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
@@ -793,7 +858,7 @@ Navbar Area CSS
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.active a {
-  color: #13c4a1;
+  color: #ff612f;
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
@@ -803,7 +868,7 @@ Navbar Area CSS
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.active a {
-  color: #13c4a1;
+  color: #ff612f;
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
@@ -813,7 +878,7 @@ Navbar Area CSS
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li.active a {
-  color: #13c4a1;
+  color: #ff612f;
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
@@ -823,7 +888,7 @@ Navbar Area CSS
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li.active a {
-  color: #13c4a1;
+  color: #ff612f;
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
@@ -833,7 +898,7 @@ Navbar Area CSS
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li.active a {
-  color: #13c4a1;
+  color: #ff612f;
 }
 
 .striki-nav .navbar .navbar-nav .nav-item .dropdown-menu li:hover .dropdown-menu {
@@ -855,7 +920,7 @@ Navbar Area CSS
 
 .striki-nav .navbar .others-options .default-btn {
   color: #ffffff;
-  background-color: #13c4a1;
+  background-color: #ff612f;
 }
 
 .striki-nav .navbar .others-options .default-btn i {
@@ -919,7 +984,7 @@ Navbar Area CSS
   width: 28px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  background: #13c4a1;
+  background: #ff612f;
   height: 2px;
   display: block;
 }
@@ -969,6 +1034,7 @@ Main Banner Area CSS
 .main-banner {
   position: relative;
   z-index: 1;
+  margin-top:86px;
 }
 
 .main-banner .container-fluid {
@@ -1078,7 +1144,7 @@ Main Banner Area CSS
 }
 
 .banner-image {
-  height: 100vh;
+  height: calc(100vh - 86px) !important;
   width: 100%;
   border-radius: 0 0 0 80px;
   position: relative;
@@ -1106,7 +1172,7 @@ Main Banner Area CSS
 }
 
 .banner-image.mbanner-bg-one {
-  background-image: url(../img/banner-img2.jpg);
+  background-image: url(../img/banner-img5.jpg);
 }
 
 .banner-image.mbanner-bg-one .animate-banner-image {
@@ -1193,7 +1259,7 @@ Main Banner Area CSS
 
 .banner-content-slides .carousel .carousel__prev:hover, .banner-content-slides .carousel .carousel__next:hover {
   color: #ffffff;
-  background-color: #13c4a1;
+  background-color: #ff612f;
 }
 
 .banner-content-slides .carousel .carousel__prev.carousel__prev, .banner-content-slides .carousel .carousel__next.carousel__prev {
@@ -1337,7 +1403,7 @@ Main Banner Area CSS
 }
 
 .chat-wrapper .chat-container::-webkit-scrollbar-thumb {
-  background: #13c4a1;
+  background: #ff612f;
   border-radius: 30px;
 }
 
@@ -1697,7 +1763,7 @@ Main Banner Area CSS
 }
 
 .main-banner-two .banner-image-slider .carousel__pagination .carousel__pagination-item .carousel__pagination-button.carousel__pagination-button--active {
-  background-color: #13c4a1 !important;
+  background-color: #ff612f !important;
 }
 
 .main-banner-two .banner-image-slider .carousel__pagination .carousel__pagination-item .carousel__pagination-button::after {
@@ -1705,7 +1771,7 @@ Main Banner Area CSS
 }
 
 .main-banner-two .banner-image-slider .carousel__pagination .carousel__pagination-item .carousel__pagination-button:hover {
-  background-color: #13c4a1 !important;
+  background-color: #ff612f !important;
 }
 
 .banner-img.banner-video {
@@ -1715,11 +1781,11 @@ Main Banner Area CSS
 }
 
 .banner-img.banner-video .video-box .video-btn {
-  background-color: #13c4a1;
+  background-color: #ff612f;
 }
 
 .banner-img.banner-video .video-box .video-btn::after, .banner-img.banner-video .video-box .video-btn::before {
-  border: 1px solid #13c4a1;
+  border: 1px solid #ff612f;
 }
 
 .banner-img.banner-video .video-box .video-btn:hover, .banner-img.banner-video .video-box .video-btn:focus {
@@ -1884,7 +1950,7 @@ About Area CSS
   height: 35px;
   line-height: 35px;
   background-color: #ffffff;
-  color: #13c4a1;
+  color: #ff612f;
   margin-right: 5px;
   border-radius: 50%;
   font-size: 25px;
@@ -1900,7 +1966,7 @@ About Area CSS
 }
 
 .about-inner-content .content .features-list li:hover i {
-  background-color: #13c4a1;
+  background-color: #ff612f;
   color: #ffffff;
 }
 
@@ -1975,7 +2041,7 @@ Services Area CSS
   width: 35%;
   height: 215%;
   z-index: -1;
-  background-color: #13c4a1;
+  background-color: #ff612f;
   -webkit-transform: skewY(-66deg);
           transform: skewY(-66deg);
 }
@@ -1988,7 +2054,7 @@ Services Area CSS
   width: 35%;
   height: 215%;
   z-index: -1;
-  background-color: #13c4a1;
+  background-color: #ff612f;
   -webkit-transform: skewY(66deg);
           transform: skewY(66deg);
 }
@@ -2092,7 +2158,7 @@ Services Area CSS
 }
 
 .feature-box:hover {
-  background-color: #13c4a1;
+  background-color: #ff612f;
   color: #ffffff;
   padding-left: 25px;
 }
@@ -2103,7 +2169,7 @@ Services Area CSS
 
 .feature-box i {
   margin-right: 3px;
-  color: #13c4a1;
+  color: #ff612f;
 }
 
 /*================================================
@@ -2185,12 +2251,12 @@ Video Presentation Area CSS
 }
 
 .video-box .video-btn:hover, .video-box .video-btn:focus {
-  background-color: #13c4a1;
+  background-color: #ff612f;
   color: #ffffff;
 }
 
 .video-box .video-btn:hover::after, .video-box .video-btn:hover::before, .video-box .video-btn:focus::after, .video-box .video-btn:focus::before {
-  border-color: #13c4a1;
+  border-color: #ff612f;
 }
 
 .shape-map1 {
@@ -2523,7 +2589,7 @@ Video Presentation Area CSS
 }
 
 .popup-video .popup-overlay-close:hover .popup-overlay-close-line {
-  background: #13c4a1;
+  background: #ff612f;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
@@ -2578,7 +2644,7 @@ FunFacts Area CSS
 
 .funfact-style-two i {
   font-size: 30px;
-  color: #13c4a1;
+  color: #ff612f;
   width: 70px;
   height: 70px;
   line-height: 70px;
@@ -2614,7 +2680,7 @@ FunFacts Area CSS
 }
 
 .contact-cta-box .default-btn {
-  background-color: #13c4a1;
+  background-color: #ff612f;
   position: absolute;
   right: 50px;
   top: 50%;
@@ -2649,7 +2715,7 @@ Features Area CSS
 }
 
 .single-features-box .icon {
-  background-color: #13c4a1;
+  background-color: #ff612f;
   color: #ffffff;
   position: relative;
   text-align: center;
@@ -2667,7 +2733,7 @@ Features Area CSS
   height: 100%;
   right: -15px;
   bottom: -15px;
-  border: 5px solid #13c4a1;
+  border: 5px solid #ff612f;
   content: '';
   position: absolute;
   -webkit-transition: 0.5s;
@@ -2717,7 +2783,7 @@ Features Area CSS
   width: 85px;
   height: 85px;
   background-color: #bce9e5;
-  color: #13c4a1;
+  color: #ff612f;
   text-align: center;
   font-size: 45px;
   position: relative;
@@ -2753,7 +2819,7 @@ Features Area CSS
   right: 10px;
   top: -52px;
   z-index: -1;
-  color: #13c4a1;
+  color: #ff612f;
   opacity: .06;
   font-size: 190px;
   line-height: 190px;
@@ -2772,7 +2838,7 @@ Features Area CSS
 }
 
 .features-box:hover .icon {
-  background-color: #13c4a1;
+  background-color: #ff612f;
   color: #ffffff;
 }
 
@@ -2783,12 +2849,12 @@ Features Area CSS
 
 .features-box .read-more {
   margin-top: 5px;
-  color: #13c4a1;
+  color: #ff612f;
   display: inline-block;
 }
 
 .features-box .read-more i {
-  color: #13c4a1;
+  color: #ff612f;
   width: 0;
   height: 0;
   line-height: 1;
@@ -2988,6 +3054,7 @@ Features Area CSS
   transition: 0.5s;
   position: relative;
   margin-bottom: 30px;
+  height: 100%;
 }
 
 .single-features-card:hover {
@@ -2998,7 +3065,7 @@ Features Area CSS
 
 .single-features-card i {
   font-size: 30px;
-  color: #13c4a1;
+  color: #ff612f;
   width: 70px;
   height: 70px;
   line-height: 70px;
@@ -3021,7 +3088,7 @@ Features Area CSS
 }
 
 .single-features-card h3 a:hover {
-  color: #13c4a1;
+  color: #ff612f;
 }
 
 .single-features-card p {
@@ -3029,12 +3096,13 @@ Features Area CSS
 }
 
 .features-box-one {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   background: #ffffff;
   padding: 30px 40px;
   border-radius: 10px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  height: 90%;
 }
 
 .features-box-one:hover {
@@ -3071,7 +3139,7 @@ Features Area CSS
 }
 
 .features-box-one .read-more i {
-  color: #13c4a1;
+  color: #ff612f;
   width: 0;
   height: 0;
   line-height: 1;
@@ -3086,7 +3154,7 @@ Features Area CSS
 }
 
 .bg-13c4a1 {
-  background-color: #13c4a1;
+  background-color: #ff612f;
 }
 
 .bg-6610f2 {
@@ -3102,7 +3170,7 @@ Features Area CSS
 }
 
 .bg-00d280 {
-  background-color: #00d280;
+  background-color: #ff612f;
 }
 
 .bg-ff612f {
@@ -3130,6 +3198,9 @@ Team Area CSS
 }
 
 .single-team-box .image {
+  aspect-ratio: 27 / 32; /* giữ tỉ lệ giống 270x320 */
+  width: 100%; /* hoặc max-width: 270px nếu muốn giới hạn */
+  max-width: 270px;
   border: 4px solid #bce9e5;
   padding: 10px;
   position: relative;
@@ -3137,9 +3208,12 @@ Team Area CSS
   border-radius: 10px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  box-sizing: border-box;
 }
-
 .single-team-box .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 10px;
 }
 
@@ -3194,7 +3268,7 @@ Team Area CSS
 
 .single-team-box .image .social li a:hover {
   color: #ffffff;
-  background-color: #13c4a1;
+  background-color: #ff612f;
 }
 
 .single-team-box .image .social li:nth-child(1) {
@@ -3229,13 +3303,13 @@ Team Area CSS
 
 .single-team-box .content span {
   display: block;
-  color: #13c4a1;
+  color: #ff612f;
   font-size: 14px;
   margin-top: 6px;
 }
 
 .single-team-box:hover .image {
-  border-color: #13c4a1;
+  border-color: #ff612f;
   background-color: #f4f5fe;
 }
 
@@ -3480,7 +3554,7 @@ Feedback Area CSS
 
 .single-feedback-item .feedback-desc .client-info span {
   display: block;
-  color: #13c4a1;
+  color: #ff612f;
   font-size: 14px;
   margin-top: 6px;
 }
@@ -3540,7 +3614,7 @@ Feedback Area CSS
   -webkit-transition: 0.5s;
   transition: 0.5s;
   border-radius: 50%;
-  border: 1px solid #13c4a1;
+  border: 1px solid #ff612f;
   position: relative;
 }
 
@@ -3570,7 +3644,7 @@ Feedback Area CSS
 }
 
 .testimonials-area {
-  background-color: #13c4a1;
+  background-color: #ff612f;
 }
 
 .testimonials-area .section-title h2 {
@@ -3620,7 +3694,7 @@ Feedback Area CSS
 
 .single-testimonials-item .client-info span {
   display: block;
-  color: #13c4a1;
+  color: #ff612f;
   font-size: 14px;
   margin-top: 5px;
 }
@@ -3831,6 +3905,10 @@ Feedback Area CSS
 Pricing Area CSS
 =================================================*/
 .single-pricing-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
   margin-bottom: 30px;
   text-align: center;
   background-color: #ffffff;
@@ -3898,7 +3976,7 @@ Pricing Area CSS
 }
 
 .single-pricing-table .pricing-features li i {
-  color: #13c4a1;
+  color: #ff612f;
   position: absolute;
   left: 0;
   top: 3px;
@@ -4002,7 +4080,7 @@ Pricing Area CSS
 }
 
 .col-lg-4:nth-child(3) .single-pricing-table .btn-box .default-btn {
-  background-color: #13c4a1;
+  background-color: #ff612f;
 }
 
 .col-lg-4:nth-child(3) .single-pricing-table .btn-box .default-btn i {
@@ -4212,7 +4290,7 @@ App Download Area CSS
 
 .app-download-content .sub-title {
   display: inline-block;
-  background-color: #13c4a1;
+  background-color: #ff612f;
   color: #ffffff;
   padding: 5px 25px;
   border-radius: 35px;
@@ -4365,8 +4443,12 @@ Our Loving Clients Area CSS
 Blog Area CSS
 =================================================*/
 .single-blog-post {
-  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin-bottom: 30px;
+  height: 90%;
+  border-radius: 2px;
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
   background-color: #ffffff;
@@ -4389,7 +4471,6 @@ Blog Area CSS
 }
 
 .single-blog-post .post-image .date {
-  position: absolute;
   left: 0;
   bottom: 0;
   background-color: #ffffff;
@@ -4414,9 +4495,14 @@ Blog Area CSS
 }
 
 .single-blog-post .post-content h3 {
-  line-height: 1.4;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 500;
+  min-height: 60px;
+  line-height: 24px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .single-blog-post .post-content h3 a {
@@ -4433,6 +4519,9 @@ Blog Area CSS
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin-top: 15px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
 }
 
 .single-blog-post .post-content .post-info .post-by {
@@ -4519,7 +4608,7 @@ Blog Area CSS
 }
 
 .blog-notes p a:hover {
-  color: #13c4a1;
+  color: #ff612f;
 }
 
 .single-blog-post-item {
@@ -4600,7 +4689,7 @@ Blog Area CSS
 }
 
 .single-blog-post-item .post-content .post-content-footer li i {
-  color: #13c4a1;
+  color: #ff612f;
   position: absolute;
   left: 7px;
   top: 3px;
@@ -4696,7 +4785,7 @@ Blog Details Area CSS
   right: -15px;
   width: 6px;
   height: 1px;
-  background: #13c4a1;
+  background: #ff612f;
 }
 
 .blog-details-desc .article-content .entry-meta ul li:last-child {
@@ -4784,7 +4873,7 @@ Blog Details Area CSS
 
 .blog-details-desc .article-footer .article-tags a:hover {
   color: #ffffff;
-  background-color: #13c4a1;
+  background-color: #ff612f;
 }
 
 .comments-area {
@@ -4842,8 +4931,8 @@ Blog Details Area CSS
 
 .comments-area .comment-body .reply a:hover {
   color: #ffffff;
-  background-color: #13c4a1;
-  border-color: #13c4a1;
+  background-color: #ff612f;
+  border-color: #515554;
 }
 
 .comments-area .comment-author {
@@ -4882,7 +4971,7 @@ Blog Details Area CSS
 }
 
 .comments-area .comment-metadata a:hover {
-  color: #13c4a1;
+  color: #ff612f;
 }
 
 .comments-area .comment-respond {
@@ -4937,7 +5026,7 @@ Blog Details Area CSS
 }
 
 .comments-area .comment-respond input[type="date"]:focus, .comments-area .comment-respond input[type="time"]:focus, .comments-area .comment-respond input[type="datetime-local"]:focus, .comments-area .comment-respond input[type="week"]:focus, .comments-area .comment-respond input[type="month"]:focus, .comments-area .comment-respond input[type="text"]:focus, .comments-area .comment-respond input[type="email"]:focus, .comments-area .comment-respond input[type="url"]:focus, .comments-area .comment-respond input[type="password"]:focus, .comments-area .comment-respond input[type="search"]:focus, .comments-area .comment-respond input[type="tel"]:focus, .comments-area .comment-respond input[type="number"]:focus, .comments-area .comment-respond textarea:focus {
-  border-color: #13c4a1;
+  border-color: #ff612f;
 }
 
 .comments-area .comment-respond .comment-form-author {
@@ -4989,7 +5078,7 @@ Blog Details Area CSS
 }
 
 .comments-area .comment-respond .form-submit input {
-  background: #13c4a1;
+  background: #ff612f;
   border: none;
   color: #ffffff;
   padding: 11px 25px;
@@ -5079,7 +5168,7 @@ Blog Details Area CSS
   left: 0;
   border-radius: 5px;
   opacity: 0;
-  background-color: #13c4a1;
+  background-color: #ff612f;
   visibility: hidden;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -5291,6 +5380,7 @@ Page Title Area CSS
   z-index: 1;
   padding-top: 130px;
   padding-bottom: 120px;
+  margin-top: 86px;
 }
 
 .page-title-area::before {
@@ -6482,7 +6572,7 @@ Contact Area CSS
 }
 
 .contact-features-list ul li i {
-  color: #13c4a1;
+  color: #ff612f;
   position: absolute;
   left: 0;
   top: 4px;
@@ -6603,7 +6693,7 @@ Contact Area CSS
 
 .contact-info .contact-info-content h2 a {
   display: inline-block;
-  color: #13c4a1;
+  color: #231d1d;
 }
 
 .contact-info .contact-info-content h2 a:hover {
@@ -7720,7 +7810,7 @@ Services Area CSS
   right: 0;
   top: 0;
   font-size: 21px;
-  color: #13c4a1;
+  color: #ff612f;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -9048,9 +9138,10 @@ SM Pricing Area CSS
 }
 
 .sm-pricing-card .pricing-features {
+  flex-grow: 1;
   padding: 0;
-  margin-top: 25px;
-  margin-bottom: 0;
+  margin: 0 0 25px 0;
+  list-style: none;
 }
 
 .sm-pricing-card .pricing-features li {

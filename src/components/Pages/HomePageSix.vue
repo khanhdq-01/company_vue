@@ -27,7 +27,7 @@ import TheBestInnovative from '../Common/TheBestInnovative';
 import TheAbilityToElicit from '../Common/TheAbilityToElicit';
 import WhatsOurClients from '../HomeSix/WhatsOurClients';
 import OurLovingClientsOne from '../Common/OurLovingClientsOne';
-import PricingPlan from '../HomeSix/PricingPlan';
+import PricingPlan from '../Common/PricingPlan';
 import ReadyToHelpYou from '../Common/ReadyToHelpYou'
 import Faq from '../Common/Faq'
 import LatestNews from '../Common/LatestNews'

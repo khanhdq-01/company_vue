@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NavbarStyleTwo />
+        <Navbar />
         <PageTitle pageTitle="Service Details" pageDesc="Our Services" />
         <Servicedetails />
         <BestSupport />
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import NavbarStyleTwo from '../Layouts/NavbarStyleTwo';
+import Navbar from '../Layouts/Navbar';
 import PageTitle from '../Common/PageTitle';
 import Servicedetails from '../SingleService/Servicedetails'
 import BestSupport from '../Common/BestSupport'
@@ -19,7 +19,7 @@ import FooterStyleOne from '../Layouts/FooterStyleOne'
 
 export default {
     components: {
-        NavbarStyleTwo,
+        Navbar,
         PageTitle,
         Servicedetails,
         BestSupport,

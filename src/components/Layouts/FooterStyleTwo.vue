@@ -5,11 +5,11 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="single-footer-widget">
                         <div class="logo">
-                            <router-link to="/"><img src="../../assets/img/white-logo.png" alt="image"></router-link>
+                            <router-link to="/"><img src="../../assets/img/logo_kingsoft_footer.png" alt="image"></router-link>
                         </div>
                         <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.</p>
                         <ul class="social">
-                            <li><a href="https://www.facebook.com/" target="_blank"><i class="bx bxl-facebook"></i></a></li>
+                            <li><a href="https://www.facebook.com/profile.php?id=61576332803590" target="_blank"><i class="bx bxl-facebook"></i></a></li>
                             <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
                             <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
                             <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>
