@@ -27,9 +27,9 @@
 
             <div class="col-lg-3 col-6 col-sm-6">
                 <div class="single-funfacts funfact-style-two">
-                    <i class='bx bxs-award'></i>
+                    <i class='bx bx-group'></i>
                     <h3>50+</h3>
-                    <p>Giải thưởng đã đạt được</p>
+                    <p>Đối tác</p>
                 </div>
             </div>
         </div>

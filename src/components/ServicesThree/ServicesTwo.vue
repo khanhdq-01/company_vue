@@ -19,7 +19,7 @@
                   <h3>{{ service.title }}</h3>
                   <div v-html="service.long_description"></div>
                   <router-link :to="`/single-service/${service.id}`" class="read-more-btn">
-                    Read More
+                    Xem thêm
                     <i class="bx bx-right-arrow-alt"></i>
                   </router-link>
                 </div>
@@ -166,7 +166,7 @@ export default{
 }
 
 .single-services-box .content h3 {
-  font-size: 14px;
+  font-size: 12px;
   padding-right: 10px;
   font-weight: bold;
   line-height: 1.4;
@@ -188,6 +188,7 @@ export default{
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   overflow-wrap: break-word;
+  font-size: 14px;
 }
 
 .read-more-btn {
@@ -196,6 +197,7 @@ export default{
   display: inline-flex;
   align-items: center;
   gap: 4px;
+  margin-top: 5px;
 }
 
 .single-services-box img {

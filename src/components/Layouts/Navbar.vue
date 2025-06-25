@@ -22,9 +22,21 @@
                             <li class="nav-item">
                                 <router-link to="/" class="nav-link">Trang chủ</router-link>
                             </li>
-
-                            <li class="nav-item">
-                                <router-link to="/about" class="nav-link">Giới thiệu</router-link>
+                            <li class="nav-item dropdown">
+                                <router-link  to="/about" class="nav-link" @click.prevent="toggleDropdown">
+                                    Giới thiệu <i :class="['bx', isDropdownOpen ? 'bx-chevron-up' : 'bx-chevron-down']"></i>
+                                </router-link >
+                                <ul class="dropdown-menu" :class="{ 'show': isDropdownOpen }">
+                                    <li class="nav-item">
+                                        <a href="#about" class="nav-link" @click.prevent="scrollToSection('about')">Về chúng tôi</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#why-choose-us" class="nav-link" @click.prevent="scrollToSection('why-choose-us')">Sơ lược về KodingSoft</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#amazing-features" class="nav-link" @click.prevent="scrollToSection('amazing-features')">Tính năng nổi bật</a>
+                                    </li>
+                                </ul>
                             </li>
                             <li class="nav-item dropdown">
                                 <a href="#" class="nav-link" @click.prevent="toggleDropdown">
@@ -33,6 +45,10 @@
                                 <ul class="dropdown-menu" :class="{ 'show': isDropdownOpen }">
                                     <li class="nav-item">
                                         <router-link to="/services-three" class="nav-link">Dịch vụ</router-link>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <router-link to="/amazing-features" class="nav-link">Đối tác đáng tin cậy của bạn</router-link>
                                     </li>
 
                                     <li class="nav-item">
@@ -133,6 +149,17 @@ export default {
             localStorage.clear();
             this.isLoggedIn = false;
         },
+
+        toggleDropdown() {
+            this.isDropdownOpen = !this.isDropdownOpen;
+        },
+        scrollToSection(id) {
+            const section = document.getElementById(id);
+            if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+            this.isDropdownOpen = false;
+            }
+        }
     },
 }
 </script>
