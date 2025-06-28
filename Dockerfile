@@ -1,35 +1,23 @@
-# ==========================
-# 1. Build Vue App
-# ==========================
+                                                              
+# 1. Dùng NodeJS image
 FROM node:18-alpine AS builder
 
-# Tạo thư mục làm việc
+# 2. Tạo thư mục làm việc
 WORKDIR /app
 
-# Copy package files trước để tận dụng cache layer Docker
-COPY package.json package-lock.json ./
-
-# Cài đặt dependencies
-RUN npm ci --legacy-peer-deps
-
-# Copy toàn bộ source code vào container
+# 3. Copy source vào container
 COPY . .
 
-# Đảm bảo index.html được copy vào đúng chỗ
-RUN cp -r public/* . || true
+# 4. Cài và build
+RUN npm install && chmod +x node_modules/.bin/vue-cli-service && npm run build
 
-# Build ứng dụng Vue
-RUN npm run build
-
-# ==========================
-# 2. Nginx serve static files
-# ==========================
+# 5. Stage 2: Nginx phục vụ static
 FROM nginx:alpine
 
-# Copy build output từ stage builder
+# Copy file build ra thư mục public của nginx
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Copy file cấu hình nginx nếu bạn có
+# Copy cấu hình nginx nếu có
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
