@@ -9,8 +9,8 @@ import "bootstrap-vue-3/dist/bootstrap-vue-3.css";
 
 import "./assets/custom.scss";
 
-export const BASE_API_URL = "https://kodingsoft.site/api";
-export const BASE_IMAGE_URL = "https://kodingsoft.site/storage/";
+export const BASE_API_URL = "https://api.kodingsoft.site/api";
+export const BASE_IMAGE_URL = "https://api.kodingsoft.site/storage/";
 
 
 const app = createApp(App);
