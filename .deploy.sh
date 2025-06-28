@@ -1,18 +1,46 @@
 #!/bin/bash
 
-ENV=$1  # Môi trường: dev, staging, hoặc prod
+# Strict mode: fail ngay khi có lỗi
+set -euo pipefail
+IFS=$'\n\t'
+
+ENV=${1:-dev}  # Default là dev nếu không truyền
 REPO_PATH="/var/www/kodingsoft/company_vue"
+COMPOSE_FILE="/var/www/kodingsoft/docker-compose.${ENV}.yml"
 
-echo "🚀 Deploying to $ENV environment..."
+echo "🚀 Deploying to [$ENV] environment..."
 
-# Di chuyển đến thư mục dự án
-cd $REPO_PATH || { echo "❌ Failed to change to $REPO_PATH"; exit 1; }
+# =======================
+# Check
+# =======================
+if [ ! -d "$REPO_PATH" ]; then
+    echo "❌ Project directory does not exist: $REPO_PATH"
+    exit 1
+fi
 
-# Pull code mới nhất từ Git
-git pull origin develop || { echo "❌ Git pull failed"; exit 1; }
+if [ ! -f "$COMPOSE_FILE" ]; then
+    echo "❌ Docker Compose file not found: $COMPOSE_FILE"
+    exit 1
+fi
 
-# Build lại Docker image và container
-docker-compose -f /var/www/kodingsoft/docker-compose.$ENV.yml build vue || { echo "❌ Docker build failed"; exit 1; }
-docker-compose -f /var/www/kodingsoft/docker-compose.$ENV.yml up -d vue || { echo "❌ Docker up failed"; exit 1; }
+# =======================
+# Deploy
+# =======================
+cd "$REPO_PATH"
 
-echo "✅ Deployment to $ENV completed successfully!"
+echo "🔄 Pulling latest code..."
+git pull origin develop
+
+echo "🧹 Stopping old containers..."
+docker-compose -f "$COMPOSE_FILE" down --remove-orphans
+
+echo "🐳 Building new Docker image..."
+docker-compose -f "$COMPOSE_FILE" build vue
+
+echo "🚀 Starting container..."
+docker-compose -f "$COMPOSE_FILE" up -d vue
+
+echo "🧼 Cleaning up dangling images..."
+docker image prune -f
+
+echo "✅ Deployment to [$ENV] completed successfully!"
