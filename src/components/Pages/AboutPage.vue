@@ -1,11 +1,12 @@
 <template>
     <div>
         <Navbar />
-        <PageTitle pageTitle="Về chúng tôi" pageDesc="The KodingSoft" />
+        <PageTitle pageTitle="Về chúng tôi" pageDesc="Tin cậy hôm nay – Dẫn đầu ngày mai" />
         <TakeYourBusiness />
         <Partner />
         <WhyChooseUs />
         <ReadyToHelpYou class="pt-0" />
+        <AmazingFeatures />
         <FreeTrial />
         <FooterStyleOne />
     </div>
@@ -17,6 +18,7 @@ import PageTitle from '../Common/PageTitle';
 import TakeYourBusiness from '../About/TakeYourBusiness'
 import Partner from '../Common/Partner'
 import WhyChooseUs from '../Common/WhyChooseUs'
+import AmazingFeatures from '../HomeOne/AmazingFeatures'
 import ReadyToHelpYou from '../Common/ReadyToHelpYou'
 import FreeTrial from '../Common/FreeTrial'
 import FooterStyleOne from '../Layouts/FooterStyleOne'
@@ -28,6 +30,7 @@ export default {
         TakeYourBusiness,
         Partner,
         WhyChooseUs,
+        AmazingFeatures,
         ReadyToHelpYou,
         FreeTrial,
         FooterStyleOne,

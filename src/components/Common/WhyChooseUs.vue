@@ -1,11 +1,12 @@
 <template>
     <div>
-      <div class="video-presentation-area ptb-100">
+      <div class="video-presentation-area" id="why-choose-us">
         <div class="container">
           <div class="section-title">
             <h2>Vì sao nên chọn chúng tôi? Hãy xem video để hiểu rõ hơn!</h2>
           </div>
-  
+          <Funfacts />
+
           <div class="video-box">
             <img 
               v-if="thumbnailUrl"
@@ -37,7 +38,6 @@
               </router-link>
             </div>
           </div>
-          <Funfacts />
   
           <div class="contact-cta-box mwidth-1000">
             <h3>Có câu hỏi nào về chúng tôi không?</h3>

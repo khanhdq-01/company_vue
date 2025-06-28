@@ -1,5 +1,5 @@
 <template>
-    <div class="about-area ptb-100">
+    <div class="about-area ptb-100" id="about">
         <div class="container">
             <div v-for="(about, index) in aboutData" :key="about.id" class="row align-items-center">
                 <div class="col-lg-6 col-md-12">

@@ -9,6 +9,7 @@ import HomePageNine from "../components/Pages/HomePageNine";
 import AboutPage from "../components/Pages/AboutPage";
 import PricingPage from "../components/Pages/PricingPage";
 import ServicesPageThree from "../components/Pages/ServicesPageThree";
+import AmazingFeature from "../components/Pages/AmazingFeature";
 import ServicesDetailsPage from "../components/Pages/ServicesDetailsPage";
 import TeamPage from "../components/Pages/TeamPage";
 import LoginPage from "../components/Pages/LoginPage";
@@ -29,6 +30,7 @@ import PricingForm from '../components/Common/pricing/PricingForm.vue'
 import PricingList from '../components/Common/pricing/PricingList.vue'
 import VideoForm from '../components/Common/video/VideoForm.vue'
 import VideoList from '../components/Common/video/VideoList.vue'
+import WhyChooseUs from '../components/Common/WhyChooseUs.vue'
 
 const routes = [
   { path: "/", component: HomePageOne },
@@ -39,6 +41,8 @@ const routes = [
   { path: "/about", component: AboutPage },
   { path: "/pricing", component: PricingPage },
   { path: "/services-three", component: ServicesPageThree },
+  { path: "/amazing-features", component: AmazingFeature },
+  { path: "/why-choose-us", component: WhyChooseUs },
   { path: "/single-service/:id", component: ServicesDetailsPage},
   {
     path: '/add-service',

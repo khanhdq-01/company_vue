@@ -67,6 +67,7 @@
   .main-banner-content .content p {
     margin-top: 15px;
     max-width: 100%;
+    text-align: justify;
   }
   .main-banner-content .content .default-btn {
     margin-top: 10px;
@@ -1836,6 +1837,7 @@
   }
   p {
     font-size: 14px;
+    text-align: justify;
   }
   .ptb-100 {
     padding-top: 80px;
@@ -2033,6 +2035,7 @@
   .services-content .content p {
     max-width: 100%;
     margin-top: 15px;
+    margin-left: 15px
   }
   .services-content .content .default-btn {
     margin-top: 10px;

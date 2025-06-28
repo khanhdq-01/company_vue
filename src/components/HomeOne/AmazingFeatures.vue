@@ -1,8 +1,8 @@
 <template>
-    <div class="features-area pt-100 pb-70 bg-f4f6fc">
+    <div class="features-area pt-100 pb-70 bg-f4f6fc" id="amazing-features">
         <div class="container">
             <div class="section-title">
-                <h2>Những tính năng tuyệt vời của chúng tôi</h2>
+                <h2>Koding Soft – Đối tác đáng tin cậy của bạn</h2>
             </div>
 
             <div class="row">
