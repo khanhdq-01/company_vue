@@ -8,17 +8,21 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      - name: 🚀 Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up SSH
+      - name: 🔐 Set up SSH
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy to VPS
+      - name: 🚀 Deploy to VPS
         run: |
-          ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "cd ${{ secrets.VPS_DIR_VUE }} && chmod +x ./.deploy.sh && ./.deploy.sh prod"
+          ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
+          "cd ${{ secrets.VPS_DIR_VUE }} && \
+          chmod +x ./.deploy.sh && \
+          ./deploy.sh prod"

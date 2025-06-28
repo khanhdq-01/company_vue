@@ -1,20 +1,26 @@
-                                                              
-# 1. Dùng NodeJS image
+# ========================
+# 1. Build Vue App
+# ========================
 FROM node:18-alpine AS builder
 
-# 2. Tạo thư mục làm việc
+# Tạo thư mục và copy package trước (tận dụng cache)
 WORKDIR /app
 
-# 3. Copy source vào container
+COPY package.json package-lock.json ./
+RUN npm ci --legacy-peer-deps
+
+# Sau đó mới copy source code
 COPY . .
 
-# 4. Cài và build
-RUN npm install && chmod +x node_modules/.bin/vue-cli-service && npm run build
+# Build Vue
+RUN npm run build
 
-# 5. Stage 2: Nginx phục vụ static
+# ========================
+# 2. Nginx serve static
+# ========================
 FROM nginx:alpine
 
-# Copy file build ra thư mục public của nginx
+# Copy build output vào nginx
 COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Copy cấu hình nginx nếu có
