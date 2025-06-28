@@ -28,17 +28,17 @@ export default {
   },
   data() {
     return {
-      isLoading: true,
+      isLoading: true
     }
   },
   mounted() {
     setTimeout(() => {
       this.isLoading = false
     }, 2000)
-  },
+  }
 }
 </script>
 
 <style scoped>
-/* Bạn có thể thêm style nếu cần */
+/* CSS ở đây */
 </style>
