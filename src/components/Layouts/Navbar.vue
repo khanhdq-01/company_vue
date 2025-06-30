@@ -62,7 +62,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <router-link to="/blog-one" class="nav-link">Bài viết</router-link>
+                                <router-link to="/blog-one" class="nav-link">Tin tức</router-link>
                             </li>
 
                             <li class="nav-item">
