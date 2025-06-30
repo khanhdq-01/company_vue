@@ -1,7 +1,7 @@
 <template>
     <div>
         <Navbar />
-        <PageTitle pageTitle="Bài viết" pageDesc="Tin tức và Góc nhìn" />
+        <PageTitle pageTitle="Tin tức" pageDesc="Kiến thức & Kinh nghiệm" />
 
         <BlogDetails />
         <FreeTrial />
