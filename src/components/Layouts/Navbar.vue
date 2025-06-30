@@ -31,7 +31,7 @@
                                         <a href="#about" class="nav-link" @click.prevent="scrollToSection('about')">Về chúng tôi</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#why-choose-us" class="nav-link" @click.prevent="scrollToSection('why-choose-us')">Thông điệp công ty.</a>
+                                        <a href="#why-choose-us" class="nav-link" @click.prevent="scrollToSection('why-choose-us')">Thông điệp công ty</a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="#amazing-features" class="nav-link" @click.prevent="scrollToSection('amazing-features')">Tính năng nổi bật</a>
