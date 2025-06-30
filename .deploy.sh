@@ -4,14 +4,15 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-ENV=${1:-dev}  # Default là dev nếu không truyền
+ENV=${1:-dev}  # Mặc định là dev nếu không truyền tham số
 REPO_PATH="/var/www/kodingsoft/company_vue"
 COMPOSE_FILE="/var/www/kodingsoft/docker-compose.${ENV}.yml"
 
 echo "🚀 Deploying to [$ENV] environment..."
+echo "📅 Deploy script version: 2025-06-30-01"
 
 # =======================
-# Check
+# Kiểm tra đầu vào
 # =======================
 if [ ! -d "$REPO_PATH" ]; then
     echo "❌ Project directory does not exist: $REPO_PATH"
