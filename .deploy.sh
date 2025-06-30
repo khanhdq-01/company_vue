@@ -28,8 +28,9 @@ fi
 # =======================
 cd "$REPO_PATH"
 
-echo "🔄 Pulling latest code..."
-git pull origin develop
+echo "🔄 Resetting to latest code from origin/develop..."
+git fetch origin develop
+git reset --hard origin/develop
 
 echo "🧹 Stopping old containers..."
 docker-compose -f "$COMPOSE_FILE" down --remove-orphans
