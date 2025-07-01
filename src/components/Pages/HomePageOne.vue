@@ -2,6 +2,7 @@
     <div>
         <Navbar />
         <MainBanner />
+        <PageTitle pageTitle="Năng lực cốt lõi" pageDesc="Năng lực vững mạnh – Kiến tạo tương lai"/>
         <Features />
         <MobileDevelopment />
         <!-- <HostingServices /> -->
@@ -32,12 +33,14 @@ import Faq from '../Common/Faq'
 import BestSupport from '../HomeOne/BestSupport'
 import Blog from '../../components/BlogOne/Blog';
 import Footer from '../Layouts/Footer'
+import PageTitle from '../Common/PageTitle';
 
 export default {
     name: 'HomePageOne',
     components: {
         Navbar,
         MainBanner,
+        PageTitle,
         Features,
         MobileDevelopment,
         // HostingServices,
