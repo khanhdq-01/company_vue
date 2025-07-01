@@ -3,7 +3,6 @@
         <div class="container">
             <div class="section-title">
                 <h2>Năng lực cốt lõi</h2>
-                <p>Năng lực vững mạnh – Kiến tạo tương lai</p>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-sm-6">
