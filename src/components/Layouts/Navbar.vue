@@ -23,10 +23,10 @@
                                 <router-link to="/" class="nav-link">Trang chủ</router-link>
                             </li>
                             <li class="nav-item dropdown">
-                                <a href="javascript:void(0)" class="nav-link" @click.prevent="toggleDropdown">
+                                <a href="javascript:void(0)" class="nav-link" @click.prevent="toggleAboutDropdown">
                                     Giới thiệu <i :class="['bx', isDropdownOpen ? 'bx-chevron-up' : 'bx-chevron-down']"></i>
                                 </a>
-                                <ul class="dropdown-menu" :class="{ 'show': isDropdownOpen }">
+                                <ul class="dropdown-menu" :class="{ 'show': isAboutDropdownOpen  }">
                                     <li class="nav-item">
                                         <router-link to="/about" class="nav-link" @click.native.prevent="goToAboutSection">Về chúng tôi</router-link>
                                     </li>
@@ -39,10 +39,10 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link" @click.prevent="toggleDropdown">
+                                <a href="#" class="nav-link" @click.prevent="toggleServicesDropdown">
                                     Dịch vụ <i :class="['bx', isDropdownOpen ? 'bx-chevron-up' : 'bx-chevron-down']"></i>
                                 </a>
-                                <ul class="dropdown-menu" :class="{ 'show': isDropdownOpen }">
+                                <ul class="dropdown-menu" :class="{ 'show': isServicesDropdownOpen  }">
                                     <li class="nav-item">
                                         <router-link to="/services-three" class="nav-link">Dịch vụ</router-link>
                                     </li>
@@ -98,7 +98,8 @@ export default {
             active: false,
             button_active_state: false,
             isLoggedIn: false,
-            isDropdownOpen: false,
+            isAboutDropdownOpen: false,
+            isServicesDropdownOpen: false,
         }
     },
 
@@ -111,8 +112,13 @@ export default {
     },
 
     methods: {
-        toggleDropdown() {
-            this.isDropdownOpen = !this.isDropdownOpen;
+        toggleAboutDropdown() {
+            this.isAboutDropdownOpen = !this.isAboutDropdownOpen;
+            this.isServicesDropdownOpen = false;
+        },
+        toggleServicesDropdown() {
+            this.isServicesDropdownOpen = !this.isServicesDropdownOpen;
+            this.isAboutDropdownOpen = false;
         },
 
         checkAuthStatus() {

@@ -2,8 +2,8 @@
     <div>
         <Navbar />
         <PageTitle pageTitle="Dịch vụ của chúng tôi" pageDesc="Khám phá các dịch vụ nổi bật" />
-        <ServicesTwo />
         <MobileDevelopment />
+        <ServicesTwo />
         <PricingPlan />
         <FooterStyleOne />
     </div>
