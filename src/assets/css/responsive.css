@@ -7,8 +7,8 @@
     font-size: 14px;
   }
   .ptb-100 {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 25px;
+    padding-bottom: 25px;
   }
   .pt-100 {
     padding-top: 60px;
@@ -639,7 +639,7 @@
   .page-title-area {
     padding-top: 60px;
     padding-bottom: 50px;
-    margin-top: 0;
+    margin-top: 15px;
   }
   .page-title-content h2 {
     font-size: 30px;
@@ -857,7 +857,7 @@
     font-size: 20px;
   }
   .banner-image.mbanner-bg-one .animate-banner-image {
-    margin-top: 0;
+    margin-top: -95%;
   }
   .main-banner-two .banner-image-slider .banner-image {
     padding-top: 0;
@@ -3622,13 +3622,21 @@
     margin-left: 0;
   }
 
+  .custom-logo img {
+    height: 80px;
+    width: auto;
+    margin-top: 0;
+    transition: all 0.3s ease;
+    filter: brightness(0.92) saturate(1.1);
+  }
+
   .main-banner {
     position: relative;
   }
 
   .main-banner-content {
     position: absolute;
-    top: 50%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -3636,7 +3644,7 @@
     text-align: center;
     background: rgba(0, 0, 0, 0.3);
     font-size: 14px;
-    padding: 12px 0;
+    padding: 24px 0;
   }
 
   .banner-image {

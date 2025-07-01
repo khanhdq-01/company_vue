@@ -23,12 +23,12 @@
                                 <router-link to="/" class="nav-link">Trang chủ</router-link>
                             </li>
                             <li class="nav-item dropdown">
-                                <router-link  to="/about" class="nav-link" @click.prevent="toggleDropdown">
+                                <a href="javascript:void(0)" class="nav-link" @click.prevent="toggleDropdown">
                                     Giới thiệu <i :class="['bx', isDropdownOpen ? 'bx-chevron-up' : 'bx-chevron-down']"></i>
-                                </router-link >
+                                </a>
                                 <ul class="dropdown-menu" :class="{ 'show': isDropdownOpen }">
                                     <li class="nav-item">
-                                        <a href="#about" class="nav-link" @click.prevent="scrollToSection('about')">Về chúng tôi</a>
+                                        <router-link to="/about" class="nav-link" @click.native.prevent="goToAboutSection">Về chúng tôi</router-link>
                                     </li>
                                     <li class="nav-item">
                                         <a href="#why-choose-us" class="nav-link" @click.prevent="scrollToSection('why-choose-us')">Thông điệp công ty</a>
@@ -152,6 +152,21 @@ export default {
 
         toggleDropdown() {
             this.isDropdownOpen = !this.isDropdownOpen;
+        },
+        goToAboutSection() {
+            this.isDropdownOpen = false;
+
+            if (this.$route.path === '/about') {
+                this.scrollToSection('about');
+            } else {
+                this.$router.push('/about').then(() => {
+                    this.$nextTick(() => {
+                        setTimeout(() => {
+                            this.scrollToSection('about');
+                        }, 300);
+                    });
+                });
+            }
         },
         scrollToSection(id) {
             const section = document.getElementById(id);
