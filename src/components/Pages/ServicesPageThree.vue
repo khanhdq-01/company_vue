@@ -1,7 +1,7 @@
 <template>
     <div>
         <Navbar />
-        <PageTitle pageTitle="Dịch vụ của chúng tôi" pageDesc="Khám phá các dịch vụ nổi bật" />
+        <PageTitle pageTitle="Dịch vụ của chúng tôi" pageDesc="Nơi bạn đặt niềm tin - chúng tôi trao giá trị" />
         <Features />
         <ServicesTwo />
         <MobileDevelopment />

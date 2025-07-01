@@ -70,6 +70,8 @@ export default {
   methods: {
     handleScroll() {
       const section = document.querySelector('.features-area');
+      if (!section) return;
+
       const sectionTop = section.getBoundingClientRect().top;
       const windowHeight = window.innerHeight;
 
@@ -86,7 +88,7 @@ export default {
       cards.forEach((card, index) => {
         setTimeout(() => {
           card.classList.add('visible');
-        }, index * 1000);
+        }, index * 500);
       });
     },
     hideFeaturesCards() {

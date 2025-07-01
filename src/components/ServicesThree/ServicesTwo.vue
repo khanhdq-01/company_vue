@@ -1,6 +1,9 @@
 <template>
   <div class="services-area ptb-100">
     <div class="container">
+      <div class="section-title">
+          <h2>Dịch vụ của chúng tôi</h2>
+      </div>
       <div class="row">
         <div class="text-end mb-4" v-if="isAdmin">
             <router-link to="/add-service" class="btn btn-primary" >

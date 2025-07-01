@@ -171,7 +171,7 @@ p:last-child {
 }
 
 .section-title h2 {
-  margin-top: 40px;
+  margin-top: 10px;
   font-size: 40px;
   font-weight: 600;
 }
@@ -11387,7 +11387,7 @@ Footer Area CSS
 .single-features-card {
     opacity: 0;
     transform: translateY(-50px);
-    transition: opacity 1s ease, transform 1s ease;
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .single-features-card.visible {
@@ -11409,7 +11409,7 @@ Footer Area CSS
 .features-box-one {
     opacity: 0;
     transform: translateY(-50px);
-    transition: opacity 1s ease, transform 1s ease;
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .features-box-one.visible {
