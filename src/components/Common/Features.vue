@@ -1,6 +1,10 @@
 <template>
     <div class="features-card-section pt-100 pb-70 bg-f8fbfa">
         <div class="container">
+            <div class="section-title">
+                <h2>Năng lực cốt lõi</h2>
+                <p>Năng lực vững mạnh – Kiến tạo tương lai</p>
+            </div>
             <div class="row">
                 <div class="col-lg-3 col-sm-6">
                     <div class="single-features-card">
