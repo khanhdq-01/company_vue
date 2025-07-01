@@ -161,6 +161,9 @@
   .services-area.bg-left-color::before {
     display: none;
   }
+  .service-title {
+    font-size: 24px
+  }
   .services-content {
     -ms-flex: 0 0 100%;
     -webkit-box-flex: 0;
@@ -1697,6 +1700,51 @@
   .me-testimonials-shape2 {
     display: none;
   }
+  .service-description {
+    text-align: justify;
+  }
+  .features-card-section {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .features-card-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  .single-features-card {
+      opacity: 0;
+      transform: translateY(-50px);
+      transition: opacity 1s ease, transform 1s ease;
+  }
+
+  .single-features-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  .features-area {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .features-area.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  .features-box-one {
+      opacity: 0;
+      transform: translateY(-50px);
+      transition: opacity 1s ease, transform 1s ease;
+  }
+
+  .features-box-one.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
   /* End "SEO Marketing Demo" "IT Solution Demo" "Marketing Experts Demo" "CSS" */
 }
 
@@ -1864,7 +1912,6 @@
   .default-btn {
     font-size: 14px;
   }
-
   .main-banner {
     margin-top: 0;
   }
@@ -3007,6 +3054,48 @@
   .me-testimonials-shape2 {
     display: none;
   }
+  .features-card-section {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .features-card-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  .single-features-card {
+      opacity: 0;
+      transform: translateY(-50px);
+      transition: opacity 1s ease, transform 1s ease;
+  }
+
+  .single-features-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  .features-area {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .features-area.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  .features-box-one {
+      opacity: 0;
+      transform: translateY(-50px);
+      transition: opacity 1s ease, transform 1s ease;
+  }
+
+  .features-box-one.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
   /* End "SEO Marketing Demo" "IT Solution Demo" "Marketing Experts Demo" "CSS" */
 }
 
@@ -3671,6 +3760,48 @@
     color: #fff;
     outline-offset: 2px;
   }
+  .features-card-section {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .features-card-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  .single-features-card {
+      opacity: 0;
+      transform: translateY(-50px);
+      transition: opacity 1s ease, transform 1s ease;
+  }
+
+  .single-features-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  .features-area {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .features-area.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  .features-box-one {
+      opacity: 0;
+      transform: translateY(-50px);
+      transition: opacity 1s ease, transform 1s ease;
+  }
+
+  .features-box-one.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
 }
 
 /* Min width 1200px to Max width 1300px */
@@ -3760,6 +3891,48 @@
   .sm-pricing-card {
     padding: 30px 20px;
   }
+  .features-card-section {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .features-card-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  .single-features-card {
+      opacity: 0;
+      transform: translateY(-50px);
+      transition: opacity 1s ease, transform 1s ease;
+  }
+
+  .single-features-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  .features-area {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .features-area.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  .features-box-one {
+      opacity: 0;
+      transform: translateY(-50px);
+      transition: opacity 1s ease, transform 1s ease;
+  }
+
+  .features-box-one.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
   /* End "SEO Marketing Demo" "IT Solution Demo" "Marketing Experts Demo" "CSS" */
 }
 
@@ -3797,6 +3970,48 @@
     padding-right: 100px;
     max-width: 1920px;
   }
+  .features-card-section {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .features-card-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  .single-features-card {
+      opacity: 0;
+      transform: translateY(-50px);
+      transition: opacity 1s ease, transform 1s ease;
+  }
+
+  .single-features-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  .features-area {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .features-area.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  .features-box-one {
+      opacity: 0;
+      transform: translateY(-50px);
+      transition: opacity 1s ease, transform 1s ease;
+  }
+
+  .features-box-one.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
   /* End "SEO Marketing Demo" "IT Solution Demo" "Marketing Experts Demo" "CSS" */
 }
 
@@ -3810,6 +4025,48 @@
   }
   .saas-banner {
     height: 1000px;
+  }
+  .features-card-section {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .features-card-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  .single-features-card {
+      opacity: 0;
+      transform: translateY(-50px);
+      transition: opacity 1s ease, transform 1s ease;
+  }
+
+  .single-features-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  .features-area {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .features-area.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  .features-box-one {
+      opacity: 0;
+      transform: translateY(-50px);
+      transition: opacity 1s ease, transform 1s ease;
+  }
+
+  .features-box-one.visible {
+      opacity: 1;
+      transform: translateY(0);
   }
 }
 /*# sourceMappingURL=responsive.css.map */

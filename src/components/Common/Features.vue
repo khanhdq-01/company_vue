@@ -1,5 +1,5 @@
 <template>
-    <div class="features-card-section pt-100 pb-70 bg-f8fbfa">
+    <div class="features-card-section pt-100 pb-70 bg-f8fbfa" style="overflow: hidden;">
         <div class="container">
             <div class="section-title">
                 <h2>Năng lực cốt lõi</h2>
@@ -51,6 +51,41 @@
 
 <script>
 export default {
-    name: 'Features'
+  name: 'Features',
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      const section = document.querySelector('.features-card-section');
+      const sectionTop = section.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (sectionTop < windowHeight - 100) {
+        section.classList.add('visible');
+        this.showFeaturesCards();
+      } else {
+        section.classList.remove('visible');
+        this.hideFeaturesCards();
+      }
+    },
+    showFeaturesCards() {
+      const cards = document.querySelectorAll('.single-features-card');
+      cards.forEach((card, index) => {
+        setTimeout(() => {
+          card.classList.add('visible');
+        }, index * 1000);
+      });
+    },
+    hideFeaturesCards() {
+      const cards = document.querySelectorAll('.single-features-card');
+      cards.forEach(card => {
+        card.classList.remove('visible');
+      });
+    }
+  }
 }
 </script>

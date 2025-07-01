@@ -60,6 +60,41 @@
 
 <script>
 export default {
-    name: 'AmazingFeatures'
+  name: 'AmazingFeatures',
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      const section = document.querySelector('.features-area');
+      const sectionTop = section.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (sectionTop < windowHeight - 100) {
+        section.classList.add('visible');
+        this.showFeaturesCards();
+      } else {
+        section.classList.remove('visible');
+        this.hideFeaturesCards();
+      }
+    },
+    showFeaturesCards() {
+      const cards = document.querySelectorAll('.features-box-one');
+      cards.forEach((card, index) => {
+        setTimeout(() => {
+          card.classList.add('visible');
+        }, index * 1000);
+      });
+    },
+    hideFeaturesCards() {
+      const cards = document.querySelectorAll('.features-box-one');
+      cards.forEach(card => {
+        card.classList.remove('visible');
+      });
+    }
+  }
 }
 </script>

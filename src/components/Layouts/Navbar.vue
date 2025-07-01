@@ -177,8 +177,8 @@ export default {
         scrollToSection(id) {
             const section = document.getElementById(id);
             if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
-            this.isDropdownOpen = false;
+                section.scrollIntoView({ behavior: 'smooth' });
+                this.isDropdownOpen = false;
             }
         }
     },

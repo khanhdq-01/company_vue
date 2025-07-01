@@ -241,7 +241,6 @@ export default {
 }
 
 .service-title {
-  font-size: 2rem;
   margin-bottom: 15px;
 }
 
@@ -269,6 +268,7 @@ export default {
 
 .service-description {
   margin-bottom: 25px;
+  text-align: justify;
 }
 
 .service-description h2 {

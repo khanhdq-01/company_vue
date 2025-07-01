@@ -1,7 +1,7 @@
 <template>
     <div>
         <Navbar />
-        <PageTitle pageTitle="Service Details" pageDesc="Our Services" />
+        <PageTitle pageTitle="Thông tin dịch vụ" pageDesc="Hãy để Kodingsoft tối ưu giải pháp cho bạn" />
         <Servicedetails />
         <BestSupport />
         <OurLovingClients />

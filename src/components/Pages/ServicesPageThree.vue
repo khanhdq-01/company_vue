@@ -2,14 +2,16 @@
     <div>
         <Navbar />
         <PageTitle pageTitle="Dịch vụ của chúng tôi" pageDesc="Khám phá các dịch vụ nổi bật" />
-        <MobileDevelopment />
+        <Features />
         <ServicesTwo />
+        <MobileDevelopment />
         <PricingPlan />
         <FooterStyleOne />
     </div>
 </template>
 
 <script>
+import Features from '../Common/Features';
 import Navbar from '../Layouts/Navbar';
 import PageTitle from '../Common/PageTitle';
 import ServicesTwo from '../ServicesThree/ServicesTwo'
@@ -19,6 +21,7 @@ import FooterStyleOne from '../Layouts/FooterStyleOne'
 
 export default {
     components: {
+        Features,
         Navbar,
         PageTitle,
         ServicesTwo,
