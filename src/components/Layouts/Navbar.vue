@@ -68,6 +68,9 @@
                             <li class="nav-item">
                                 <router-link to="/contact" class="nav-link">Liên hệ</router-link>
                             </li>
+                            <li class="nav-item">
+                                <router-link to="/recruitment" class="nav-link">Tuyển Dụng</router-link>
+                            </li>
                         </ul>
                         <div class="others-options">
                             <router-link v-if="!isLoggedIn" to="/log-in" class="optional-btn">

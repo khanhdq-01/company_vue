@@ -30,6 +30,7 @@ import PricingForm from '../components/Common/pricing/PricingForm.vue'
 import PricingList from '../components/Common/pricing/PricingList.vue'
 import VideoForm from '../components/Common/video/VideoForm.vue'
 import VideoList from '../components/Common/video/VideoList.vue'
+import Recruitment from '../components/Pages/recruitment.vue';
 import WhyChooseUs from '../components/Common/WhyChooseUs.vue'
 
 const routes = [
@@ -49,6 +50,7 @@ const routes = [
     name: 'AddService',
     component: () => import('@/components/ServicesThree/ServicesForm.vue')
   },
+  { path: "/recruitment", component: Recruitment },
   { path: "/team", component: TeamPage },
   { path: "/log-in", component: LoginPage },
   { path: "/sign-up", component: SignupPage },
