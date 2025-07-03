@@ -129,6 +129,6 @@
 
 <script>
 export default {
-    name: 'CaseStudies'
+    name: 'Job'
 }
 </script>

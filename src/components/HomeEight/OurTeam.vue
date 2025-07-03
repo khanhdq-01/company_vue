@@ -1,102 +1,88 @@
 <template>
-    <div class="team-area-two pt-100 pb-70">
-        <div class="container">
-            <div class="section-title text-left">
-                <span class="sub-title">Our Team</span>
-                <h2>We Help to Acheive Your Business Goal</h2>
+  <div class="team-area-two pt-100 pb-70">
+    <div class="container">
+      <div class="section-title text-left">
+        <span class="sub-title">Đội ngũ KodingSoft</span>
+        <h2>Những người bạn sẽ đồng hành khi gia nhập chúng tôi</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6" v-for="member in teamMembers" :key="member.name">
+          <div class="single-team-member">
+            <div class="image">
+              <img :src="member.image" :alt="member.name" />
+              <ul class="social-link">
+                <li v-for="social in member.socials" :key="social.icon">
+                  <a :href="social.link" target="_blank">
+                    <i :class="social.icon"></i>
+                  </a>
+                </li>
+              </ul>
             </div>
-
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="single-team-member">
-                        <div class="image">
-                            <img src="../../assets/img/team-image/9.jpg" alt="team-image">
-
-                            <ul class="social-link">
-                                <li><a href="https://www.facebook.com/profile.php?id=61576332803590" target="_blank"><i class="bx bxl-facebook"></i></a></li>
-                                <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
-                                <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
-                                <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>
-                            </ul>
-                        </div>
-
-                        <div class="content">
-                            <h3>James Anderson</h3>
-                            <span>CEO & Founder</span>
-                            <i class='bx bx-share-alt'></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="single-team-member">
-                        <div class="image">
-                            <img src="../../assets/img/team-image/10.jpg" alt="team-image">
-
-                            <ul class="social-link">
-                                <li><a href="https://www.facebook.com/profile.php?id=61576332803590" target="_blank"><i class="bx bxl-facebook"></i></a></li>
-                                <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
-                                <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
-                                <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>
-                            </ul>
-                        </div>
-
-                        <div class="content">
-                            <h3>Sarah Taylor</h3>
-                            <span>Marketing Lead</span>
-                            <i class='bx bx-share-alt'></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="single-team-member">
-                        <div class="image">
-                            <img src="../../assets/img/team-image/11.jpg" alt="team-image">
-
-                            <ul class="social-link">
-                                <li><a href="https://www.facebook.com/profile.php?id=61576332803590" target="_blank"><i class="bx bxl-facebook"></i></a></li>
-                                <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
-                                <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
-                                <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>
-                            </ul>
-                        </div>
-
-                        <div class="content">
-                            <h3>Taylor Sopia</h3>
-                            <span>Web Designer</span>
-                            <i class='bx bx-share-alt'></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="single-team-member">
-                        <div class="image">
-                            <img src="../../assets/img/team-image/12.jpg" alt="team-image">
-
-                            <ul class="social-link">
-                                <li><a href="https://www.facebook.com/profile.php?id=61576332803590" target="_blank"><i class="bx bxl-facebook"></i></a></li>
-                                <li><a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a></li>
-                                <li><a href="https://www.linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
-                                <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>
-                            </ul>
-                        </div>
-
-                        <div class="content">
-                            <h3>Harry Steve</h3>
-                            <span>Web Developer</span>
-                            <i class='bx bx-share-alt'></i>
-                        </div>
-                    </div>
-                </div>
+            <div class="content">
+              <h3>{{ member.name }}</h3>
+              <span>{{ member.position }}</span>
+              <i class="bx bx-share-alt"></i>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'OurTeam'
-}
+  name: "OurTeam",
+  data() {
+    return {
+      teamMembers: [
+        {
+          name: "Nguyễn Văn Tùng",
+          position: "Co-Founder & CEO",
+          image: require("../../assets/img/team-image/9.jpg"),
+          socials: [
+            { icon: "bx bxl-facebook", link: "https://www.facebook.com/profile.php?id=61576332803590" },
+            { icon: "bx bxl-twitter", link: "https://twitter.com/" },
+            { icon: "bx bxl-linkedin", link: "https://www.linkedin.com/" },
+            { icon: "bx bxl-instagram", link: "https://www.instagram.com/" },
+          ],
+        },
+        {
+          name: "Phạm Thị Mai",
+          position: "Head of Marketing",
+          image: require("../../assets/img/team-image/10.jpg"),
+          socials: [
+            { icon: "bx bxl-facebook", link: "https://www.facebook.com/profile.php?id=61576332803590" },
+            { icon: "bx bxl-twitter", link: "https://twitter.com/" },
+            { icon: "bx bxl-linkedin", link: "https://www.linkedin.com/" },
+            { icon: "bx bxl-instagram", link: "https://www.instagram.com/" },
+          ],
+        },
+        {
+          name: "Trần Minh Quân",
+          position: "Senior UI/UX Designer",
+          image: require("../../assets/img/team-image/11.jpg"),
+          socials: [
+            { icon: "bx bxl-facebook", link: "https://www.facebook.com/profile.php?id=61576332803590" },
+            { icon: "bx bxl-twitter", link: "https://twitter.com/" },
+            { icon: "bx bxl-linkedin", link: "https://www.linkedin.com/" },
+            { icon: "bx bxl-instagram", link: "https://www.instagram.com/" },
+          ],
+        },
+        {
+          name: "Lê Anh Duy",
+          position: "Full-stack Developer",
+          image: require("../../assets/img/team-image/12.jpg"),
+          socials: [
+            { icon: "bx bxl-facebook", link: "https://www.facebook.com/profile.php?id=61576332803590" },
+            { icon: "bx bxl-twitter", link: "https://twitter.com/" },
+            { icon: "bx bxl-linkedin", link: "https://www.linkedin.com/" },
+            { icon: "bx bxl-instagram", link: "https://www.instagram.com/" },
+          ],
+        },
+      ],
+    };
+  },
+};
 </script>

@@ -12,6 +12,8 @@ import "./assets/custom.scss";
 export const BASE_API_URL = "https://api.kodingsoft.site/api";
 export const BASE_IMAGE_URL = "https://api.kodingsoft.site/storage/";
 
+// export const BASE_API_URL = "http://localhost:8000/api";
+// export const BASE_IMAGE_URL = "http://localhost:8000/storage/";
 
 const app = createApp(App);
 app.use(CKEditor);

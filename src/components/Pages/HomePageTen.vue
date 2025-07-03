@@ -8,7 +8,7 @@
         <Services />
         <Partner />
         <Expertise />
-        <CaseStudies />
+        <Job />
         <Pricing />
         <Testimonials />
         <Team />
@@ -27,13 +27,14 @@ import About from '../HomeTen/About';
 import Services from '../HomeTen/Services';
 import Partner from '../HomeTen/Partner'
 import Expertise from '../HomeTen/Expertise';
-import CaseStudies from '../HomeTen/CaseStudies';
+import Job from '../HomeTen/Job';
 import Pricing from '../HomeTen/Pricing';
 import Testimonials from '../HomeTen/Testimonials';
 import Team from '../HomeTen/Team';
 import Analysis from '../HomeTen/Analysis'
 import Subscribe from '../HomeTen/Subscribe'
 import FooterStyleTwo from '../Layouts/FooterStyleTwo'
+import Job from '../HomeEight/Job.vue';
 
 export default {
     components: {
@@ -45,7 +46,7 @@ export default {
         Services,
         Partner,
         Expertise,
-        CaseStudies,
+        Job,
         Pricing,
         Testimonials,
         Team,

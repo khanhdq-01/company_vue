@@ -22,6 +22,8 @@ import MemberList from '../components/Common/members/MemberList.vue'
 import MemberForm from '../components/Common/members/MemberForm.vue'
 import SlideList from '../components/HomeOne/slide/SlideList.vue'
 import SlideForm from '../components/HomeOne/slide/SlideForm.vue'
+import JobList from '../components/HomeEight/jobs/JobList.vue'
+import JobForm from '../components/HomeEight/jobs/JobForm.vue'
 import MemberOtherList from '../components/Common/memberOthers/MemberOtherList.vue'
 import MemberOtherForm from '../components/Common/memberOthers/MemberOtherForm.vue'
 import AboutHeaderForm from '../components/About/header/AboutHeaderForm.vue'
@@ -30,6 +32,7 @@ import PricingForm from '../components/Common/pricing/PricingForm.vue'
 import PricingList from '../components/Common/pricing/PricingList.vue'
 import VideoForm from '../components/Common/video/VideoForm.vue'
 import VideoList from '../components/Common/video/VideoList.vue'
+import Recruitment from '../components/Pages/recruitment.vue';
 import WhyChooseUs from '../components/Common/WhyChooseUs.vue'
 
 const routes = [
@@ -49,6 +52,7 @@ const routes = [
     name: 'AddService',
     component: () => import('@/components/ServicesThree/ServicesForm.vue')
   },
+  { path: "/recruitment", component: Recruitment },
   { path: "/team", component: TeamPage },
   { path: "/log-in", component: LoginPage },
   { path: "/sign-up", component: SignupPage },
@@ -91,6 +95,23 @@ const routes = [
       name: 'edit-slide',
       component: SlideForm,
       props: route => ({ isEdit: true, slideId: route.params.id })
+    },
+     //jobs
+    {
+      path: '/job-list',
+      name: 'jobList',
+      component: JobList,
+    },
+    {
+      path: '/job/add',
+      name: 'add-job',
+      component: JobForm
+    },
+    {
+      path: '/job/edit/:id',
+      name: 'edit-job',
+      component: JobForm,
+      props: route => ({ isEdit: true, jobId: route.params.id })
     },
 
      //video
