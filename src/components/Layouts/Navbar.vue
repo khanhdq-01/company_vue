@@ -69,7 +69,7 @@
                                 <router-link to="/contact" class="nav-link">Liên hệ</router-link>
                             </li>
                             <li class="nav-item">
-                                <router-link to="/recruitment" class="nav-link">Tuyển Dụng</router-link>
+                                <router-link to="/recruitment" class="nav-link">Tuyển dụng</router-link>
                             </li>
                         </ul>
                         <div class="others-options">
