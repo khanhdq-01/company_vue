@@ -4,7 +4,6 @@
       <div class="row align-items-center">
         <div class="col-lg-8 col-md-12">
           <div class="lets-talk-content">
-            <span class="sub-title">Gia nhập KodingSoft</span>
             <h2>Sẵn sàng cho bước tiến sự nghiệp?</h2>
             <p>
               Tại KodingSoft, chúng tôi không chỉ tuyển dụng – chúng tôi tìm kiếm những người đồng hành cùng phát triển.

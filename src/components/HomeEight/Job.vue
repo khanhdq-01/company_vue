@@ -3,13 +3,7 @@
     <div class="container">
       
       <div class="section-title text-left">
-        <span class="sub-title">Tuyển dụng</span>
-                
         <h2>Cơ hội nghề nghiệp tại KodingSoft</h2>
-        <p>
-          Cùng KodingSoft xây dựng sự nghiệp vững chắc! Chúng tôi luôn tìm kiếm
-          những tài năng đam mê công nghệ để đồng hành và phát triển lâu dài.
-        </p>
       </div>
       <div class="text-end mb-4" v-if="isAdmin">
             <router-link to="/job-list" class="btn btn-primary" >

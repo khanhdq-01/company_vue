@@ -3,9 +3,6 @@
     <div class="container">
       <div class="section-title text-center mb-5">
         <h2>Đến với KodingSoft, bạn sẽ học hỏi được những gì?</h2>
-        <p>
-          Chúng tôi không chỉ tuyển dụng, mà còn đồng hành cùng bạn phát triển năng lực và tư duy qua từng dự án thực tế.
-        </p>
       </div>
 
       <div class="row">
