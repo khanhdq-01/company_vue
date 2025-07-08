@@ -11,32 +11,26 @@
             </router-link>
           </div>
         <div
-          class="col-lg-4 col-md-6"
+          class="col-lg-4 col-md-6 mb-3"
           v-for="service in serviceData"
           :key="service.id"
         >
-          <div class="single-services-box">
-            <div class="row m-0">
-              <div class="col-6 p-0">
-                <div class="content px-3">
-                  <h3>{{ service.title }}</h3>
-                  <div v-html="service.long_description"></div>
-                  <router-link :to="`/single-service/${service.id}`" class="read-more-btn">
-                    Xem thêm
-                    <i class="bx bx-right-arrow-alt"></i>
-                  </router-link>
-                </div>
-              </div>
-
-              <div class="col-6 p-0">
-                <img
-                  v-if="service.image"
-                  :src="url + service.image"
-                  alt="image"
-                  class="service-img"
-                  style="object-fit: fill;"
-                />
-              </div>
+          <div class="custom-service-box">
+            <div class="custom-text">
+              <h3>{{ service.title }}</h3>
+              <div v-html="service.long_description"></div>
+              <router-link :to="`/single-service/${service.id}`" class="read-more-btn">
+                Xem thêm
+                <i class="bx bx-right-arrow-alt"></i>
+              </router-link>
+            </div>
+            <div class="custom-image-wrapper">
+              <img
+                v-if="service.image"
+                :src="url + service.image"
+                alt="image"
+                class="custom-image"
+              />
             </div>
           </div>
         </div>
@@ -144,56 +138,6 @@ export default{
 </script>
 
 <style scoped>
-.single-services-box {
-  height: 90%;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: row;
-}
-
-.single-services-box:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.single-services-box .content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  padding: 15px;
-  max-width: 100%;
-}
-
-.single-services-box .content h3 {
-  font-size: 12px;
-  padding-right: 10px;
-  font-weight: bold;
-  line-height: 1.4;
-  overflow: hidden;
-  margin-bottom: 10px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-  overflow-wrap: break-word;
-}
-
-.single-services-box .content div {
-  max-height: 150px;
-  overflow: hidden;
-  line-height: 1.4;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-  overflow-wrap: break-word;
-  font-size: 14px;
-}
-
 .read-more-btn {
   color: #007bff;
   font-weight: 500;
@@ -201,15 +145,6 @@ export default{
   align-items: center;
   gap: 4px;
   margin-top: 5px;
-}
-
-.single-services-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-left: 1px solid #eaeaea;
-  border-radius: 0 10px 10px 0;
-  max-height: 300px;
 }
 
 .pagination-area button {
@@ -222,5 +157,75 @@ export default{
 .pagination-area button.active {
   background-color: #007bff;
   color: white;
+}
+
+.custom-service-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  gap: 20px;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.custom-service-box:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.custom-text {
+  flex: 1 1 50%;
+  min-width: 280px;
+}
+
+.custom-text h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.custom-text div {
+  font-size: 14px;
+  line-height: 1.5;
+  max-height: 150px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.custom-image-wrapper {
+  flex: 1 1 40%;
+  min-width: 260px;
+  transform: rotate(0deg);
+  transition: transform 0.4s ease;
+}
+
+.custom-service-box:hover .custom-image-wrapper {
+  transform: rotate(-3deg) scale(1.03);
+}
+
+.custom-image {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: fill;
+  max-height: 290px;
+}
+
+@media (max-width: 768px) {
+  .custom-service-box {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .custom-image-wrapper {
+    transform: none;
+  }
 }
 </style>
